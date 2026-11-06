@@ -25,11 +25,9 @@ def health() -> Health:
 
 def answer_from_environment(question: str) -> AnswerResult:
     database = os.environ.get("KNOWLEDGE_ASSISTANT_DB")
-    if not database:
-        raise AnswerConfigurationError("set KNOWLEDGE_ASSISTANT_DB to enable answering")
     return configured_answer(
         question,
-        database=Path(database),
+        database=Path(database) if database else None,
         model=os.environ.get("KNOWLEDGE_ASSISTANT_OPENAI_MODEL"),
         embedding_model=os.environ.get("KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL"),
     )

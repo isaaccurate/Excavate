@@ -49,6 +49,10 @@ class DocumentStore(Protocol):
         ...
 
 
+class CorpusStore(DocumentStore, CorpusReader, Protocol):
+    pass
+
+
 class EmbeddingProvider(Protocol):
     def embed(self, texts: Sequence[str]) -> Sequence[Sequence[float]]:
         """Return one embedding per input text in input order."""

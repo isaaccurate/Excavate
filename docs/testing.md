@@ -95,3 +95,14 @@ Run `python -m scripts.evaluate_note_links data/cse421-cse332-links.sqlite3 --cr
 | Labeled passage on four controls | 4/4 | 4/4 |
 
 Expansion changed none of the five cross-course rankings. In both misses, BM25 ranked the linked BFS note's introduction second, so the expansion rule kept it. The labeled BFS layer-distance section remained outside the top five. This pilot supports deferring the tested rule. A section-aware candidate rule would be a separate experiment. No model calls were made.
+## D3 storage verification
+
+With boto3 1.43.125 installed, all 59 tests passed in 1.47 seconds. The AWS SDK stub tests cover document writes, unchanged retries, reads, pagination, deletes, and CLI handling of an S3 upload failure before DynamoDB publication. Tests used dummy credentials and synthetic text. No live AWS resources were used.
+
+## D3 recovery and cleanup verification
+
+All 65 tests passed in 2.00 seconds. Ruff lint and format checks passed. The AWS stubs cover hiding and restoring notes, a seven-day deadline, preservation of current and recent payloads, reading legacy pointer records during replacement, stale cleanup after restore, partial purge and retry, CLI cleanup, and rejection of a versioned bucket. No live AWS calls or scheduled jobs ran.
+
+## Migration commit review
+
+On November 6, 2026, all 68 tests passed in 2.18 seconds. Ruff lint and format checks passed, and pip found no broken requirements. Added coverage verifies failed conditional publication after an S3 upload, checksum rejection for corrupted payloads, and the answer API retrieving evidence from stubbed AWS storage without a SQLite database. Orphan-upload reconciliation, deployed scheduling, and live AWS verification remain pending.

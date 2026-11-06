@@ -22,3 +22,9 @@ The next task is to label the evaluation questions. The experiment uses the loca
 The pilot is complete. Both methods retrieved both expected passages for four of six linked questions and the expected passage for all four controls. Keep link expansion out of production retrieval. Revisit it if a larger set of linked notes and questions reveals recurring misses that expansion could address.
 
 The expanded CSE_421 and CSE_332 Graphs pilot also found no gain from the tested expansion rule. The linked BFS note was retrieved on both cross-course misses, but the labeled layer-distance section stayed outside the top five. Keep production retrieval as is pending evidence for a rule that improves passage selection.
+
+## D3 AWS migration
+
+1. **Storage adapter implemented.** CLI and API can select S3 and DynamoDB storage through configuration. AWS SDK stubs verify lifecycle operations and a failed upload. Local mode remains the default.
+2. **Next.** Recoverable delete, restore, and retryable cleanup are implemented and verified with stubs. Define infrastructure, schedule cleanup with its own AWS role, and set a cost budget. Run a live smoke test with synthetic data and reconcile untracked uploads before migrating selected notes.
+3. **Managed retrieval.** Evaluate a managed vector backend, persist embeddings with their model and document versions, and check retrieval and citation parity before deployment.

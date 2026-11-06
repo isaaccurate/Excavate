@@ -16,7 +16,7 @@ class AnswerConfigurationError(RuntimeError):
 def configured_answer(
     question: str,
     *,
-    database: Path,
+    database: Path | None,
     model: str | None,
     embedding_model: str | None = None,
 ) -> AnswerResult:
@@ -28,8 +28,6 @@ def configured_answer(
         raise AnswerConfigurationError("set OPENAI_API_KEY to enable answering")
     if embedding_model is not None and not embedding_model.strip():
         raise AnswerConfigurationError("embedding model must be nonblank")
-    if not database.is_file():
-        raise AnswerConfigurationError("database does not exist")
 
     # Health and ingestion can run without the optional retrieval dependencies.
     try:
@@ -47,11 +45,13 @@ def configured_answer(
             "install the retrieval extra to enable answering"
         ) from None
 
-    from knowledge_assistant.storage import SQLiteDocumentStore
+    from knowledge_assistant.store_config import (
+        StorageConfigurationError,
+        open_document_store,
+    )
 
-    store = SQLiteDocumentStore(database)
     try:
-        with httpx.Client() as client:
+        with open_document_store(database) as store, httpx.Client() as client:
             embeddings = (
                 HashEmbeddings()
                 if embedding_model is None
@@ -63,5 +63,5 @@ def configured_answer(
                 return answer_question(question, search, generation)
             except EmbeddingError:
                 raise GenerationError("answer embedding failed") from None
-    finally:
-        store.engine.dispose()
+    except StorageConfigurationError as error:
+        raise AnswerConfigurationError(str(error)) from None

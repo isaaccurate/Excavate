@@ -60,3 +60,35 @@ curl http://127.0.0.1:8000/answer \
 By default, retrieval uses BM25 with local token-hash vectors for testing the pipeline. For semantic retrieval, add `--embedding-model text-embedding-3-small` to `ask` or set `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL` for the API. This sends the question and all stored chunks with filename stems and headings to OpenAI for embeddings on each request. Generation always sends the question and selected passage excerpts, including their paths and headings. Use these options only with notes you intend to send.
 
 See [architecture](docs/architecture.md), [decisions](docs/decisions.md), [testing](docs/testing.md), and [progress](docs/progress.md).
+
+## D3 AWS storage preview
+
+SQLite remains the default. The optional AWS backend works with an existing private, unversioned S3 bucket and a dedicated DynamoDB table with a string partition key named `document_id` and no sort key. Use an AWS credential profile or role with access to the bucket's `documents/` prefix and the table.
+
+```sh
+python -m pip install -e '.[dev,retrieval,aws]'
+export AWS_DEFAULT_REGION=us-west-2
+export KNOWLEDGE_ASSISTANT_STORAGE=aws
+export KNOWLEDGE_ASSISTANT_S3_BUCKET=YOUR_BUCKET
+export KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE=YOUR_TABLE
+knowledge-assistant ingest --root /path/to/vault "Projects/Example.md"
+knowledge-assistant search "What does the project cover?"
+```
+
+AWS mode sends each selected note's parsed text and source path to your bucket. It uses the same CLI and API configuration for search and answering, with AWS storage in place of the local database. Use `KNOWLEDGE_ASSISTANT_STORAGE=sqlite` to return to local storage. Start a live smoke test with synthetic notes. Normal ingest and retrieval use S3 `GetObject` and `PutObject`. DynamoDB uses `GetItem`, `PutItem`, `Scan`, and `DeleteItem`.
+
+Each search scans the table and fetches the current payloads before building the in-process BM25 and FAISS indexes. The adapter has been verified with AWS SDK stubs.
+
+### Delete, restore, and cleanup
+
+In AWS mode, `delete` hides a note and starts a seven-day recovery window. Repeating delete keeps the original deadline. `restore` makes the last indexed version searchable again before that deadline. `purge` skips recovery and erases tracked payloads. These commands leave the source file in your vault.
+
+```sh
+knowledge-assistant delete "Projects/Example.md"
+knowledge-assistant restore "Projects/Example.md"
+knowledge-assistant cleanup
+```
+
+Schedule `knowledge-assistant cleanup` hourly in your deployment environment using the AWS settings above and the cleanup role. For example, configure these environment variables in the job and use `0 * * * * /path/to/.venv/bin/knowledge-assistant cleanup` in cron. Expired content is erased on the next successful run. The job also removes payloads seven days after an edit replaces them. Schedule setup is part of deployment.
+
+The cleanup role needs S3 `GetBucketVersioning` on the bucket, `DeleteObject` on its document prefix, and DynamoDB `Scan`, `PutItem`, and `DeleteItem` on the table. For manual `purge`, also grant `GetItem`. Cleanup requires an unversioned bucket so a successful S3 delete erases the object. A failed DynamoDB publication after a successful upload can leave an untracked object. Cleanup covers tracked payloads. Reconciliation of untracked objects is pending.

@@ -11,7 +11,10 @@ from knowledge_assistant.answer_service import (
 )
 from knowledge_assistant.answering import AnswerRequest, GenerationError
 from knowledge_assistant.ingestion import ingest_note, note_key
-from knowledge_assistant.storage import SQLiteDocumentStore
+from knowledge_assistant.store_config import (
+    open_aws_document_store,
+    open_document_store,
+)
 
 
 def main() -> None:
@@ -25,6 +28,13 @@ def main() -> None:
     ingest.add_argument("path")
     remove = commands.add_parser("delete")
     remove.add_argument("path")
+    commands.add_parser(
+        "restore", help="Restore an AWS note within its recovery window."
+    ).add_argument("path")
+    commands.add_parser("purge", help="Permanently delete an AWS note.").add_argument(
+        "path"
+    )
+    commands.add_parser("cleanup", help="Purge expired AWS note versions.")
 
     search = commands.add_parser("search")
     search.add_argument("query")
@@ -77,13 +87,32 @@ def main() -> None:
         ) as error:
             parser.exit(1, f"knowledge-assistant: {error}\n")
         return
+    if args.command in {"restore", "purge", "cleanup"}:
+        try:
+            path = None if args.command == "cleanup" else note_key(args.path)
+            with open_aws_document_store() as store:
+                if path is None:
+                    print(f"purged notes: {store.cleanup()}")
+                elif args.command == "restore":
+                    print(
+                        f"{'restored' if store.restore(path) else 'not recoverable'}: {path}"
+                    )
+                else:
+                    print(
+                        f"{'purged' if store.purge(path) else 'no note purged'}: {path}"
+                    )
+        except (OSError, ValueError) as error:
+            parser.exit(1, f"knowledge-assistant: {error}\n")
+        return
     try:
         key = note_key(args.path)
-        store = SQLiteDocumentStore(args.db)
-        if args.command == "ingest":
-            outcome = "indexed" if ingest_note(args.root, key, store) else "unchanged"
-        else:
-            outcome = "deleted" if store.delete(key) else "absent"
+        with open_document_store(args.db, create=True) as store:
+            if args.command == "ingest":
+                outcome = (
+                    "indexed" if ingest_note(args.root, key, store) else "unchanged"
+                )
+            else:
+                outcome = "deleted" if store.delete(key) else "absent"
     except (OSError, ValueError, SQLAlchemyError) as error:
         parser.exit(1, f"knowledge-assistant: {error}\n")
     print(f"{outcome}: {key}")
@@ -98,20 +127,18 @@ def run_search(database: Path, query: str, limit: int, model: str | None) -> Non
 
     if limit < 0:
         raise ValueError("limit must be nonnegative")
-    if not database.is_file():
-        raise ValueError("database does not exist")
     # Constructing HybridSearch embeds the corpus, so handle no-op requests first.
     if not query.strip() or limit == 0:
         print("lexical\ndense\nhybrid")
         return
-    with httpx.Client() as client:
+    with open_document_store(database) as store, httpx.Client() as client:
         provider: EmbeddingProvider = HashEmbeddings()
         if model is not None:
             key = os.environ.get("OPENAI_API_KEY")
             if not key:
                 raise ValueError("set OPENAI_API_KEY to use the managed provider")
             provider = OpenAIEmbeddings(client, api_key=key, model=model)
-        search = HybridSearch(SQLiteDocumentStore(database), provider)
+        search = HybridSearch(store, provider)
         ranks = search.search(query, limit=limit, candidates=max(20, limit))
 
     sources = {
