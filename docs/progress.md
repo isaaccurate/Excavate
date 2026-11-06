@@ -26,5 +26,5 @@ The expanded CSE_421 and CSE_332 Graphs pilot also found no gain from the tested
 ## D3 AWS migration
 
 1. **Storage adapter implemented.** CLI and API can select S3 and DynamoDB storage through configuration. AWS SDK stubs verify lifecycle operations and a failed upload. Local mode remains the default.
-2. **Next.** Recoverable delete, restore, and retryable cleanup are implemented and verified with stubs. Define infrastructure, schedule cleanup with its own AWS role, and set a cost budget. Run a live smoke test with synthetic data and reconcile untracked uploads before migrating selected notes.
+2. **Next.** Recoverable delete, restore, and retryable cleanup are implemented and verified with stubs. Define infrastructure, schedule cleanup with its own AWS role, and set a cost budget. The live S3 and DynamoDB smoke test passed with synthetic notes. Reconcile untracked uploads and verify scoped access roles before migrating selected notes.
 3. **Managed retrieval.** Evaluate a managed vector backend, persist embeddings with their model and document versions, and check retrieval and citation parity before deployment.

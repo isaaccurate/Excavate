@@ -106,3 +106,9 @@ All 65 tests passed in 2.00 seconds. Ruff lint and format checks passed. The AWS
 ## Migration commit review
 
 On November 6, 2026, all 68 tests passed in 2.18 seconds. Ruff lint and format checks passed, and pip found no broken requirements. Added coverage verifies failed conditional publication after an S3 upload, checksum rejection for corrupted payloads, and the answer API retrieving evidence from stubbed AWS storage without a SQLite database. Orphan-upload reconciliation, deployed scheduling, and live AWS verification remain pending.
+
+## Live AWS storage smoke test
+
+In `us-east-2`, the `excavate` browser-sign-in profile ran the CLI against a private, unversioned S3 bucket and an on-demand DynamoDB test table. Two synthetic notes verified ingestion, unchanged re-ingestion, search with local embeddings, replacement, recoverable delete, restore, and purge. A test-only change to one deleted record's recovery deadline verified that cleanup removed the expired note while preserving the active note. Final checks found zero records in the test table and zero objects under both test note prefixes. The bucket and table remain available for testing.
+
+The run used the project sign-in role. Scoped IAM roles, a deployed cleanup schedule, and live answer generation were outside this test. The AWS package extra now includes the Boto3 runtime for browser-sign-in profiles.

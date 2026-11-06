@@ -63,11 +63,11 @@ See [architecture](docs/architecture.md), [decisions](docs/decisions.md), [testi
 
 ## D3 AWS storage preview
 
-SQLite remains the default. The optional AWS backend works with an existing private, unversioned S3 bucket and a dedicated DynamoDB table with a string partition key named `document_id` and no sort key. Use an AWS credential profile or role with access to the bucket's `documents/` prefix and the table.
+SQLite remains the default. The optional AWS backend works with an existing private, unversioned S3 bucket and a dedicated DynamoDB table with a string partition key named `document_id` and no sort key. Use an AWS credential profile or role with access to the bucket's `documents/` prefix and the table. If you signed in with `aws login --profile excavate`, set `AWS_PROFILE=excavate`. The AWS extra installs the runtime required for browser-sign-in credentials.
 
 ```sh
 python -m pip install -e '.[dev,retrieval,aws]'
-export AWS_DEFAULT_REGION=us-west-2
+export AWS_DEFAULT_REGION=us-east-2
 export KNOWLEDGE_ASSISTANT_STORAGE=aws
 export KNOWLEDGE_ASSISTANT_S3_BUCKET=YOUR_BUCKET
 export KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE=YOUR_TABLE
