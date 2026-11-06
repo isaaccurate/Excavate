@@ -1,9 +1,12 @@
+import logging
 from typing import Annotated, Literal
 
 import httpx
 from pydantic import BaseModel, Field
 
 from knowledge_assistant.answering import GeneratedAnswer, GenerationError
+
+logger = logging.getLogger(__name__)
 
 
 class TextOutput(BaseModel):
@@ -62,7 +65,19 @@ class OpenAIGeneration:
             )
             response.raise_for_status()
             output = ResponseEnvelope.model_validate_json(response.content).output
-        except (httpx.HTTPError, ValueError):
+        except httpx.HTTPStatusError as error:
+            # Provider error bodies can contain request data. Log only the status.
+            logger.warning(
+                "OpenAI Responses API returned HTTP %s", error.response.status_code
+            )
+            raise GenerationError("OpenAI generation request failed") from None
+        except httpx.RequestError:
+            logger.warning("OpenAI Responses API request failed in transit")
+            raise GenerationError("OpenAI generation request failed") from None
+        except ValueError:
+            logger.warning(
+                "OpenAI Responses API returned an invalid or incomplete response"
+            )
             raise GenerationError("OpenAI generation request failed") from None
 
         messages = [item for item in output if isinstance(item, Message)]
@@ -70,4 +85,5 @@ class OpenAIGeneration:
             content = messages[0].content
             if len(content) == 1 and isinstance(content[0], TextOutput):
                 return content[0].text
+        logger.warning("OpenAI Responses API returned no usable answer")
         raise GenerationError("OpenAI did not return a usable answer")

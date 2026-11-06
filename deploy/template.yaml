@@ -1,0 +1,229 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Deploy the Excavate API and hourly note cleanup against existing private AWS storage.
+Metadata:
+  AWSToolsMetrics:
+    AWSAgentToolkit: aws-cloudformation@3
+Parameters:
+  ImageUri:
+    Type: String
+    AllowedPattern: '[^ ]+@sha256:[a-f0-9]{64}'
+  DocumentBucket:
+    Type: String
+    AllowedPattern: '[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]'
+  DocumentTable:
+    Type: String
+    AllowedPattern: '[a-zA-Z0-9_.-]{3,255}'
+  ScheduleState:
+    Type: String
+    AllowedValues: [DISABLED, ENABLED]
+    Default: DISABLED
+  OpenAIModel:
+    Type: String
+    Default: ''
+  OpenAISecretArn:
+    Type: String
+    AllowedPattern: '|arn:[^:]+:secretsmanager:[^:]+:[0-9]{12}:secret:[^ ]+'
+    Default: ''
+Rules:
+  RequireModelAndSecretTogether:
+    Assertions:
+      - Assert:
+          Fn::Or:
+            - Fn::And:
+                - Fn::Equals: [!Ref OpenAIModel, '']
+                - Fn::Equals: [!Ref OpenAISecretArn, '']
+            - Fn::And:
+                - Fn::Not: [!Equals [!Ref OpenAIModel, '']]
+                - Fn::Not: [!Equals [!Ref OpenAISecretArn, '']]
+        AssertDescription: Supply both OpenAIModel and OpenAISecretArn, or leave both blank.
+Conditions:
+  HasModelSecret: !Not [!Equals [!Ref OpenAISecretArn, '']]
+Globals:
+  Function:
+    Architectures: [x86_64]
+    Environment:
+      Variables:
+        KNOWLEDGE_ASSISTANT_STORAGE: aws
+        KNOWLEDGE_ASSISTANT_S3_BUCKET: !Ref DocumentBucket
+        KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE: !Ref DocumentTable
+Resources:
+  ApiLogs:
+    Type: AWS::Logs::LogGroup
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Captures API runtime failures.
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-api'
+      RetentionInDays: 7
+  CleanupLogs:
+    Type: AWS::Logs::LogGroup
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Records each scheduled cleanup outcome.
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-cleanup'
+      RetentionInDays: 7
+  ApiRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Allows the API to fetch evidence and its optional model credential.
+        must: [Allow no note writes or deletes.]
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: read-evidence
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub 'arn:${AWS::Partition}:s3:::${DocumentBucket}/documents/*'
+              - Effect: Allow
+                Action: dynamodb:Scan
+                Resource: !Sub 'arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${DocumentTable}'
+              - Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AWS::StackName}-api:log-stream:*'
+        - !If
+          - HasModelSecret
+          - PolicyName: read-model-secret
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action: secretsmanager:GetSecretValue
+                  Resource: !Ref OpenAISecretArn
+          - !Ref AWS::NoValue
+  CleanupRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Erases expired note objects and removes claimed metadata.
+        must: [Scope deletions to the configured bucket prefix and table.]
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: lambda.amazonaws.com}
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: clean-expired-notes
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:GetBucketVersioning
+                Resource: !Sub 'arn:${AWS::Partition}:s3:::${DocumentBucket}'
+              - Effect: Allow
+                Action: s3:DeleteObject
+                Resource: !Sub 'arn:${AWS::Partition}:s3:::${DocumentBucket}/documents/*'
+              - Effect: Allow
+                Action: [dynamodb:Scan, dynamodb:PutItem, dynamodb:DeleteItem]
+                Resource: !Sub 'arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${DocumentTable}'
+              - Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AWS::StackName}-cleanup:log-stream:*'
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    DependsOn: ApiLogs
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Runs FastAPI with the native Linux retrieval dependencies.
+        must: [Require signed IAM requests and a read-only storage role.]
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-api'
+      Role: !GetAtt ApiRole.Arn
+      PackageType: Image
+      ImageUri: !Ref ImageUri
+      ImageConfig:
+        Command: [knowledge_assistant.lambda_handlers.api_handler]
+      MemorySize: 1024
+      Timeout: 90
+      FunctionUrlConfig:
+        AuthType: AWS_IAM
+      Environment:
+        Variables:
+          KNOWLEDGE_ASSISTANT_OPENAI_MODEL: !Ref OpenAIModel
+          KNOWLEDGE_ASSISTANT_OPENAI_SECRET_ARN: !Ref OpenAISecretArn
+  CleanupFunction:
+    Type: AWS::Serverless::Function
+    DependsOn: CleanupLogs
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Runs note retention cleanup independently from HTTP traffic.
+        must: [Keep a dedicated cleanup role and no function URL.]
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-cleanup'
+      Role: !GetAtt CleanupRole.Arn
+      PackageType: Image
+      ImageUri: !Ref ImageUri
+      ImageConfig:
+        Command: [knowledge_assistant.lambda_handlers.cleanup_handler]
+      MemorySize: 256
+      Timeout: 60
+  CleanupScheduleGroup:
+    Type: AWS::Scheduler::ScheduleGroup
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Scopes which scheduler group can assume the invocation role.
+    Properties:
+      Name: !Sub '${AWS::StackName}-retention'
+  SchedulerRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Lets EventBridge Scheduler invoke only the cleanup function.
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: scheduler.amazonaws.com}
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnEquals:
+                aws:SourceArn: !GetAtt CleanupScheduleGroup.Arn
+      Policies:
+        - PolicyName: invoke-cleanup
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt CleanupFunction.Arn
+  CleanupSchedule:
+    Type: AWS::Scheduler::Schedule
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Applies the seven-day retention policy on an hourly cadence.
+        must: [Enable only after validating cleanup under its execution role.]
+    Properties:
+      Name: hourly-cleanup
+      GroupName: !Ref CleanupScheduleGroup
+      ScheduleExpression: rate(1 hour)
+      FlexibleTimeWindow: {Mode: 'OFF'}
+      State: !Ref ScheduleState
+      Target:
+        Arn: !GetAtt CleanupFunction.Arn
+        RoleArn: !GetAtt SchedulerRole.Arn
+        Input: '{}'
+        RetryPolicy:
+          MaximumEventAgeInSeconds: 1800
+          MaximumRetryAttempts: 2
+Outputs:
+  ApiUrl:
+    Value: !GetAtt ApiFunctionUrl.FunctionUrl
+  CleanupFunctionName:
+    Value: !Ref CleanupFunction
+  CleanupScheduleGroupName:
+    Value: !Ref CleanupScheduleGroup

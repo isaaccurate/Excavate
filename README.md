@@ -89,6 +89,6 @@ knowledge-assistant restore "Projects/Example.md"
 knowledge-assistant cleanup
 ```
 
-Schedule `knowledge-assistant cleanup` hourly in your deployment environment using the AWS settings above and the cleanup role. For example, configure these environment variables in the job and use `0 * * * * /path/to/.venv/bin/knowledge-assistant cleanup` in cron. Expired content is erased on the next successful run. The job also removes payloads seven days after an edit replaces them. Schedule setup is part of deployment.
+Schedule `knowledge-assistant cleanup` hourly in your deployment environment using the AWS settings above and the cleanup role. For example, configure these environment variables in the job and use `0 * * * * /path/to/.venv/bin/knowledge-assistant cleanup` in cron. Expired content is erased on the next successful run. The job also removes payloads seven days after an edit replaces them. The AWS deployment uses EventBridge Scheduler. See the [deployment guide](deploy/README.md).
 
 The cleanup role needs S3 `GetBucketVersioning` on the bucket, `DeleteObject` on its document prefix, and DynamoDB `Scan`, `PutItem`, and `DeleteItem` on the table. For manual `purge`, also grant `GetItem`. Cleanup requires an unversioned bucket so a successful S3 delete erases the object. A failed DynamoDB publication after a successful upload can leave an untracked object. Cleanup covers tracked payloads. Reconciliation of untracked objects is pending.

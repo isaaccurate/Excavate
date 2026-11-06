@@ -19,11 +19,14 @@ def configured_answer(
     database: Path | None,
     model: str | None,
     embedding_model: str | None = None,
+    api_key: str | None = None,
 ) -> AnswerResult:
     question = AnswerRequest(question=question).question
     if not model or not model.strip():
         raise AnswerConfigurationError("configure an OpenAI generation model")
-    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    api_key = (
+        api_key if api_key is not None else os.environ.get("OPENAI_API_KEY", "")
+    ).strip()
     if not api_key:
         raise AnswerConfigurationError("set OPENAI_API_KEY to enable answering")
     if embedding_model is not None and not embedding_model.strip():

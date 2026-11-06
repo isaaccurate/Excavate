@@ -2,7 +2,7 @@
 
 1. **Local backend foundation.** FastAPI health endpoint, typed contracts, explicit Markdown ingestion, SQLite persistence, and CLI updates and deletes.
 2. **Hybrid retrieval and evaluation.** Corpus snapshots, BM25, FAISS, reciprocal rank fusion, a managed embedding adapter, and a local evaluation harness are implemented. Managed semantic quality evaluation is pending.
-3. **Grounded answering.** The CLI and local API can retrieve passages and request a structured answer with validated source IDs or an explicit insufficient-evidence result. OpenAI generation and optional semantic embeddings require explicit configuration. The answering flow has been verified offline with synthetic notes and mocked providers. Live generation and semantic answer quality evaluation are pending.
+3. **Grounded answering.** The CLI and local API can retrieve passages and request a structured answer with validated source IDs or an explicit insufficient-evidence result. OpenAI generation and optional semantic embeddings require explicit configuration. The answering flow has been verified offline with mocked providers and in AWS with one synthetic note and live generation. Semantic answer quality evaluation is pending.
 
 The section splitter handles ATX headings and fenced code. Full Markdown parsing, long-section splitting, automatic synchronization, and index integration are deferred.
 
@@ -26,5 +26,5 @@ The expanded CSE_421 and CSE_332 Graphs pilot also found no gain from the tested
 ## D3 AWS migration
 
 1. **Storage adapter implemented.** CLI and API can select S3 and DynamoDB storage through configuration. AWS SDK stubs verify lifecycle operations and a failed upload. Local mode remains the default.
-2. **Next.** Recoverable delete, restore, and retryable cleanup are implemented and verified with stubs. Define infrastructure, schedule cleanup with its own AWS role, and set a cost budget. The live S3 and DynamoDB smoke test passed with synthetic notes. Reconcile untracked uploads and verify scoped access roles before migrating selected notes.
+2. **Deployment.** Recoverable delete, restore, and retryable cleanup are verified with stubs and synthetic AWS fixtures. The API and separate cleanup function are deployed in Ohio. Signed health checks, hourly cleanup, and one live OpenAI answer with a verified citation passed. Orphan-upload reconciliation remains pending before migrating selected notes.
 3. **Managed retrieval.** Evaluate a managed vector backend, persist embeddings with their model and document versions, and check retrieval and citation parity before deployment.

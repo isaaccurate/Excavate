@@ -23,13 +23,16 @@ def health() -> Health:
     return Health()
 
 
-def answer_from_environment(question: str) -> AnswerResult:
+def answer_from_environment(
+    question: str, *, api_key: str | None = None
+) -> AnswerResult:
     database = os.environ.get("KNOWLEDGE_ASSISTANT_DB")
     return configured_answer(
         question,
         database=Path(database) if database else None,
         model=os.environ.get("KNOWLEDGE_ASSISTANT_OPENAI_MODEL"),
         embedding_model=os.environ.get("KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL"),
+        api_key=api_key,
     )
 
 

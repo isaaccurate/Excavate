@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Build Excavate Lambda images from application source in an existing private S3 bucket.
+Metadata:
+  AWSToolsMetrics:
+    AWSAgentToolkit: aws-cloudformation@3
+Parameters:
+  SourceBucket:
+    Type: String
+    AllowedPattern: '[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]'
+Resources:
+  ImageRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Stores the Linux Lambda images.
+        must: [Keep deployed image digests available.]
+    Properties:
+      RepositoryName: !Sub '${AWS::StackName}'
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration:
+        ScanOnPush: true
+  BuildLogs:
+    Type: AWS::Logs::LogGroup
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Retains build output for troubleshooting.
+    Properties:
+      LogGroupName: !Sub '/aws/codebuild/${AWS::StackName}'
+      RetentionInDays: 7
+  BuildRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Lets only the image build read deployment archives and publish images.
+        must: [Scope S3 access to the build-source prefix.]
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+              ArnEquals:
+                aws:SourceArn: !Sub 'arn:${AWS::Partition}:codebuild:${AWS::Region}:${AWS::AccountId}:project/${AWS::StackName}'
+      Policies:
+        - PolicyName: build-image
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: [s3:GetObject, s3:GetObjectVersion]
+                Resource: !Sub 'arn:${AWS::Partition}:s3:::${SourceBucket}/build-source/*'
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:InitiateLayerUpload
+                  - ecr:UploadLayerPart
+                  - ecr:CompleteLayerUpload
+                  - ecr:PutImage
+                Resource: !GetAtt ImageRepository.Arn
+              - Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${AWS::StackName}:log-stream:*'
+  Builder:
+    Type: AWS::CodeBuild::Project
+    DependsOn: BuildLogs
+    Metadata:
+      com.aws.cloudformation.Context:
+        why: Runs Docker on demand when the developer has no local container runtime.
+        must: [Accept only reviewed application source archives.]
+    Properties:
+      Name: !Ref AWS::StackName
+      ServiceRole: !GetAtt BuildRole.Arn
+      Source:
+        Type: S3
+        Location: !Sub '${SourceBucket}/build-source/source.zip'
+        BuildSpec: deploy/buildspec.yaml
+      Artifacts:
+        Type: NO_ARTIFACTS
+      Environment:
+        Type: LINUX_CONTAINER
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/standard:7.0
+        PrivilegedMode: true
+        EnvironmentVariables:
+          - Name: IMAGE_REPOSITORY
+            Value: !GetAtt ImageRepository.RepositoryUri
+      TimeoutInMinutes: 10
+      ConcurrentBuildLimit: 1
+Outputs:
+  RepositoryUri:
+    Value: !GetAtt ImageRepository.RepositoryUri
+  BuildProject:
+    Value: !Ref Builder

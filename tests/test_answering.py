@@ -181,7 +181,7 @@ def completed(text):
         ),
     ],
 )
-def test_managed_generation_errors_are_sanitized(status, body):
+def test_managed_generation_errors_are_sanitized(status, body, caplog):
     transport = httpx.MockTransport(lambda request: httpx.Response(status, json=body))
     with httpx.Client(transport=transport) as client:
         provider = OpenAIGeneration(client, api_key="private-key", model="test")
@@ -191,6 +191,9 @@ def test_managed_generation_errors_are_sanitized(status, body):
             )
     assert "private" not in str(error.value)
     assert "do not expose" not in str(error.value)
+    assert "OpenAI Responses API" in caplog.text
+    assert "private" not in caplog.text
+    assert "do not expose" not in caplog.text
 
 
 def fake_managed_http(monkeypatch):

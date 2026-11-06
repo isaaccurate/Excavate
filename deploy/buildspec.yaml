@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region "$AWS_DEFAULT_REGION" | docker login --username AWS --password-stdin "${IMAGE_REPOSITORY%%/*}"
+  build:
+    commands:
+      - docker build --platform linux/amd64 -f deploy/Dockerfile -t "$IMAGE_REPOSITORY:$IMAGE_TAG" .
+      - docker run --rm --entrypoint python "$IMAGE_REPOSITORY:$IMAGE_TAG" -c "import faiss, sqlite3; from knowledge_assistant.lambda_handlers import api_handler, cleanup_handler; sqlite3.connect(':memory:').execute('CREATE VIRTUAL TABLE smoke USING fts5(text)')"
+      - docker push "$IMAGE_REPOSITORY:$IMAGE_TAG"

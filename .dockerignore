@@ -1,0 +1,6 @@
+**
+!pyproject.toml
+!knowledge_assistant/
+!knowledge_assistant/*.py
+!deploy/
+!deploy/Dockerfile

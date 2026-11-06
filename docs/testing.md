@@ -112,3 +112,17 @@ On November 6, 2026, all 68 tests passed in 2.18 seconds. Ruff lint and format c
 In `us-east-2`, the `excavate` browser-sign-in profile ran the CLI against a private, unversioned S3 bucket and an on-demand DynamoDB test table. Two synthetic notes verified ingestion, unchanged re-ingestion, search with local embeddings, replacement, recoverable delete, restore, and purge. A test-only change to one deleted record's recovery deadline verified that cleanup removed the expired note while preserving the active note. Final checks found zero records in the test table and zero objects under both test note prefixes. The bucket and table remain available for testing.
 
 The run used the project sign-in role. Scoped IAM roles, a deployed cleanup schedule, and live answer generation were outside this test. The AWS package extra now includes the Boto3 runtime for browser-sign-in profiles.
+
+## Deployed Lambda smoke test
+
+The Ohio CodeBuild image passed FAISS imports, Lambda handler imports, and FTS5 table creation. CloudFormation Linter passed for both templates. The deployed Function URL returned 403 without a signature and 200 for signed health checks. A signed answer request returned 503 with model setup missing. No model calls were made.
+
+The deployed cleanup function erased a synthetic expired note and its S3 object while preserving an active test note. The test then purged that active note and verified empty note storage. IAM simulation with the Ohio Region context allowed API reads and denied the tested S3 deletes and writes and DynamoDB writes. After enabling the hourly schedule, CloudWatch recorded a successful scheduled invocation. All 68 local tests passed.
+
+## Live OpenAI answer smoke test
+
+On November 6, 2026, the Ohio stack was configured with `gpt-6-luna` and a Secrets Manager reference. The first signed answer request returned 502. After deploying sanitized provider logging, a second test confirmed the OpenAI Responses API returned HTTP 401.
+
+After updating the AWS secret to contain the raw API key as plaintext, a signed request returned 200 with the expected synthetic access code and a citation to the source file and its `Observatory Access` heading. Signed and unsigned health checks returned 200 and 403, respectively. This test used local embeddings and one synthetic note.
+
+Each fixture was purged, and each cleanup verified zero DynamoDB records and zero S3 note objects. The hourly schedule was enabled after the image update. The local suite passed all 68 tests, including checks that provider error logs exclude private input and response text. Ruff lint and format checks passed.
