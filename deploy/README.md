@@ -1,4 +1,4 @@
-# Deploy Excavate in Ohio
+# AWS deployment
 
 This stack uses an existing private, unversioned S3 bucket and DynamoDB table. It runs FastAPI behind an IAM-authenticated Lambda Function URL and runs retention cleanup in a separate Lambda. Both functions use the same Linux image and separate execution roles. The stack does not own the note bucket or table.
 

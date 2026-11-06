@@ -1,17 +1,33 @@
 # Architecture
 
-- `api` serves FastAPI health and answer endpoints. The app factory accepts an answer service for local integration and tests.
-- `cli` invokes ingestion or deletion for a single path, compares search rankings, and answers questions.
-- `ingestion` validates the path, opens the selected file, decodes UTF-8, and builds a document with section chunks.
-- `contracts` defines immutable Pydantic records and structural interfaces for document persistence, retrieval, embeddings, and generation.
-- `storage` uses SQLAlchemy to persist documents. A conditional SQLite upsert replaces a document and its chunks in one transaction when the content digest or derived chunks differ.
+Excavate indexes selected notes, retrieves relevant sections, and generates answers with citations.
 
-`retrieval` builds an in-memory SQLite FTS5 index per lexical query. It ranks note title, heading, and body matches with BM25. FAISS ranks normalized vectors by inner product. Reciprocal rank fusion combines ranked chunk IDs with deterministic tie-breaking. `HybridSearch` binds lexical and dense search to a single document snapshot and resolves ranked passages from that snapshot. The next request rebuilds from current data.
+## Index notes
 
-`answer_service` connects the configured document store, hybrid search, and model providers for both `ask` and `POST /answer`. It loads retrieval dependencies when needed, so the health endpoint remains available with the base install. `answering` validates the question, builds bounded evidence from the ranked passages, and resolves validated citation IDs to source metadata. `generation` uses the OpenAI Responses API with Structured Outputs and separates trusted instructions from the question and evidence. The request uses no tools. The API returns HTTP 422 for invalid input, 503 for missing configuration, and 502 for managed provider failures or unusable outputs.
+The CLI accepts a vault root and one relative Markdown path. Ingestion validates the path, reads the file, and splits it into sections while preserving heading ancestry.
 
-## D3 storage
+Local storage uses SQLAlchemy and SQLite. Each row holds a note's path, content digest, and chunks. A conditional write updates the whole row when the source or parsed chunks change.
 
-The configured store implements both `DocumentStore` and `CorpusReader`. In AWS mode the selected note becomes a serialized document in S3 and a current-version pointer in DynamoDB. The pointer is written after the payload. Retrieval materializes the documents once and passes the same collection to lexical search, dense search, and citation lookup. A DynamoDB scan is consistent per item and can observe different document versions during concurrent writes. [DynamoDB Scan](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html)
+## Retrieve passages
 
-AWS deletion marks the record as recoverable until a deadline and excludes it from reads. Restore clears that deadline. Cleanup claims expired records with a conditional revision, removes their tracked objects, and deletes the claimed record after S3 succeeds.
+Each search loads a snapshot of the indexed notes. BM25 ranks matches in note titles, headings, and body text using SQLite FTS5. FAISS searches vectors, and reciprocal rank fusion combines the two rankings.
+
+Both searches and citation lookup use the same snapshot. Indexes are rebuilt for each request. Local token-hash embeddings are the default for testing, with an optional managed embedding provider.
+
+## Generate answers
+
+The CLI and FastAPI share the same answer service. It selects a bounded set of passages and asks the language model to answer from that evidence. The current generation adapter uses the OpenAI Responses API with Structured Outputs.
+
+The application validates the returned structure and checks that every citation refers to a supplied passage. The model decides whether the evidence supports an answer. Questions and note content are passed separately from trusted instructions.
+
+The API returns 422 for invalid input, 503 for missing configuration, and 502 for provider failures or unusable responses. The health endpoint works with the base installation.
+
+## Store notes in AWS
+
+S3 holds parsed notes. DynamoDB tracks the current S3 object, checksum, and recovery state for each note. Uploading the object before publishing its record prevents a failed upload from exposing missing evidence.
+
+Retrieval reads the current documents into a snapshot. Concurrent updates can produce a mix of document versions across a DynamoDB scan.
+
+Deleting a note hides it from retrieval and starts its recovery window. Restore makes it available again. Cleanup claims expired records before removing their objects, then deletes the records after S3 deletion succeeds. This lets failed cleanup operations be retried.
+
+See [decisions](decisions.md) for tradeoffs and limits, or [usage](usage.md) to run the application.
