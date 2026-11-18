@@ -283,6 +283,12 @@ def test_api_uses_configured_managed_embeddings_and_generation(database, monkeyp
         "/v1/responses",
     ]
     assert all(data["model"] == "embedding-test" for _, data in calls[:2])
+    calls.clear()
+    repeated = api_request(app, payload={"question": "Which database?"})
+    assert repeated.status_code == 200
+    assert repeated.json()["citations"] == response.json()["citations"]
+    assert [path for path, _ in calls] == ["/v1/embeddings", "/v1/responses"]
+    assert calls[0][1]["input"] == ["Which database?"]
 
 
 def test_empty_database_skips_managed_requests(database, monkeypatch):

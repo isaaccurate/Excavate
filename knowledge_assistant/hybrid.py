@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from dataclasses import dataclass
+from hashlib import sha256
 from pathlib import PurePosixPath
 
 import faiss
@@ -9,6 +10,7 @@ from numpy.typing import NDArray
 from knowledge_assistant.contracts import (
     CorpusReader,
     Document,
+    EmbeddingCache,
     EmbeddingProvider,
     Passage,
     VectorSearch,
@@ -86,26 +88,43 @@ class HybridSearch:
         chunks = [
             chunk for document in self.snapshot.documents for chunk in document.chunks
         ]
-        self.vector_index: VectorSearch | None = (
-            FaissVectorSearch(
-                [chunk.id for chunk in chunks],
-                provider.embed(
-                    [
-                        "\n".join(
-                            (
-                                PurePosixPath(document.path).stem,
-                                *chunk.heading,
-                                chunk.text,
-                            )
-                        )
-                        for document in self.snapshot.documents
-                        for chunk in document.chunks
-                    ]
-                ),
+        self.vector_index: VectorSearch | None = None
+        if not chunks:
+            return
+        inputs = {
+            chunk.id: "\n".join(
+                (PurePosixPath(document.path).stem, *chunk.heading, chunk.text)
             )
-            if chunks
-            else None
-        )
+            for document in self.snapshot.documents
+            for chunk in document.chunks
+        }
+        namespace = getattr(provider, "cache_namespace", None)
+        cache = corpus if namespace and isinstance(corpus, EmbeddingCache) else None
+        # Hash exactly what the provider sees, including filename and headings.
+        digests = {
+            key: sha256(text.encode("utf-8")).hexdigest()
+            for key, text in inputs.items()
+        }
+        cached = cache.read_embeddings(namespace, digests) if cache else {}
+        missing = [chunk.id for chunk in chunks if chunk.id not in cached]
+        fresh = {}
+        if missing:
+            vectors = provider.embed([inputs[key] for key in missing])
+            if len(vectors) != len(missing):
+                raise EmbeddingError("expected one embedding per missing chunk")
+            fresh = dict(zip(missing, vectors, strict=True))
+        ordered = [
+            cached[chunk.id] if chunk.id in cached else fresh[chunk.id]
+            for chunk in chunks
+        ]
+        # Validate the complete batch before publishing any vectors.
+        self.vector_index = FaissVectorSearch([chunk.id for chunk in chunks], ordered)
+        if cache and fresh:
+            cache.write_embeddings(
+                namespace,
+                self.snapshot.documents,
+                {key: (digests[key], vector) for key, vector in fresh.items()},
+            )
 
     def search(self, query: str, *, limit: int = 5, candidates: int = 20) -> Rankings:
         if limit < 0 or candidates < limit:

@@ -1,0 +1,184 @@
+{
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.8",
+    "sqlite": "3.50.4",
+    "sqlalchemy": "2.1.8",
+    "faiss": "1.15.1",
+    "numpy": "2.5.4",
+    "faiss_threads": 10
+  },
+  "embedding_provider": "local token hash",
+  "cache_enabled": false,
+  "external_embedding_api_calls": 0,
+  "external_embedding_cost_usd": 0,
+  "documents_and_chunks": 200,
+  "questions": 8,
+  "cold_samples": 24,
+  "warm_samples": 160,
+  "cold": {
+    "storage_read_ms": {
+      "median": 1.915,
+      "p95": 2.578
+    },
+    "cache_read_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "cache_write_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "document_embedding_ms": {
+      "median": 3.297,
+      "p95": 3.468
+    },
+    "document_inputs": {
+      "min": 200,
+      "max": 200
+    },
+    "document_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "faiss_build_ms": {
+      "median": 1.569,
+      "p95": 1.714
+    },
+    "bm25_build_ms": {
+      "median": 0.747,
+      "p95": 0.829
+    },
+    "query_embedding_ms": {
+      "median": 0.009,
+      "p95": 0.012
+    },
+    "query_inputs": {
+      "min": 1,
+      "max": 1
+    },
+    "query_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "total_ms": {
+      "median": 9.802,
+      "p95": 10.536
+    }
+  },
+  "warm": {
+    "storage_read_ms": {
+      "median": 1.095,
+      "p95": 1.443
+    },
+    "cache_read_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "cache_write_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "document_embedding_ms": {
+      "median": 3.167,
+      "p95": 3.423
+    },
+    "document_inputs": {
+      "min": 200,
+      "max": 200
+    },
+    "document_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "faiss_build_ms": {
+      "median": 1.428,
+      "p95": 1.564
+    },
+    "bm25_build_ms": {
+      "median": 0.655,
+      "p95": 0.741
+    },
+    "query_embedding_ms": {
+      "median": 0.006,
+      "p95": 0.008
+    },
+    "query_inputs": {
+      "min": 1,
+      "max": 1
+    },
+    "query_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "total_ms": {
+      "median": 7.447,
+      "p95": 8.193
+    }
+  },
+  "fresh_process_populated_cache": {
+    "storage_read_ms": {
+      "median": 1.946,
+      "p95": 2.107
+    },
+    "cache_read_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "cache_write_ms": {
+      "median": 0.0,
+      "p95": 0.0
+    },
+    "document_embedding_ms": {
+      "median": 3.419,
+      "p95": 3.663
+    },
+    "document_inputs": {
+      "min": 200,
+      "max": 200
+    },
+    "document_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "faiss_build_ms": {
+      "median": 1.612,
+      "p95": 1.726
+    },
+    "bm25_build_ms": {
+      "median": 0.775,
+      "p95": 0.829
+    },
+    "query_embedding_ms": {
+      "median": 0.009,
+      "p95": 0.013
+    },
+    "query_inputs": {
+      "min": 1,
+      "max": 1
+    },
+    "query_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "total_ms": {
+      "median": 10.533,
+      "p95": 11.172
+    }
+  },
+  "quality": {
+    "lexical": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 0.9375
+    },
+    "dense": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 1.0
+    },
+    "hybrid": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 1.0
+    }
+  },
+  "evaluation_date": "2026-11-18"
+}

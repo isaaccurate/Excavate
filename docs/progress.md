@@ -12,7 +12,7 @@ Local tests cover ingestion, retrieval, answering, and storage failures. AWS smo
 
 ## Next work
 
-- Save embeddings and search indexes so requests can reuse them. Currently, each request rebuilds the indexes, and managed embeddings repeat work across the corpus.
+- Extend embedding caching to AWS with version tracking and retention. SQLite now persists document embeddings across requests and processes. Indexes still rebuild for each request.
 - Expand the reviewed evaluation with a holdout set. The 44-question real-embedding baseline and reviewed label corrections are recorded in testing.
 - Find and remove S3 uploads left behind when publishing their DynamoDB records fails.
 - Evaluate managed vector search and check that it preserves retrieval results and citations.

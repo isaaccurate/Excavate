@@ -18,12 +18,13 @@ from unittest.mock import patch
 import faiss
 import numpy as np
 import sqlalchemy
+from sqlalchemy import delete
 
 from knowledge_assistant import hybrid, retrieval
 from knowledge_assistant.embeddings import HashEmbeddings
 from knowledge_assistant.hybrid import HybridSearch
 from knowledge_assistant.ingestion import ingest_note
-from knowledge_assistant.storage import SQLiteDocumentStore
+from knowledge_assistant.storage import EmbeddingRow, SQLiteDocumentStore
 
 STABLE_MATCHING = "Stable Matching.md"
 MASTER_THEOREM = "Divide and Conquer Algorithm/Master Theorem.md"
@@ -134,11 +135,15 @@ class TimedEmbeddings(HashEmbeddings):
         return result
 
 
-def measure_request(database: Path, case_index: int) -> dict:
+def measure_request(
+    database: Path, case_index: int, *, cache_enabled: bool = True
+) -> dict:
     metrics: Counter = Counter(
         dict.fromkeys(
             (
                 "storage_read_ns",
+                "cache_read_ns",
+                "cache_write_ns",
                 "document_embedding_ns",
                 "document_inputs",
                 "document_provider_calls",
@@ -152,6 +157,8 @@ def measure_request(database: Path, case_index: int) -> dict:
         )
     )
     provider = TimedEmbeddings(metrics)
+    if not cache_enabled:
+        provider.cache_namespace = None
     _, _, query = SYNTHETIC_CASES[case_index]
 
     class TimedStore(SQLiteDocumentStore):
@@ -160,6 +167,17 @@ def measure_request(database: Path, case_index: int) -> dict:
             documents = super().list_documents()
             metrics["storage_read_ns"] += perf_counter_ns() - started
             return documents
+
+        def read_embeddings(self, namespace, input_digests):
+            started = perf_counter_ns()
+            result = super().read_embeddings(namespace, input_digests)
+            metrics["cache_read_ns"] += perf_counter_ns() - started
+            return result
+
+        def write_embeddings(self, namespace, documents, entries):
+            started = perf_counter_ns()
+            super().write_embeddings(namespace, documents, entries)
+            metrics["cache_write_ns"] += perf_counter_ns() - started
 
     class TimedFaiss(hybrid.FaissVectorSearch):
         def __init__(self, *args):
@@ -246,12 +264,14 @@ def evaluate_quality(database: Path) -> dict:
         store.engine.dispose()
 
 
-def benchmark(repeats: int) -> dict:
+def benchmark(repeats: int, *, cache_enabled: bool = True) -> dict:
     with TemporaryDirectory() as directory:
         database = seed_corpus(Path(directory))
         case_indices = range(len(SYNTHETIC_CASES))
-        cold = [
-            json.loads(
+        worker_flags = [] if cache_enabled else ["--disable-cache"]
+
+        def fresh_request(index, *, clear=False):
+            return json.loads(
                 subprocess.check_output(
                     [
                         sys.executable,
@@ -260,17 +280,23 @@ def benchmark(repeats: int) -> dict:
                         "--worker",
                         str(database),
                         str(index),
+                        *worker_flags,
+                        *(["--clear-cache"] if clear else []),
                     ],
                     text=True,
                 )
             )
-            for _ in range(3)
-            for index in case_indices
+
+        cold = [
+            fresh_request(index, clear=True) for _ in range(3) for index in case_indices
+        ]
+        fresh_cached = [
+            fresh_request(index) for _ in range(3) for index in case_indices
         ]
         # Warm the process, then keep the request lifecycle the same for every sample.
-        measure_request(database, 0)
+        measure_request(database, 0, cache_enabled=cache_enabled)
         warm = [
-            measure_request(database, index)
+            measure_request(database, index, cache_enabled=cache_enabled)
             for _ in range(repeats)
             for index in case_indices
         ]
@@ -285,6 +311,7 @@ def benchmark(repeats: int) -> dict:
                 "faiss_threads": faiss.omp_get_max_threads(),
             },
             "embedding_provider": "local token hash",
+            "cache_enabled": cache_enabled,
             "external_embedding_api_calls": 0,
             "external_embedding_cost_usd": 0,
             "documents_and_chunks": len(SYNTHETIC_CASES) * 25,
@@ -293,6 +320,7 @@ def benchmark(repeats: int) -> dict:
             "warm_samples": len(warm),
             "cold": summarize(cold),
             "warm": summarize(warm),
+            "fresh_process_populated_cache": summarize(fresh_cached),
             "quality": evaluate_quality(database),
         }
 
@@ -314,10 +342,43 @@ def main() -> None:
         type=Path,
         help="Rescore saved rankings with revised labels, without API calls.",
     )
+    parser.add_argument(
+        "--disable-cache", action="store_true", help="Benchmark with caching disabled."
+    )
+    parser.add_argument("--clear-cache", action="store_true", help=argparse.SUPPRESS)
+    parser.add_argument(
+        "--benchmark",
+        action="store_true",
+        help="Benchmark the labeled corpus with real embeddings.",
+    )
     parser.add_argument("--synthetic", action="store_true")
     parser.add_argument("--repeats", type=int, default=10)
     parser.add_argument("--worker", nargs=2, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.benchmark:
+        if (
+            not args.dataset
+            or not args.root
+            or not args.embedding_model
+            or args.repeats < 1
+            or args.synthetic
+            or args.rescore
+            or args.worker
+        ):
+            parser.error(
+                "--benchmark requires a root, --dataset, --embedding-model and positive --repeats"
+            )
+        from scripts.evaluate_labeled import benchmark_labeled
+
+        print(
+            json.dumps(
+                benchmark_labeled(
+                    args.dataset, args.root, args.embedding_model, args.repeats
+                ),
+                indent=2,
+            )
+        )
+        return
     if args.rescore:
         if (
             not args.dataset
@@ -354,12 +415,29 @@ def main() -> None:
         parser.error("--embedding-model requires --dataset")
     if args.worker:
         database, index = args.worker
-        print(json.dumps(measure_request(Path(database), int(index))))
+        if args.clear_cache:
+            store = SQLiteDocumentStore(Path(database))
+            try:
+                with store.engine.begin() as connection:
+                    connection.execute(delete(EmbeddingRow))
+            finally:
+                store.engine.dispose()
+        print(
+            json.dumps(
+                measure_request(
+                    Path(database), int(index), cache_enabled=not args.disable_cache
+                )
+            )
+        )
         return
     if args.synthetic:
         if args.root or args.repeats < 1:
             parser.error("synthetic evaluation requires positive repeats and no root")
-        print(json.dumps(benchmark(args.repeats), indent=2))
+        print(
+            json.dumps(
+                benchmark(args.repeats, cache_enabled=not args.disable_cache), indent=2
+            )
+        )
         return
     if args.root is None:
         parser.error("provide a course-note root or select --synthetic")

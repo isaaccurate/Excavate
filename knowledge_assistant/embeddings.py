@@ -25,6 +25,10 @@ class OpenAIEmbeddings:
         self.api_key = api_key
         self.model = model
 
+    @property
+    def cache_namespace(self) -> str:
+        return f"openai:v1:float:default-dimensions:{self.model}"
+
     def embed(self, texts: Sequence[str]) -> list[list[float]]:
         vectors = []
         # Keep request batches bounded. The provider enforces token limits.
@@ -57,6 +61,8 @@ class OpenAIEmbeddings:
 
 class HashEmbeddings:
     """Deterministic token-count vectors for offline tests and plumbing checks."""
+
+    cache_namespace = "token-hash:blake2b:casefold:word-count:512:v1"
 
     def embed(self, texts: Sequence[str]) -> list[list[float]]:
         vectors = []

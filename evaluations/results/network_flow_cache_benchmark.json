@@ -1,0 +1,1674 @@
+{
+  "dataset": "Network flow course-note evaluation",
+  "dataset_sha256": "fa32c486b594b233a6625ffa6ef8c0695f89ce3d3f0298f2f0e344ea937e1b7d",
+  "model": "text-embedding-3-small",
+  "python": "3.14.8",
+  "corpus": [
+    {
+      "path": "MaxFlow.md",
+      "digest": "e2b2e3b98ccbf0c385d13ebbfd3d2d57c4a8583e09ecb3eb2f920475af0e158d",
+      "chunks": 5
+    },
+    {
+      "path": "MinCut.md",
+      "digest": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+      "chunks": 1
+    },
+    {
+      "path": "Network Flow.md",
+      "digest": "9671bffded15e6355a68004daa0e1af4bf743a421dfff886b6738f224be2be30",
+      "chunks": 3
+    }
+  ],
+  "repeats": 1,
+  "summary": {
+    "disabled": {
+      "requests": 24,
+      "median_ms": 521.2155829649419,
+      "p95_ms": 708.6305420380086,
+      "http_calls": 48,
+      "tokens": 59368,
+      "document_inputs": 216,
+      "query_inputs": 24
+    },
+    "enabled": {
+      "requests": 24,
+      "median_ms": 278.86047901120037,
+      "p95_ms": 460.91691707260907,
+      "http_calls": 24,
+      "tokens": 328,
+      "document_inputs": 0,
+      "query_inputs": 24
+    }
+  },
+  "all_rankings_identical": true,
+  "cold_cache_population": [
+    {
+      "question_id": "nf-001",
+      "http_calls": 2,
+      "tokens": 2468,
+      "document_inputs": 9,
+      "query_inputs": 1,
+      "document_seconds": 0.3067535001318902,
+      "query_seconds": 0.22036383301019669,
+      "rankings": {
+        "lexical": [
+          "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+        ],
+        "dense": [
+          "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+        ],
+        "hybrid": [
+          "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+        ]
+      },
+      "total_seconds": 0.5380465409252793
+    }
+  ],
+  "samples": {
+    "disabled": [
+      {
+        "question_id": "nf-001",
+        "http_calls": 2,
+        "tokens": 2468,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.29168866691179574,
+        "query_seconds": 0.20102708414196968,
+        "rankings": {
+          "lexical": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ]
+        },
+        "total_seconds": 0.49863745900802314
+      },
+      {
+        "question_id": "nf-002",
+        "http_calls": 2,
+        "tokens": 2469,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3338477499783039,
+        "query_seconds": 0.20157929207198322,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.5422467919997871
+      },
+      {
+        "question_id": "nf-003",
+        "http_calls": 2,
+        "tokens": 2466,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3130482081323862,
+        "query_seconds": 0.1765679579693824,
+        "rankings": {
+          "lexical": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.49621720891445875
+      },
+      {
+        "question_id": "nf-004",
+        "http_calls": 2,
+        "tokens": 2471,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.25235787499696016,
+        "query_seconds": 0.2335093328729272,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.4925315419677645
+      },
+      {
+        "question_id": "nf-005",
+        "http_calls": 2,
+        "tokens": 2469,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.21959650004282594,
+        "query_seconds": 0.2949067910667509,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "hybrid": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.5203672079369426
+      },
+      {
+        "question_id": "nf-006",
+        "http_calls": 2,
+        "tokens": 2468,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.31082466687075794,
+        "query_seconds": 0.21370733389630914,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.5299933750648052
+      },
+      {
+        "question_id": "nf-007",
+        "http_calls": 2,
+        "tokens": 2471,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.29839033307507634,
+        "query_seconds": 0.2866859999485314,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.5919104998465627
+      },
+      {
+        "question_id": "nf-008",
+        "http_calls": 2,
+        "tokens": 2473,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3224999171216041,
+        "query_seconds": 0.21242087497375906,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.5415372918359935
+      },
+      {
+        "question_id": "nf-009",
+        "http_calls": 2,
+        "tokens": 2481,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.4403346658218652,
+        "query_seconds": 0.14636762510053813,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.5927119590342045
+      },
+      {
+        "question_id": "nf-010",
+        "http_calls": 2,
+        "tokens": 2473,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.2913478328846395,
+        "query_seconds": 0.7387899998575449,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 1.0375763750635087
+      },
+      {
+        "question_id": "nf-011",
+        "http_calls": 2,
+        "tokens": 2481,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.30692729190923274,
+        "query_seconds": 0.3583825840614736,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ]
+        },
+        "total_seconds": 0.6716654170304537
+      },
+      {
+        "question_id": "nf-012",
+        "http_calls": 2,
+        "tokens": 2474,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.2889795838855207,
+        "query_seconds": 0.2210136668290943,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.5168673750013113
+      },
+      {
+        "question_id": "nf-013",
+        "http_calls": 2,
+        "tokens": 2470,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.293076999951154,
+        "query_seconds": 0.1918742498382926,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.4913098330143839
+      },
+      {
+        "question_id": "nf-014",
+        "http_calls": 2,
+        "tokens": 2487,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.32329154177568853,
+        "query_seconds": 0.23380454094149172,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.5640517501160502
+      },
+      {
+        "question_id": "nf-015",
+        "http_calls": 2,
+        "tokens": 2476,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.2828352500218898,
+        "query_seconds": 0.16963950009085238,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "dense": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.4588072909973562
+      },
+      {
+        "question_id": "nf-016",
+        "http_calls": 2,
+        "tokens": 2491,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.2596213340293616,
+        "query_seconds": 0.17069770814850926,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.4369933339767158
+      },
+      {
+        "question_id": "nf-017",
+        "http_calls": 2,
+        "tokens": 2476,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3493001249153167,
+        "query_seconds": 0.19534820900298655,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.5523332501761615
+      },
+      {
+        "question_id": "nf-018",
+        "http_calls": 2,
+        "tokens": 2471,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.2792015001177788,
+        "query_seconds": 0.19915524986572564,
+        "rankings": {
+          "lexical": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.48537004203535616
+      },
+      {
+        "question_id": "nf-019",
+        "http_calls": 2,
+        "tokens": 2474,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3169606670271605,
+        "query_seconds": 0.1762580000795424,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.5001067090779543
+      },
+      {
+        "question_id": "nf-020",
+        "http_calls": 2,
+        "tokens": 2479,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.3003588749561459,
+        "query_seconds": 0.1985699578654021,
+        "rankings": {
+          "lexical": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "hybrid": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.5058234590105712
+      },
+      {
+        "question_id": "nf-021",
+        "http_calls": 2,
+        "tokens": 2469,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.31817816686816514,
+        "query_seconds": 0.21127950004301965,
+        "rankings": {
+          "lexical": [
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.5354308329988271
+      },
+      {
+        "question_id": "nf-022",
+        "http_calls": 2,
+        "tokens": 2469,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.324896042002365,
+        "query_seconds": 0.19139537494629622,
+        "rankings": {
+          "lexical": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "hybrid": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.5198305409867316
+      },
+      {
+        "question_id": "nf-023",
+        "http_calls": 2,
+        "tokens": 2469,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.531667125178501,
+        "query_seconds": 0.17058095918036997,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ]
+        },
+        "total_seconds": 0.7086305420380086
+      },
+      {
+        "question_id": "nf-024",
+        "http_calls": 2,
+        "tokens": 2473,
+        "document_inputs": 9,
+        "query_inputs": 1,
+        "document_seconds": 0.27415970899164677,
+        "query_seconds": 0.24144012504257262,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.5220639579929411
+      }
+    ],
+    "enabled": [
+      {
+        "question_id": "nf-001",
+        "http_calls": 1,
+        "tokens": 8,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3110932500567287,
+        "rankings": {
+          "lexical": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ]
+        },
+        "total_seconds": 0.31770716584287584
+      },
+      {
+        "question_id": "nf-002",
+        "http_calls": 1,
+        "tokens": 9,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.18198779202066362,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.19017324992455542
+      },
+      {
+        "question_id": "nf-003",
+        "http_calls": 1,
+        "tokens": 6,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.21933266590349376,
+        "rankings": {
+          "lexical": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.22760499990545213
+      },
+      {
+        "question_id": "nf-004",
+        "http_calls": 1,
+        "tokens": 11,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.13835674989968538,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.1478157911915332
+      },
+      {
+        "question_id": "nf-005",
+        "http_calls": 1,
+        "tokens": 9,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.1928959998767823,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "dense": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "hybrid": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.20016824989579618
+      },
+      {
+        "question_id": "nf-006",
+        "http_calls": 1,
+        "tokens": 8,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3152749170549214,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.32301441696472466
+      },
+      {
+        "question_id": "nf-007",
+        "http_calls": 1,
+        "tokens": 11,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.19388087512925267,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.20221987506374717
+      },
+      {
+        "question_id": "nf-008",
+        "http_calls": 1,
+        "tokens": 13,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.5112732090055943,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.5190407079644501
+      },
+      {
+        "question_id": "nf-009",
+        "http_calls": 1,
+        "tokens": 21,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3590929158963263,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.3669526248704642
+      },
+      {
+        "question_id": "nf-010",
+        "http_calls": 1,
+        "tokens": 13,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.38641745899803936,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.3946914579719305
+      },
+      {
+        "question_id": "nf-011",
+        "http_calls": 1,
+        "tokens": 21,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3151235000696033,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ]
+        },
+        "total_seconds": 0.3234289998654276
+      },
+      {
+        "question_id": "nf-012",
+        "http_calls": 1,
+        "tokens": 14,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.223620458971709,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "hybrid": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.23149799997918308
+      },
+      {
+        "question_id": "nf-013",
+        "http_calls": 1,
+        "tokens": 10,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3222930000629276,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.33012037514708936
+      },
+      {
+        "question_id": "nf-014",
+        "http_calls": 1,
+        "tokens": 27,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.22732258401811123,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.23558679199777544
+      },
+      {
+        "question_id": "nf-015",
+        "http_calls": 1,
+        "tokens": 16,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.1583519170526415,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "dense": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.1665412080474198
+      },
+      {
+        "question_id": "nf-016",
+        "http_calls": 1,
+        "tokens": 31,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.4051560841035098,
+        "rankings": {
+          "lexical": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        "total_seconds": 0.413554374827072
+      },
+      {
+        "question_id": "nf-017",
+        "http_calls": 1,
+        "tokens": 16,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3156877080909908,
+        "rankings": {
+          "lexical": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        "total_seconds": 0.3239626670256257
+      },
+      {
+        "question_id": "nf-018",
+        "http_calls": 1,
+        "tokens": 11,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.23118541692383587,
+        "rankings": {
+          "lexical": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.23958120797760785
+      },
+      {
+        "question_id": "nf-019",
+        "http_calls": 1,
+        "tokens": 14,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.24312429106794298,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        "total_seconds": 0.2517165830358863
+      },
+      {
+        "question_id": "nf-020",
+        "http_calls": 1,
+        "tokens": 19,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3050885000266135,
+        "rankings": {
+          "lexical": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "hybrid": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.31388649996370077
+      },
+      {
+        "question_id": "nf-021",
+        "http_calls": 1,
+        "tokens": 9,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.3024812499061227,
+        "rankings": {
+          "lexical": [
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ],
+          "dense": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ]
+        },
+        "total_seconds": 0.30600437498651445
+      },
+      {
+        "question_id": "nf-022",
+        "http_calls": 1,
+        "tokens": 9,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.1972786660771817,
+        "rankings": {
+          "lexical": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ],
+          "dense": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ],
+          "hybrid": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        "total_seconds": 0.20135916606523097
+      },
+      {
+        "question_id": "nf-023",
+        "http_calls": 1,
+        "tokens": 9,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.20158904185518622,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ],
+          "dense": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          ],
+          "hybrid": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ]
+        },
+        "total_seconds": 0.2097488329745829
+      },
+      {
+        "question_id": "nf-024",
+        "http_calls": 1,
+        "tokens": 13,
+        "document_inputs": 0,
+        "query_inputs": 1,
+        "document_seconds": 0,
+        "query_seconds": 0.45275425002910197,
+        "rankings": {
+          "lexical": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ],
+          "dense": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ],
+          "hybrid": [
+            "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          ]
+        },
+        "total_seconds": 0.46091691707260907
+      }
+    ]
+  },
+  "methodology": "Paired requests in alternating order, reopened SQLite stores, shared HTTP connection pool, populated persistent cache. Excludes imports, ingestion and generation. Cold sample is cache population, not process startup.",
+  "evaluation_date": "2026-11-18",
+  "estimated_usd_per_million_tokens": 0.02,
+  "pricing_source": "https://developers.openai.com/api/docs/models/text-embedding-3-small"
+}

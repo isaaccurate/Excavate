@@ -225,3 +225,126 @@ def evaluate_labeled(dataset_path: Path, root: Path, model: str | None) -> dict:
             return rescore_report(dataset_path, report)
         finally:
             store.engine.dispose()
+
+
+def benchmark_labeled(dataset_path: Path, root: Path, model: str, repeats: int) -> dict:
+    """Compare real provider work with and without persistent document vectors."""
+    from math import ceil
+    from statistics import median
+
+    dataset = json.loads(dataset_path.read_text())
+    if repeats < 1 or dataset["status"] != "human_reviewed":
+        raise ValueError("positive repeats and reviewed labels are required")
+    samples = {"disabled": [], "enabled": []}
+    cold = []
+    active = {}
+
+    def observe(response):
+        response.read()
+        active["http_calls"] += 1
+        if response.is_success:
+            active["tokens"] += response.json().get("usage", {}).get("total_tokens", 0)
+
+    class MeasuredProvider(OpenAIEmbeddings):
+        @property
+        def cache_namespace(self):
+            return super().cache_namespace if self.enabled else ""
+
+        def embed(self, texts):
+            active[f"{self.phase}_inputs"] += len(texts)
+            started = perf_counter()
+            result = super().embed(texts)
+            active[f"{self.phase}_seconds"] += perf_counter() - started
+            return result
+
+    with (
+        TemporaryDirectory() as directory,
+        httpx.Client(event_hooks={"response": [observe]}) as client,
+    ):
+        database = Path(directory) / "benchmark.sqlite3"
+        store = SQLiteDocumentStore(database)
+        try:
+            for path in dataset["corpus"]["paths"]:
+                ingest_note(root, path, store)
+            documents = store.list_documents()
+        finally:
+            store.engine.dispose()
+
+        def request(question, enabled):
+            active.clear()
+            active.update(
+                {
+                    "question_id": question["id"],
+                    "http_calls": 0,
+                    "tokens": 0,
+                    "document_inputs": 0,
+                    "query_inputs": 0,
+                    "document_seconds": 0,
+                    "query_seconds": 0,
+                }
+            )
+            provider = MeasuredProvider(
+                client, api_key=os.environ["OPENAI_API_KEY"], model=model
+            )
+            provider.enabled = enabled
+            provider.phase = "document"
+            started = perf_counter()
+            store = SQLiteDocumentStore(database)
+            try:
+                search = HybridSearch(store, provider)
+                provider.phase = "query"
+                rankings = search.search(question["question"])
+                active["rankings"] = {
+                    mode: list(getattr(rankings, mode)) for mode in MODES
+                }
+            finally:
+                store.engine.dispose()
+            active["total_seconds"] = perf_counter() - started
+            return dict(active)
+
+        # Record the cost to populate the cache separately from repeated requests.
+        cold.append(request(dataset["questions"][0], True))
+        for repeat in range(repeats):
+            for index, question in enumerate(dataset["questions"]):
+                # Alternate order to reduce systematic network/order effects.
+                order = (False, True) if (repeat + index) % 2 == 0 else (True, False)
+                for enabled in order:
+                    samples["enabled" if enabled else "disabled"].append(
+                        request(question, enabled)
+                    )
+
+        summary = {}
+        for mode, rows in samples.items():
+            times = sorted(row["total_seconds"] * 1000 for row in rows)
+            summary[mode] = {
+                "requests": len(rows),
+                "median_ms": median(times),
+                "p95_ms": times[ceil(len(times) * 0.95) - 1],
+                "http_calls": sum(row["http_calls"] for row in rows),
+                "tokens": sum(row["tokens"] for row in rows),
+                "document_inputs": sum(row["document_inputs"] for row in rows),
+                "query_inputs": sum(row["query_inputs"] for row in rows),
+            }
+        parity = all(
+            before["question_id"] == after["question_id"]
+            and before["rankings"] == after["rankings"]
+            for before, after in zip(
+                samples["disabled"], samples["enabled"], strict=True
+            )
+        )
+        return {
+            "dataset": dataset["name"],
+            "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),
+            "model": model,
+            "python": platform.python_version(),
+            "corpus": [
+                {"path": d.path, "digest": d.digest, "chunks": len(d.chunks)}
+                for d in documents
+            ],
+            "repeats": repeats,
+            "summary": summary,
+            "all_rankings_identical": parity,
+            "cold_cache_population": cold,
+            "samples": samples,
+            "methodology": "Paired requests in alternating order, reopened SQLite stores, shared HTTP connection pool, populated persistent cache. Excludes imports, ingestion and generation. Cold sample is cache population, not process startup.",
+        }

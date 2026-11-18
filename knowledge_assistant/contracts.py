@@ -1,4 +1,4 @@
-from typing import Protocol, Sequence
+from typing import Protocol, Sequence, runtime_checkable
 
 from pydantic import BaseModel, ConfigDict
 
@@ -72,4 +72,20 @@ class PassageSearch(Protocol):
 class GenerationProvider(Protocol):
     def generate(self, *, instructions: str, input_text: str) -> str:
         """Return the raw structured answer for validation by the caller."""
+        ...
+
+
+@runtime_checkable
+class EmbeddingCache(Protocol):
+    def read_embeddings(
+        self, namespace: str, input_digests: dict[str, str]
+    ) -> dict[str, Sequence[float]]: ...
+
+    def write_embeddings(
+        self,
+        namespace: str,
+        documents: Sequence[Document],
+        entries: dict[str, tuple[str, Sequence[float]]],
+    ) -> None:
+        """Publish vectors only if the document still matches the snapshot."""
         ...

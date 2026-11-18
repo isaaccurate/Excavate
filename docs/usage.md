@@ -28,7 +28,9 @@ Re-run `ingest` to update a note. After a rename, ingest the new path and delete
 
 Search compares BM25, FAISS, and combined rankings and prints source paths, headings, and chunk IDs. Both search and answering use local token-hash vectors by default. Each invocation of `search` or `ask`, or request to `POST /answer`, rebuilds the search indexes from the current corpus.
 
-For semantic embeddings, set `OPENAI_API_KEY` and pass `--openai-model text-embedding-3-small` to `search` or `--embedding-model text-embedding-3-small` to `ask`. The API equivalent is `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL`. This sends the question and all indexed chunks, including their filename stems and headings, to OpenAI on each search.
+For semantic embeddings, set `OPENAI_API_KEY` and pass `--openai-model text-embedding-3-small` to `search` or `--embedding-model text-embedding-3-small` to `ask`. The API equivalent is `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL`. With SQLite, document embeddings are cached automatically in the same database. Searches send the query and any chunks missing from the cache to OpenAI. Cache identity includes the embedding model, provider configuration, and exact input text with filename stems and headings. AWS storage currently sends all active chunks on each search.
+
+Editing a note preserves cached embeddings for unchanged sections. Removing a note also removes its cached vectors. Switching embedding models builds a separate cache. Query embeddings are computed for each request. Existing SQLite databases gain the cache table automatically.
 
 Answer generation uses the OpenAI Responses API with Structured Outputs. It sends the question and selected excerpts with their paths and headings. The result includes an answer and citations with source paths, headings, and chunk IDs. Excavate checks that each cited ID was supplied to the model. Review the cited text to verify that it supports the claims. An `insufficient_evidence` result has a null answer and an empty citations list. [OpenAI Structured Outputs documentation](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)
 

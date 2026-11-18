@@ -76,3 +76,54 @@ def test_rescore_preserves_rankings_and_excludes_ambiguous_question(tmp_path):
         new["rankings"] == old["rankings"]
         for new, old in zip(report["results"], original["results"], strict=True)
     )
+
+
+def test_real_embedding_benchmark_counts_cached_provider_work(tmp_path, monkeypatch):
+    import json
+
+    import httpx
+
+    from scripts.evaluate_labeled import benchmark_labeled
+
+    (tmp_path / "note.md").write_text("# Heading\nExample evidence.")
+    labels = tmp_path / "labels.json"
+    labels.write_text(
+        json.dumps(
+            {
+                "status": "human_reviewed",
+                "name": "Test",
+                "corpus": {"paths": ["note.md"]},
+                "questions": [
+                    {"id": "one", "question": "Evidence?"},
+                    {"id": "two", "question": "Heading?"},
+                ],
+            }
+        )
+    )
+    real_client = httpx.Client
+
+    def respond(request):
+        batch = json.loads(request.content)["input"]
+        return httpx.Response(
+            200,
+            json={
+                "data": [
+                    {"index": i, "embedding": [1.0, 0.5]} for i in range(len(batch))
+                ],
+                "usage": {"total_tokens": len(batch)},
+            },
+        )
+
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    monkeypatch.setattr(
+        httpx,
+        "Client",
+        lambda **kwargs: real_client(transport=httpx.MockTransport(respond), **kwargs),
+    )
+    report = benchmark_labeled(labels, tmp_path, "embedding-test", 1)
+    assert report["all_rankings_identical"]
+    assert report["summary"]["disabled"]["http_calls"] == 4
+    assert report["summary"]["enabled"]["http_calls"] == 2
+    assert report["summary"]["enabled"]["document_inputs"] == 0
+    assert report["summary"]["enabled"]["query_inputs"] == 2
+    assert report["cold_cache_population"][0]["document_inputs"] == 1
