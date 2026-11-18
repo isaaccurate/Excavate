@@ -30,24 +30,11 @@ The evaluation uses 44 hand-written questions and real `text-embedding-3-small` 
 
 Scores cover the 36 answerable questions. Recall measures the fraction of required evidence groups retrieved, averaged across questions. A group can accept alternative supporting sections. MRR@5 measures the reciprocal rank of the first relevant section, averaged across questions.
 
-The eight unanswerable questions have saved rankings and were also tested through generation, as recorded below. Original labels, original reports, and revised scores remain available in `evaluations/revisions/` and `evaluations/results/` for audit.
+These are development scores on reviewed labels. There is no held-out set. See the [question sets](../evaluations/) and [per-question rankings](../evaluations/results/).
 
-With `OPENAI_API_KEY` set, run each dataset against its selected note directory. The commands send note sections and questions to OpenAI.
+## SQLite cache benchmark
 
-```sh
-python -m scripts.evaluate_retrieval "$LOGISTIC_NOTES_ROOT" \
-  --dataset evaluations/logistic_regression.json --embedding-model text-embedding-3-small
-python -m scripts.evaluate_retrieval "$FLOW_NOTES_ROOT" \
-  --dataset evaluations/network_flow.json --embedding-model text-embedding-3-small
-```
-
-## Note link pilot
-
-The earlier link-expansion pilot found no improvement from the tested rule. Link expansion remains deferred. The experiment is implemented in `scripts/evaluate_note_links.py`.
-
-## Real embedding cache benchmark
-
-The same 44 course-note questions were run locally with `text-embedding-3-small`, once with document caching disabled and once with it enabled. Each request reopened SQLite and rebuilt its search indexes. Paired requests alternated execution order and shared an HTTP connection pool. One initial request per corpus populated the cache before the paired measurements.
+Each of the 44 questions ran twice locally, once per cache setting. Each request reopened SQLite and rebuilt both indexes. The paired runs alternated order and shared an HTTP connection pool. The populated-cache figures exclude one warm-up per dataset (5,955 input tokens combined).
 
 | Metric across 44 requests | Cache disabled | Cache populated |
 | --- | ---: | ---: |
@@ -59,47 +46,26 @@ The same 44 course-note questions were run locally with `text-embedding-3-small`
 | Reported embedding input tokens | 129,015 | 595 |
 | Estimated standard embedding cost | $0.0025803 | $0.0000119 |
 
-In this run, median retrieval latency decreased 55.0%, API calls decreased 50%, and repeated-request token usage decreased 99.5%. All BM25, FAISS, and hybrid rankings matched between modes and matched the original real-embedding evaluation.
+Median retrieval latency fell 55% in this single local pass. All rankings matched across cache settings. Timings exclude answer generation and AWS. Estimated costs use $0.02 per million embedding input tokens.
 
-The two initial cache-population requests took 1786.4 ms for logistic regression and 538.0 ms for network flow, using 5,955 tokens combined. These individual cache-population observations are excluded from the repeated-request table.
+## Answers and AWS smoke test
 
-Cost estimates use $0.02 per million embedding input tokens and exclude generation, AWS services, and billing credits. The repeated-request table excludes the one-time cache-population cost. [OpenAI embedding model pricing](https://developers.openai.com/api/docs/models/text-embedding-3-small)
+Using `gpt-6-luna` and the same embedding model, all 36 answerable questions returned valid citation IDs. Human review judged 34 answers acceptable and two partial. All eight unanswerable questions returned `insufficient_evidence`. The model received only the question and retrieved evidence.
 
-This is a single local pass with 44 paired requests over two small, fixed corpora. Network variation and HTTP connection reuse affect timings. These measurements exclude ingestion, imports, answer generation, and the deployed AWS request path.
+- `nf-004` omitted the requirement that residual capacity be positive.
+- `nf-012` omitted the zero reverse-flow condition. The supplied proof excerpt ended before that step.
 
-Run either selected corpus with the corresponding labels, after setting `OPENAI_API_KEY`:
+Six IAM-signed AWS requests matched the local outcomes (four answers, two abstentions). All returned HTTP 200 and cited only supplied evidence where applicable. Test notes were purged afterward. [Cloud smoke report](../evaluations/results/cloud_answers_smoke.json)
 
-```sh
-python -m scripts.evaluate_retrieval "$LOGISTIC_NOTES_ROOT" \
-  --dataset evaluations/logistic_regression.json \
-  --embedding-model text-embedding-3-small --benchmark --repeats 1
-python -m scripts.evaluate_retrieval "$FLOW_NOTES_ROOT" \
-  --dataset evaluations/network_flow.json \
-  --embedding-model text-embedding-3-small --benchmark --repeats 1
-```
+## Reproduce the evaluation
 
-Per-request timings, calls, tokens, and ranking IDs are saved in `evaluations/results/*_cache_benchmark.json`.
-
-## Generated answers and cloud checks
-
-On November 18, 2026, all 44 questions were run through the production answering flow locally, using `text-embedding-3-small` and `gpt-6-luna`. The model received the question and bounded retrieved evidence. Expected answers and required-fact labels were kept out of its input.
-
-- All 36 answerable questions returned answers with valid citation IDs.
-- All eight unanswerable questions returned `insufficient_evidence`, with null answers and no citations.
-- User review judged 34 of the 36 answerable responses acceptable and two partial. All eight unanswerable responses correctly abstained.
-
-The remaining partial answers are `nf-004` (positive residual-capacity condition) and `nf-012` (zero reverse-cut flow condition). The user accepted `lr-002`, `lr-008`, and `lr-019` at their generated level of detail. Original assistant judgments for those responses remain in the reports. For `nf-012`, the supplied proof excerpt ends before that condition because of the 2,000-character cutoff. Finding a passage does not ensure the full relevant text reaches generation.
-
-The cloud embedding model was then configured to match. Six signed answer requests covered four answerable and two unanswerable questions across the two corpora. All returned HTTP 200, matched local answer/abstention status, and cited IDs within the expected evidence. Generated wording varied. Signed health returned 200 and unsigned health returned 403. Each selected corpus was temporarily indexed and purged afterward, with empty note storage verified after each test.
-
-Answer reports and the cloud smoke results are in `evaluations/results/*_answers.json` and `cloud_answers_smoke.json`. Answer judgments are recorded as user-reviewed. Broader answer-quality conclusions need a holdout set.
-
-Reproduce the local run for either selected dataset with `OPENAI_API_KEY` set:
+Set `OPENAI_API_KEY`. Choose the directory containing the selected source notes and the matching label file. The evaluator sends note sections and questions to OpenAI. The repository includes labels and reports. Supply the original notes separately.
 
 ```sh
-python -m scripts.evaluate_retrieval "$LOGISTIC_NOTES_ROOT" \
-  --dataset evaluations/logistic_regression.json \
-  --embedding-model text-embedding-3-small --answer-model gpt-6-luna
+notes_root=/path/to/logistic-regression-notes
+labels=evaluations/logistic_regression.json
+python -m scripts.evaluate_retrieval "$notes_root" \
+  --dataset "$labels" --embedding-model text-embedding-3-small
 ```
 
-The answer evaluator includes retrieved note excerpts in its JSON output for inspection. Repository reports store excerpt hashes and lengths instead of source text.
+For network flow, use its notes directory and `evaluations/network_flow.json`. Append `--benchmark --repeats 1` for the paired cache run or `--answer-model gpt-6-luna` for generated answers. The answer evaluator includes excerpts in its output. The committed reports retain excerpt hashes and lengths.

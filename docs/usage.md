@@ -26,13 +26,19 @@ Re-run `ingest` to update a note. After a rename, ingest the new path and delete
 
 ## Search and answer
 
-Search compares BM25, FAISS, and combined rankings and prints source paths, headings, and chunk IDs. Both search and answering use local token-hash vectors by default. Each invocation of `search` or `ask`, or request to `POST /answer`, rebuilds the search indexes from the current corpus.
+Search prints keyword, vector, and combined rankings with source paths, headings, and chunk IDs. The default token-hash vectors run locally.
 
-For semantic embeddings, set `OPENAI_API_KEY` and pass `--openai-model text-embedding-3-small` to `search` or `--embedding-model text-embedding-3-small` to `ask`. The API equivalent is `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL`. With SQLite, document embeddings are cached automatically in the same database. Searches send the query and any chunks missing from the cache to OpenAI. Cache identity includes the embedding model, provider configuration, and exact input text with filename stems and headings. AWS storage currently sends all active chunks on each search.
+For semantic search, set `OPENAI_API_KEY` and choose an embedding model such as `text-embedding-3-small`. The setting depends on the entry point.
 
-Editing a note preserves cached embeddings for unchanged sections. Removing a note also removes its cached vectors. Switching embedding models builds a separate cache. Query embeddings are computed for each request. Existing SQLite databases gain the cache table automatically.
+| Entry point | Embedding model setting |
+| --- | --- |
+| `search` | `--openai-model MODEL` |
+| `ask` | `--embedding-model MODEL` (use `--openai-model` for the answer model) |
+| FastAPI | `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL` |
 
-Answer generation uses the OpenAI Responses API with Structured Outputs. It sends the question and selected excerpts with their paths and headings. The result includes an answer and citations with source paths, headings, and chunk IDs. Excavate checks that each cited ID was supplied to the model. Review the cited text to verify that it supports the claims. An `insufficient_evidence` result has a null answer and an empty citations list. [OpenAI Structured Outputs documentation](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)
+With managed embeddings, SQLite sends the query and any uncached sections to the provider. AWS sends the query and all active sections on each search.
+
+Answer generation sends the question and retrieved excerpts, including paths and headings, to OpenAI. Citations point back to those sections so you can check the answer. An `insufficient_evidence` result has a null answer and no citations.
 
 ## Use the local API
 

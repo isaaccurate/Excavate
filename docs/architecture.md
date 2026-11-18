@@ -12,11 +12,7 @@ Local storage uses SQLAlchemy and SQLite. Each row holds a note's path, content 
 
 Each search loads a snapshot of the indexed notes. BM25 ranks matches in note titles, headings, and body text using SQLite FTS5. FAISS searches vectors, and reciprocal rank fusion combines the two rankings.
 
-Both searches and citation lookup use the same snapshot. SQLite persists document embeddings in the existing database, keyed by chunk identity, provider/model configuration, and the digest of the exact embedding input. The built-in providers identify their cache configuration explicitly. Other providers can continue without caching. FAISS and BM25 indexes are rebuilt for each request, and query embeddings are computed each time.
-
-Cache publication takes a SQLite write lock, checks the stored document against the snapshot, and saves vectors only for matching documents. Updates discard superseded chunk vectors, and deletion erases the note's cache rows in the same transaction. In-flight requests keep their original snapshot. Later requests read current membership. Concurrent cache misses may duplicate provider work, but cannot republish vectors for a deleted or changed note.
-
-Local token-hash embeddings are the default for testing, with an optional managed embedding provider. AWS storage does not yet implement the embedding cache.
+Citation lookup uses the same snapshot as retrieval. Each request rebuilds both indexes and embeds the query. SQLite reuses document embeddings across requests and processes. AWS recomputes them for each request.
 
 ## Generate answers
 

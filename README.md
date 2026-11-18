@@ -29,10 +29,26 @@ Set `OPENAI_API_KEY` in your environment, then run:
 knowledge-assistant ask --openai-model gpt-6-luna "What does the project cover?"
 ```
 
-Excavate sends the question and selected note excerpts to OpenAI. If the excerpts don't contain enough evidence, it can return `insufficient_evidence`. See the [usage guide](docs/usage.md) for the FastAPI server, optional semantic embeddings, and note storage details.
+Excavate sends the question and selected note excerpts to OpenAI. If the excerpts don't contain enough evidence, it can return `insufficient_evidence`.
 
-## Deployment
+## Repository structure
 
-Excavate runs on AWS Lambda with IAM authentication and stores indexed notes in S3 and DynamoDB. [Deployment guide](deploy/README.md)
+```text
+Excavate/
+├── knowledge_assistant/
+│   ├── cli.py               # Command-line entry point
+│   ├── api.py               # FastAPI routes
+│   ├── ingestion.py         # Markdown parsing and section IDs
+│   ├── hybrid.py            # Combined keyword and vector search
+│   └── answer_service.py    # Retrieval and answer generation
+├── scripts/
+│   └── evaluate_retrieval.py
+├── evaluations/             # Labeled question sets
+│   └── results/             # Retrieval, cache, and answer reports
+├── tests/                   # Automated tests
+├── docs/                    # Usage, design, and testing guides
+├── deploy/                  # Docker and AWS templates
+└── pyproject.toml           # Dependencies and project settings
+```
 
-See [architecture](docs/architecture.md) for the retrieval and storage design, and [testing](docs/testing.md) for local checks and AWS smoke test results.
+[Usage](docs/usage.md) · [Architecture](docs/architecture.md) · [Design decisions](docs/decisions.md) · [Testing and benchmarks](docs/testing.md) · [Next steps](docs/progress.md) · [Deployment](deploy/README.md)

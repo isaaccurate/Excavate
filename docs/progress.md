@@ -1,24 +1,12 @@
-# Progress
+# Project status
 
-## Working today
-
-- Index selected Markdown files, preserve their headings, and update or remove indexed notes through the CLI.
-- Search with BM25, FAISS, and combined rankings. Local test embeddings work without credentials.
-- Answer through the CLI or FastAPI with citations to retrieved notes and sections.
-- Store notes locally in SQLite or in AWS using S3 and DynamoDB.
-- Run the API on Lambda with IAM authentication, keep deleted notes recoverable for seven days, and clean up expired content hourly.
-
-Local tests cover ingestion, retrieval, answering, and storage failures. AWS smoke tests verified note recovery, scheduled cleanup, and a six-question cloud answer check. The 44-question local generation run passed all eight abstention cases, with two answers still marked partial after user review of the initially flagged responses. See [testing](testing.md) for the recorded results.
+Excavate supports local and AWS storage, hybrid search, and answers with section citations. SQLite caches document embeddings across requests. The [evaluation results](testing.md) cover local retrieval, cache performance, answer quality, and a six-request AWS smoke test.
 
 ## Next work
 
-- Extend embedding caching to AWS with version tracking and retention. SQLite now persists document embeddings across requests and processes. Indexes still rebuild for each request.
-- Expand the reviewed evaluation with a holdout set. The 44-question real-embedding baseline and reviewed label corrections are recorded in testing.
-- Find and remove S3 uploads left behind when publishing their DynamoDB records fails.
-- Evaluate managed vector search and check that it preserves retrieval results and citations.
+- Cache document embeddings in AWS and measure repeated requests against the deployed baseline.
+- Split long sections so answer generation can use evidence beyond the current excerpt limit. The network-flow proof in `nf-012` is a regression case.
+- Add held-out questions to test how well retrieval and answering generalize.
+- Reconcile S3 uploads left behind when DynamoDB publication fails.
 
-## Deferred
-
-The note-link experiments found no improvement from the tested expansion rule, so link expansion remains outside production retrieval. The results are in [testing](testing.md#note-link-pilot).
-
-Full Markdown parsing, splitting long sections, and automatic note synchronization remain future work. The current parser supports ATX headings and fenced code blocks.
+Managed vector search and automatic note synchronization remain deferred. The tested note-link expansion rule did not improve retrieval.

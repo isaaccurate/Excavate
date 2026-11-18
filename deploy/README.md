@@ -2,9 +2,11 @@
 
 This stack uses an existing private, unversioned S3 bucket and DynamoDB table. It runs FastAPI behind an IAM-authenticated Lambda Function URL and runs retention cleanup in a separate Lambda. Both functions use the same Linux image and separate execution roles. The stack does not own the note bucket or table.
 
+For CLI ingestion and storage settings, see the [usage guide](../docs/usage.md#manage-notes-in-aws).
+
 ## Build the image
 
-Set `DOCUMENT_BUCKET` to the full existing bucket name and `DOCUMENT_TABLE` to the table name. Sign in with `aws login --profile excavate` and confirm the AWS project has sufficient credits in AWS Settings → Billing.
+Set `DOCUMENT_BUCKET` to the full existing bucket name and `DOCUMENT_TABLE` to the table name. Sign in with `aws login --profile excavate` using your deployment profile.
 
 ```sh
 export AWS_PROFILE=excavate AWS_DEFAULT_REGION=us-east-2
@@ -59,6 +61,6 @@ aws cloudformation describe-stacks --stack-name excavate-smoke-app \
 
 Use a SigV4-signed request for `GET /health`. A signed request should return 200, and an unsigned request should return 403. With synthetic notes in the test table, invoke the cleanup function and confirm it removes only expired records and their tracked objects. Once verified, repeat the deploy command with `ScheduleState=ENABLED`.
 
-For live answers, create a Secrets Manager secret in Ohio whose secret string is the OpenAI API key. Redeploy with `OpenAISecretArn` and `OpenAIModel` together. The API reads only the configured secret. Set the stack parameter `EmbeddingModel=text-embedding-3-small` to use semantic retrieval. A blank value uses local token-hash embeddings. AWS document embeddings are still recomputed per request. Test `POST /answer` with synthetic evidence before migrating real notes. Ingestion and restore continue to run through the CLI.
+For live answers, create a Secrets Manager secret in the stack’s region whose secret string is the OpenAI API key. Redeploy with `OpenAISecretArn` and `OpenAIModel` together. The API reads only the configured secret. Set the stack parameter `EmbeddingModel=text-embedding-3-small` to use semantic retrieval. A blank value uses local token-hash embeddings. AWS document embeddings are still recomputed per request. Test `POST /answer` with synthetic evidence before migrating real notes. Ingestion and restore continue to run through the CLI.
 
 Deploying can use Free Tier credits or incur usage charges depending on the AWS project plan. The hourly schedule and retained ECR image persist between tests. Check AWS Settings → Billing for remaining credits. Separate OpenAI usage applies when live answers are enabled.
