@@ -8,7 +8,7 @@
 - Store notes locally in SQLite or in AWS using S3 and DynamoDB.
 - Run the API on Lambda with IAM authentication, keep deleted notes recoverable for seven days, and clean up expired content hourly.
 
-Local tests cover ingestion, retrieval, answering, and storage failures. AWS smoke tests verified note recovery, scheduled cleanup, and one live model answer with the expected citation. See [testing](testing.md) for the recorded results.
+Local tests cover ingestion, retrieval, answering, and storage failures. AWS smoke tests verified note recovery, scheduled cleanup, and a six-question cloud answer check. The 44-question local generation run passed all eight abstention cases, with two answers still marked partial after user review of the initially flagged responses. See [testing](testing.md) for the recorded results.
 
 ## Next work
 

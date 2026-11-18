@@ -1,0 +1,2519 @@
+{
+  "dataset": "Network flow course-note evaluation",
+  "dataset_sha256": "fa32c486b594b233a6625ffa6ef8c0695f89ce3d3f0298f2f0e344ea937e1b7d",
+  "embedding_model": "text-embedding-3-small",
+  "generation_model": "gpt-6-luna",
+  "corpus": [
+    {
+      "path": "MaxFlow.md",
+      "digest": "e2b2e3b98ccbf0c385d13ebbfd3d2d57c4a8583e09ecb3eb2f920475af0e158d",
+      "chunks": 5
+    },
+    {
+      "path": "MinCut.md",
+      "digest": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+      "chunks": 1
+    },
+    {
+      "path": "Network Flow.md",
+      "digest": "9671bffded15e6355a68004daa0e1af4bf743a421dfff886b6738f224be2be30",
+      "chunks": 3
+    }
+  ],
+  "usage": [
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 2460,
+        "total_tokens": 2460
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2250,
+        "input_tokens_details": {
+          "cache_write_tokens": 2247,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2247
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 102,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2352
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1530,
+        "input_tokens_details": {
+          "cache_write_tokens": 1527,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1527
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 110,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1640
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2153,
+        "input_tokens_details": {
+          "cache_write_tokens": 2150,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2150
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 169,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2322
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2268,
+        "input_tokens_details": {
+          "cache_write_tokens": 2265,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2265
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 97,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2365
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2159,
+        "input_tokens_details": {
+          "cache_write_tokens": 2156,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2156
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 79,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2238
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2003,
+        "input_tokens_details": {
+          "cache_write_tokens": 2000,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2000
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 76,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2079
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1874,
+        "input_tokens_details": {
+          "cache_write_tokens": 1871,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1871
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 123,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1997
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1876,
+        "input_tokens_details": {
+          "cache_write_tokens": 1873,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1873
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 75,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1951
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 21,
+        "total_tokens": 21
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2171,
+        "input_tokens_details": {
+          "cache_write_tokens": 2168,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2168
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 131,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2302
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2203,
+        "input_tokens_details": {
+          "cache_write_tokens": 2200,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2200
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 223,
+        "output_tokens_details": {
+          "reasoning_tokens": 63
+        },
+        "total_tokens": 2426
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 21,
+        "total_tokens": 21
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2017,
+        "input_tokens_details": {
+          "cache_write_tokens": 2014,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2014
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 125,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2142
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 14,
+        "total_tokens": 14
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2021,
+        "input_tokens_details": {
+          "cache_write_tokens": 2018,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2018
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 352,
+        "output_tokens_details": {
+          "reasoning_tokens": 182
+        },
+        "total_tokens": 2373
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 10,
+        "total_tokens": 10
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2017,
+        "input_tokens_details": {
+          "cache_write_tokens": 2014,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2014
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 91,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2108
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 27,
+        "total_tokens": 27
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2129,
+        "input_tokens_details": {
+          "cache_write_tokens": 2126,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2126
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2229
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1899,
+        "input_tokens_details": {
+          "cache_write_tokens": 1896,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1896
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 105,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2004
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 31,
+        "total_tokens": 31
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1928,
+        "input_tokens_details": {
+          "cache_write_tokens": 1925,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1925
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 133,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2061
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2118,
+        "input_tokens_details": {
+          "cache_write_tokens": 2115,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2115
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 68,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 2186
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1908,
+        "input_tokens_details": {
+          "cache_write_tokens": 1905,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1905
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 60,
+        "output_tokens_details": {
+          "reasoning_tokens": 33
+        },
+        "total_tokens": 1968
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 14,
+        "total_tokens": 14
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1862,
+        "input_tokens_details": {
+          "cache_write_tokens": 1859,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1859
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 45,
+        "output_tokens_details": {
+          "reasoning_tokens": 18
+        },
+        "total_tokens": 1907
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 19
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1944,
+        "input_tokens_details": {
+          "cache_write_tokens": 1941,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1941
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 45,
+        "output_tokens_details": {
+          "reasoning_tokens": 18
+        },
+        "total_tokens": 1989
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1857,
+        "input_tokens_details": {
+          "cache_write_tokens": 1854,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1854
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 77,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1934
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1945,
+        "input_tokens_details": {
+          "cache_write_tokens": 1942,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1942
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 71,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2016
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1752,
+        "input_tokens_details": {
+          "cache_write_tokens": 1749,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1749
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 25,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1777
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 2307,
+        "input_tokens_details": {
+          "cache_write_tokens": 2304,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 2304
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 58,
+        "output_tokens_details": {
+          "reasoning_tokens": 31
+        },
+        "total_tokens": 2365
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "nf-001",
+      "question": "What constraints must a valid flow satisfy?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.668239916907623,
+      "evidence": [
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "A valid s–t flow must assign each edge a nonnegative amount no greater than its capacity, and flow must be conserved at every vertex other than the source and sink: total incoming flow equals total outgoing flow.",
+        "citations": [
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-002",
+      "question": "How is the value of a flow defined?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.692585584009066,
+      "evidence": [
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The value of a flow is the total flow on edges leaving the source: \\(v(f)=\\sum_{e\\text{ out of }s} f(e)\\). By flow conservation, this is also the net flow entering the sink.",
+        "citations": [
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-003",
+      "question": "What is a residual network?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.604031957918778,
+      "evidence": [
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "A residual network is a graph with the same vertices, source, and sink as the original flow network. For each original edge, it includes a forward edge with capacity equal to the unused capacity, if positive, and a backward edge with capacity equal to the current flow, if positive. These edges represent how much flow can be added or undone, allowing flow to be rerouted.",
+        "citations": [
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          },
+          {
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-004",
+      "question": "What capacities do the forward and backward residual edges have?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.232302124844864,
+      "evidence": [
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "For an original edge with capacity c(e) and flow f(e), the forward residual edge has capacity c(e) − f(e), and the backward residual edge has capacity f(e).",
+        "citations": [
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "partial",
+        "note": "Gives both residual capacity formulas, but omits that only positive-capacity residual edges are included.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true,
+        "reviewer": "user"
+      },
+      "initial_assistant_review": {
+        "outcome": "partial",
+        "note": "Gives both residual capacity formulas, but omits that only positive-capacity residual edges are included.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "id": "nf-005",
+      "question": "Why does a residual graph include backward edges?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.760313250124454,
+      "evidence": [
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Backward edges let the algorithm undo some previously assigned flow, so it can reroute flow and potentially find a larger total flow.",
+        "citations": [
+          {
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-006",
+      "question": "When does a forward residual edge disappear?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.750636624870822,
+      "evidence": [
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "A forward residual edge disappears when the corresponding original edge is saturated—that is, when its flow equals its capacity.",
+        "citations": [
+          {
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-007",
+      "question": "What are the steps of Ford–Fulkerson?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.842241042060778,
+      "evidence": [
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Initialize every edge’s flow to 0 and set the residual graph to the original graph. While there is an s-to-t path in the residual graph, find its bottleneck capacity, augment flow along the path (adding on forward edges and subtracting on backward edges), then update the residual graph. Stop when no such path remains.",
+        "citations": [
+          {
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-008",
+      "question": "How much additional flow can we send along an augmenting path?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.13934608292766,
+      "evidence": [
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The additional flow is the path’s bottleneck capacity: the minimum residual capacity among its edges.",
+        "citations": [
+          {
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-009",
+      "question": "An edge has capacity 10 and currently carries flow 6. What changes can its residual edges permit?",
+      "expected_answerable": true,
+      "elapsed_seconds": 10.292174458969384,
+      "evidence": [
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The forward residual edge permits adding up to 4 units of flow (10 − 6), and the backward residual edge permits removing or rerouting up to 6 units of existing flow.",
+        "citations": [
+          {
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ]
+          },
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-010",
+      "question": "Why does augmenting a path preserve flow conservation at intermediate vertices?",
+      "expected_answerable": true,
+      "elapsed_seconds": 10.011467792093754,
+      "evidence": [
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The augmentation sends the same bottleneck amount along every edge of the path. At each intermediate vertex, that amount arrives on one path edge and leaves on the next, so the net change in flow there is zero. This also holds when residual edges are backward edges, because their updates subtract flow on the corresponding original edges.",
+        "citations": [
+          {
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ]
+          },
+          {
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-011",
+      "question": "When does Ford–Fulkerson stop, and how can we construct a minimum cut at that point?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.2413682078477,
+      "evidence": [
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Ford–Fulkerson stops when there is no path from s to t in the residual graph. At that point, let S be the vertices reachable from s in the residual graph and let T = V \\ S. Since t is not reachable, (S,T) is an s–t cut; it is a minimum cut.",
+        "citations": [
+          {
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-012",
+      "question": "Why does the absence of an augmenting path certify a maximum flow?",
+      "expected_answerable": true,
+      "elapsed_seconds": 17.303743500029668,
+      "evidence": [
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "With no augmenting path, let S be the vertices reachable from s in the residual graph and T the rest. Then t is in T, and every original edge from S to T is saturated. This gives an s–t cut whose capacity equals the flow value; since any cut capacity is an upper bound on flow, the flow is maximum.",
+        "citations": [
+          {
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ]
+          },
+          {
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "partial",
+        "note": "Gives residual reachability, saturation and flow/cut equality, but omits zero flow on original T-to-S edges. The supplied correctness excerpt ends before that part of the proof.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true,
+        "reviewer": "user"
+      },
+      "initial_assistant_review": {
+        "outcome": "partial",
+        "note": "Gives residual reachability, saturation and flow/cut equality, but omits zero flow on original T-to-S edges. The supplied correctness excerpt ends before that part of the proof.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "id": "nf-013",
+      "question": "What does the max-flow min-cut theorem say?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.47777408384718,
+      "evidence": [
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The max-flow min-cut theorem says that the value of the maximum flow from source s to sink t equals the capacity of the minimum s–t cut.",
+        "citations": [
+          {
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-014",
+      "question": "Why can Ford–Fulkerson take at most C augmentations for integer capacities, where C is the total capacity leaving the source?",
+      "expected_answerable": true,
+      "elapsed_seconds": 9.521663165884092,
+      "evidence": [
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "With integer capacities, each augmenting path increases the flow value by at least 1. The flow value cannot exceed the sum of capacities on edges leaving the source, C, so there can be at most C augmentations.",
+        "citations": [
+          {
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-015",
+      "question": "Why is the O(mC) runtime bound potentially exponential in the input length?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.09459004108794,
+      "evidence": [
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        },
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The bound can be exponential in the input length because the runtime is proportional to the capacity sum C, while capacities are encoded in binary using only O(log C) bits. Thus C can be exponentially larger than the number of bits used to represent it.",
+        "citations": [
+          {
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-016",
+      "question": "I want the greatest amount of traffic a network can carry, while someone else wants the cheapest capacity cut that disconnects it. How are these objectives related?",
+      "expected_answerable": true,
+      "elapsed_seconds": 9.22632550005801,
+      "evidence": [
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "They are equal by the max-flow–min-cut theorem: the greatest possible flow from s to t has the same value as the cheapest-capacity s–t cut that disconnects them.",
+        "citations": [
+          {
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ]
+          },
+          {
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "path": "MinCut.md",
+            "heading": []
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-017",
+      "question": "What is the Edmonds–Karp algorithm, and what is its runtime?",
+      "expected_answerable": false,
+      "elapsed_seconds": 8.160538125084713,
+      "evidence": [
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-018",
+      "question": "How do we solve a minimum-cost maximum-flow problem?",
+      "expected_answerable": false,
+      "elapsed_seconds": 7.9309141668491066,
+      "evidence": [
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-019",
+      "question": "What is the numerical maximum flow in the diagram showing Paul and Jerry?",
+      "expected_answerable": false,
+      "elapsed_seconds": 6.46120270784013,
+      "evidence": [
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-020",
+      "question": "Which Python library should I use to compute a minimum cut, and how do I call it?",
+      "expected_answerable": false,
+      "elapsed_seconds": 6.4973949999548495,
+      "evidence": [
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        },
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-021",
+      "question": "What historical problem motivated the maximum-flow problem?",
+      "expected_answerable": true,
+      "elapsed_seconds": 10.274899082956836,
+      "evidence": [
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The maximum-flow problem was motivated by maximizing rail transportation flow for the Soviet Union.",
+        "citations": [
+          {
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+            "path": "MaxFlow.md",
+            "heading": []
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-022",
+      "question": "What historical problem motivated the minimum-cut problem?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.8397177080623806,
+      "evidence": [
+        {
+          "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+          "path": "MinCut.md",
+          "heading": [],
+          "text_sha256": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+          "text_characters": 249
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The minimum-cut problem was motivated by Cold War efforts to cripple Soviet supply routes.",
+        "citations": [
+          {
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182",
+            "path": "MinCut.md",
+            "heading": []
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-023",
+      "question": "What engine does the Ford Raptor use?",
+      "expected_answerable": false,
+      "elapsed_seconds": 7.932513207895681,
+      "evidence": [
+        {
+          "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ],
+          "text_sha256": "5e743583047d8d53e1c857a20f609921f0ee84f2369b93388fbc3f4e24d76737",
+          "text_characters": 557
+        },
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        },
+        {
+          "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ],
+          "text_sha256": "8acfa56e3a80019f050cd23bd2f8268f0f3d70e554f7893d30624b2b84528c54",
+          "text_characters": 677
+        },
+        {
+          "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302",
+          "path": "MaxFlow.md",
+          "heading": [],
+          "text_sha256": "ec0a57f5f94d0f6cf2d5b48afda83cc5b79f4a6717077139638b3268a30b4d98",
+          "text_characters": 154
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "nf-024",
+      "question": "Who are Tom and Jerry, and why does Tom chase Jerry?",
+      "expected_answerable": false,
+      "elapsed_seconds": 6.309592666104436,
+      "evidence": [
+        {
+          "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e",
+          "path": "Network Flow.md",
+          "heading": [],
+          "text_sha256": "9e9c290f7f6e34fc90b6fff51029049c40c0b233be26382b76a2c444fcbcc78f",
+          "text_characters": 383
+        },
+        {
+          "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ],
+          "text_sha256": "2ed56dc3e55788529db40ff3272a250aaef18747785af301cfa11dee18f35fc3",
+          "text_characters": 647
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ],
+          "text_sha256": "17c7dcb424cc51e5945b62efe9b693ed86442474a43a632bde6954bfbd69f410",
+          "text_characters": 915
+        },
+        {
+          "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ],
+          "text_sha256": "1c515325bb4970a7b5b2c4829fa797c5a289d2fa0eccf94dcacfdee2359bd773",
+          "text_characters": 1283
+        },
+        {
+          "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ],
+          "text_sha256": "537b6e3fe171b51a9a6661a77aba5f49f0e400f8d1aac3685267a61386c90531",
+          "text_characters": 2000
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    }
+  ],
+  "evaluation_date": "2026-11-18",
+  "reviewer": "user"
+}

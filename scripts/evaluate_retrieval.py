@@ -351,10 +351,38 @@ def main() -> None:
         action="store_true",
         help="Benchmark the labeled corpus with real embeddings.",
     )
+    parser.add_argument(
+        "--answer-model",
+        help="Generate answers for reviewed questions using this model.",
+    )
     parser.add_argument("--synthetic", action="store_true")
     parser.add_argument("--repeats", type=int, default=10)
     parser.add_argument("--worker", nargs=2, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.answer_model:
+        if (
+            not args.dataset
+            or not args.root
+            or not args.embedding_model
+            or args.benchmark
+            or args.synthetic
+            or args.rescore
+            or args.worker
+        ):
+            parser.error(
+                "--answer-model requires a root, --dataset and --embedding-model"
+            )
+        from scripts.evaluate_labeled import evaluate_answers
+
+        print(
+            json.dumps(
+                evaluate_answers(
+                    args.dataset, args.root, args.embedding_model, args.answer_model
+                ),
+                indent=2,
+            )
+        )
+        return
     if args.benchmark:
         if (
             not args.dataset

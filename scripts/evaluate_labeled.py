@@ -348,3 +348,82 @@ def benchmark_labeled(dataset_path: Path, root: Path, model: str, repeats: int) 
             "samples": samples,
             "methodology": "Paired requests in alternating order, reopened SQLite stores, shared HTTP connection pool, populated persistent cache. Excludes imports, ingestion and generation. Cold sample is cache population, not process startup.",
         }
+
+
+def evaluate_answers(
+    dataset_path: Path, root: Path, embedding_model: str, model: str
+) -> dict:
+    """Run the production answering flow and retain evidence for source review."""
+    from knowledge_assistant.answering import GenerationError, answer_question
+    from knowledge_assistant.generation import OpenAIGeneration
+
+    dataset = json.loads(dataset_path.read_text())
+    if dataset["status"] != "human_reviewed":
+        raise ValueError("dataset must be human reviewed")
+
+    class CapturedGeneration(OpenAIGeneration):
+        def generate(self, *, instructions, input_text):
+            self.evidence = json.loads(input_text)["passages"]
+            return super().generate(instructions=instructions, input_text=input_text)
+
+    usage = []
+
+    def observe(response):
+        response.read()
+        if response.is_success:
+            usage.append(
+                {
+                    "endpoint": response.request.url.path,
+                    "usage": response.json().get("usage", {}),
+                }
+            )
+
+    with (
+        TemporaryDirectory() as directory,
+        httpx.Client(event_hooks={"response": [observe]}) as client,
+    ):
+        store = SQLiteDocumentStore(Path(directory) / "answers.sqlite3")
+        try:
+            for path in dataset["corpus"]["paths"]:
+                ingest_note(root, path, store)
+            documents = store.list_documents()
+            embeddings = OpenAIEmbeddings(
+                client, api_key=os.environ["OPENAI_API_KEY"], model=embedding_model
+            )
+            generation = CapturedGeneration(
+                client, api_key=os.environ["OPENAI_API_KEY"], model=model
+            )
+            results = []
+            for question in dataset["questions"]:
+                generation.evidence = []
+                started = perf_counter()
+                try:
+                    search = HybridSearch(store, embeddings)
+                    answer = answer_question(question["question"], search, generation)
+                    result = {"result": answer.model_dump(mode="json"), "error": None}
+                except GenerationError as error:
+                    result = {"result": None, "error": str(error)}
+                results.append(
+                    {
+                        "id": question["id"],
+                        "question": question["question"],
+                        "expected_answerable": question["answerable"],
+                        "elapsed_seconds": perf_counter() - started,
+                        "evidence": generation.evidence,
+                        **result,
+                    }
+                )
+            return {
+                "dataset": dataset["name"],
+                "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),
+                "embedding_model": embedding_model,
+                "generation_model": model,
+                "corpus": [
+                    {"path": d.path, "digest": d.digest, "chunks": len(d.chunks)}
+                    for d in documents
+                ],
+                "usage": usage,
+                "results": results,
+            }
+        finally:
+            store.engine.dispose()

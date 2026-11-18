@@ -14,7 +14,7 @@ python -m pip check
 
 ## Verified checks
 
-On November 18, 2026, all 88 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Coverage includes safe file selection, heading preservation, note updates, cache reuse and invalidation, concurrent writes, citation validation, provider failures, and AWS note recovery and cleanup.
+On November 18, 2026, all 89 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Coverage includes safe file selection, heading preservation, note updates, cache reuse and invalidation, concurrent writes, citation validation, provider failures, and AWS note recovery and cleanup.
 
 Live AWS smoke tests verified note updates, delete and restore, scheduled cleanup, and IAM-protected API access. One live answer returned the expected source citation. Temporary test notes were removed afterward.
 
@@ -30,7 +30,7 @@ The evaluation uses 44 hand-written questions and real `text-embedding-3-small` 
 
 Scores cover the 36 answerable questions. Recall measures the fraction of required evidence groups retrieved, averaged across questions. A group can accept alternative supporting sections. MRR@5 measures the reciprocal rank of the first relevant section, averaged across questions.
 
-The eight unanswerable questions have saved rankings. Answer quality and abstention evaluation are pending. Original labels, original reports, and revised scores remain available in `evaluations/revisions/` and `evaluations/results/` for audit.
+The eight unanswerable questions have saved rankings and were also tested through generation, as recorded below. Original labels, original reports, and revised scores remain available in `evaluations/revisions/` and `evaluations/results/` for audit.
 
 With `OPENAI_API_KEY` set, run each dataset against its selected note directory. The commands send note sections and questions to OpenAI.
 
@@ -79,3 +79,27 @@ python -m scripts.evaluate_retrieval "$FLOW_NOTES_ROOT" \
 ```
 
 Per-request timings, calls, tokens, and ranking IDs are saved in `evaluations/results/*_cache_benchmark.json`.
+
+## Generated answers and cloud checks
+
+On November 18, 2026, all 44 questions were run through the production answering flow locally, using `text-embedding-3-small` and `gpt-6-luna`. The model received the question and bounded retrieved evidence. Expected answers and required-fact labels were kept out of its input.
+
+- All 36 answerable questions returned answers with valid citation IDs.
+- All eight unanswerable questions returned `insufficient_evidence`, with null answers and no citations.
+- User review judged 34 of the 36 answerable responses acceptable and two partial. All eight unanswerable responses correctly abstained.
+
+The remaining partial answers are `nf-004` (positive residual-capacity condition) and `nf-012` (zero reverse-cut flow condition). The user accepted `lr-002`, `lr-008`, and `lr-019` at their generated level of detail. Original assistant judgments for those responses remain in the reports. For `nf-012`, the supplied proof excerpt ends before that condition because of the 2,000-character cutoff. Finding a passage does not ensure the full relevant text reaches generation.
+
+The cloud embedding model was then configured to match. Six signed answer requests covered four answerable and two unanswerable questions across the two corpora. All returned HTTP 200, matched local answer/abstention status, and cited IDs within the expected evidence. Generated wording varied. Signed health returned 200 and unsigned health returned 403. Each selected corpus was temporarily indexed and purged afterward, with empty note storage verified after each test.
+
+Answer reports and the cloud smoke results are in `evaluations/results/*_answers.json` and `cloud_answers_smoke.json`. Answer judgments are recorded as user-reviewed. Broader answer-quality conclusions need a holdout set.
+
+Reproduce the local run for either selected dataset with `OPENAI_API_KEY` set:
+
+```sh
+python -m scripts.evaluate_retrieval "$LOGISTIC_NOTES_ROOT" \
+  --dataset evaluations/logistic_regression.json \
+  --embedding-model text-embedding-3-small --answer-model gpt-6-luna
+```
+
+The answer evaluator includes retrieved note excerpts in its JSON output for inspection. Repository reports store excerpt hashes and lengths instead of source text.

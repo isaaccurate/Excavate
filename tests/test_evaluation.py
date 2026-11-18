@@ -127,3 +127,85 @@ def test_real_embedding_benchmark_counts_cached_provider_work(tmp_path, monkeypa
     assert report["summary"]["enabled"]["document_inputs"] == 0
     assert report["summary"]["enabled"]["query_inputs"] == 2
     assert report["cold_cache_population"][0]["document_inputs"] == 1
+
+
+def test_answer_evaluation_keeps_labels_out_of_generation(tmp_path, monkeypatch):
+    import json
+
+    import httpx
+
+    from scripts.evaluate_labeled import evaluate_answers
+
+    (tmp_path / "note.md").write_text("# Evidence\nThe test code is quartz.")
+    labels = tmp_path / "labels.json"
+    labels.write_text(
+        json.dumps(
+            {
+                "status": "human_reviewed",
+                "name": "Answer test",
+                "corpus": {"paths": ["note.md"]},
+                "questions": [
+                    {
+                        "id": "one",
+                        "question": "What is the code?",
+                        "answerable": True,
+                        "expected_answer": "PRIVATE_GROUND_TRUTH",
+                    },
+                    {
+                        "id": "two",
+                        "question": "Who invented the moon?",
+                        "answerable": False,
+                    },
+                ],
+            }
+        )
+    )
+    real_client = httpx.Client
+
+    def respond(request):
+        body = json.loads(request.content)
+        assert "PRIVATE_GROUND_TRUTH" not in request.content.decode()
+        if request.url.path == "/v1/embeddings":
+            return httpx.Response(
+                200,
+                json={
+                    "data": [
+                        {"index": i, "embedding": [1.0, 0.5]}
+                        for i in range(len(body["input"]))
+                    ]
+                },
+            )
+        payload = json.loads(body["input"])
+        missing = "moon" in payload["question"]
+        answer = {
+            "status": "insufficient_evidence" if missing else "answered",
+            "answer": None if missing else "The test code is quartz.",
+            "citation_ids": [] if missing else [payload["passages"][0]["id"]],
+        }
+        return httpx.Response(
+            200,
+            json={
+                "status": "completed",
+                "output": [
+                    {
+                        "type": "message",
+                        "role": "assistant",
+                        "status": "completed",
+                        "content": [
+                            {"type": "output_text", "text": json.dumps(answer)}
+                        ],
+                    }
+                ],
+            },
+        )
+
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    monkeypatch.setattr(
+        httpx,
+        "Client",
+        lambda **kwargs: real_client(transport=httpx.MockTransport(respond), **kwargs),
+    )
+    report = evaluate_answers(labels, tmp_path, "embedding-test", "generation-test")
+    assert report["results"][0]["result"]["status"] == "answered"
+    assert report["results"][1]["result"]["status"] == "insufficient_evidence"
+    assert report["results"][0]["evidence"][0]["text"] == "The test code is quartz."

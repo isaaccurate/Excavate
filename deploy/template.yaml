@@ -21,6 +21,10 @@ Parameters:
   OpenAIModel:
     Type: String
     Default: ''
+  EmbeddingModel:
+    Type: String
+    Default: ''
+    Description: Optional semantic embedding model. Blank uses local token-hash vectors.
   OpenAISecretArn:
     Type: String
     AllowedPattern: '|arn:[^:]+:secretsmanager:[^:]+:[0-9]{12}:secret:[^ ]+'
@@ -39,6 +43,7 @@ Rules:
         AssertDescription: Supply both OpenAIModel and OpenAISecretArn, or leave both blank.
 Conditions:
   HasModelSecret: !Not [!Equals [!Ref OpenAISecretArn, '']]
+  HasEmbeddingModel: !Not [!Equals [!Ref EmbeddingModel, '']]
 Globals:
   Function:
     Architectures: [x86_64]
@@ -136,7 +141,7 @@ Resources:
     DependsOn: ApiLogs
     Metadata:
       com.aws.cloudformation.Context:
-        why: Runs FastAPI with the native Linux retrieval dependencies.
+        why: Runs FastAPI with configurable semantic retrieval and native Linux dependencies.
         must: [Require signed IAM requests and a read-only storage role.]
     Properties:
       FunctionName: !Sub '${AWS::StackName}-api'
@@ -152,6 +157,10 @@ Resources:
       Environment:
         Variables:
           KNOWLEDGE_ASSISTANT_OPENAI_MODEL: !Ref OpenAIModel
+          KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL: !If
+            - HasEmbeddingModel
+            - !Ref EmbeddingModel
+            - !Ref AWS::NoValue
           KNOWLEDGE_ASSISTANT_OPENAI_SECRET_ARN: !Ref OpenAISecretArn
   CleanupFunction:
     Type: AWS::Serverless::Function

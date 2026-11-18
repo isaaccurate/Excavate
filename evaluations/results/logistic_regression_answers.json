@@ -1,0 +1,2203 @@
+{
+  "dataset": "Logistic regression course-note evaluation",
+  "dataset_sha256": "9ed86acbf6331c1c400c8ba2e281a2cd87c1cb9d751022353e7f1f97a7b9d456",
+  "embedding_model": "text-embedding-3-small",
+  "generation_model": "gpt-6-luna",
+  "corpus": [
+    {
+      "path": "Logistic Regression.md",
+      "digest": "228b3df5c9ceea8c699d3db3fe35e6e47c62265952222699f9e1ac858d403d86",
+      "chunks": 4
+    },
+    {
+      "path": "Loss Function.md",
+      "digest": "4e06ce69afdb85182e529af06651ceefd40c3854ea7989a96e4c39c7a5a21d26",
+      "chunks": 3
+    },
+    {
+      "path": "Optimization Algorithms.md",
+      "digest": "26f9944387dba774959406cfe634765b6995b8fb38a34bfece46517d92b51619",
+      "chunks": 7
+    },
+    {
+      "path": "Regularization.md",
+      "digest": "163a0337242bdbf2c605d5aded8c932d81fd424aa07182f408b3a7d6442841bb",
+      "chunks": 5
+    },
+    {
+      "path": "Scaling Input Features.md",
+      "digest": "89aca67b79508536f3d9a0cb4510320861a59f933c00f07137bc713bcd066f9a",
+      "chunks": 3
+    }
+  ],
+  "usage": [
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 3469,
+        "total_tokens": 3469
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 18,
+        "total_tokens": 18
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1427,
+        "input_tokens_details": {
+          "cache_write_tokens": 1424,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1424
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 135,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1562
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 10,
+        "total_tokens": 10
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1274,
+        "input_tokens_details": {
+          "cache_write_tokens": 1271,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1271
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 127,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1401
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1336,
+        "input_tokens_details": {
+          "cache_write_tokens": 1333,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1333
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 109,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1445
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 12,
+        "total_tokens": 12
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1733,
+        "input_tokens_details": {
+          "cache_write_tokens": 1730,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1730
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 144,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1877
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1501,
+        "input_tokens_details": {
+          "cache_write_tokens": 1498,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1498
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 142,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1643
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 10,
+        "total_tokens": 10
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1333,
+        "input_tokens_details": {
+          "cache_write_tokens": 1330,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1330
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 156,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1489
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1488,
+        "input_tokens_details": {
+          "cache_write_tokens": 1485,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1485
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 93,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1581
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 12,
+        "total_tokens": 12
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1256,
+        "input_tokens_details": {
+          "cache_write_tokens": 1253,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1253
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 128,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1384
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1457,
+        "input_tokens_details": {
+          "cache_write_tokens": 1454,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1454
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 89,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1546
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1496,
+        "input_tokens_details": {
+          "cache_write_tokens": 1493,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1493
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 105,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1601
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 4,
+        "total_tokens": 4
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1572,
+        "input_tokens_details": {
+          "cache_write_tokens": 1569,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1569
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 129,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1701
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1335,
+        "input_tokens_details": {
+          "cache_write_tokens": 1332,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1332
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 102,
+        "output_tokens_details": {
+          "reasoning_tokens": 20
+        },
+        "total_tokens": 1437
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1546,
+        "input_tokens_details": {
+          "cache_write_tokens": 1543,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1543
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 193,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1739
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 17,
+        "total_tokens": 17
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1636,
+        "input_tokens_details": {
+          "cache_write_tokens": 1633,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1633
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1820
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 25,
+        "total_tokens": 25
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1426,
+        "input_tokens_details": {
+          "cache_write_tokens": 1423,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1423
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 89,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1515
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1678,
+        "input_tokens_details": {
+          "cache_write_tokens": 1675,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1675
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 102,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1780
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 18,
+        "total_tokens": 18
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1321,
+        "input_tokens_details": {
+          "cache_write_tokens": 1318,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1318
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 25,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1346
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1338,
+        "input_tokens_details": {
+          "cache_write_tokens": 1335,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1335
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 55,
+        "output_tokens_details": {
+          "reasoning_tokens": 28
+        },
+        "total_tokens": 1393
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 16
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1381,
+        "input_tokens_details": {
+          "cache_write_tokens": 1378,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1378
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 192,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1573
+      }
+    },
+    {
+      "endpoint": "/v1/embeddings",
+      "usage": {
+        "prompt_tokens": 20,
+        "total_tokens": 20
+      }
+    },
+    {
+      "endpoint": "/v1/responses",
+      "usage": {
+        "input_tokens": 1341,
+        "input_tokens_details": {
+          "cache_write_tokens": 1338,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1338
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 312,
+        "output_tokens_details": {
+          "reasoning_tokens": 60
+        },
+        "total_tokens": 1653
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "lr-001",
+      "question": "When modeling a classification task, when would we use multinomial logistic regression compared to binary?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.758189165964723,
+      "evidence": [
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2",
+          "path": "Logistic Regression.md",
+          "heading": [],
+          "text_sha256": "9507ac83ba9c371a8732a7a9f5350a0dbbffc3d836d035d7528194c04f5475d6",
+          "text_characters": 333
+        },
+        {
+          "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient for Logistic Regression"
+          ],
+          "text_sha256": "3a69c4044bdd0dfefe26ce501f50be1611596429f99c53c9011785a4f9ce6117",
+          "text_characters": 426
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Use multinomial logistic regression when the classification task has more than two classes. Use binary logistic regression when there are two classes, with the output representing the probability of one class versus the other.",
+        "citations": [
+          {
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ]
+          },
+          {
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-002",
+      "question": "How is the loss function used in logistic regression?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.958717500092462,
+      "evidence": [
+        {
+          "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+          "path": "Loss Function.md",
+          "heading": [],
+          "text_sha256": "c0aac389df4b6fa129faaffff6bc34b3ea41a3fbdd49dc4093d6f853aa3656f8",
+          "text_characters": 169
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The loss function measures how much the predicted output differs from the true label. Logistic regression uses it to find weights and a bias that minimize the discrepancy between predictions and true labels.",
+        "citations": [
+          {
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+            "path": "Loss Function.md",
+            "heading": []
+          },
+          {
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "accepted",
+        "reviewer": "user",
+        "note": "The user reviewed the exact answer and accepted its level of detail. Additional details in the original required-fact rubric are not required for acceptance of this response.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "partial",
+        "note": "Explains prediction error and minimizing it, but omits average cross-entropy and parameter-update details required by the current rubric.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-003",
+      "question": "Why do we minimize negative log-likelihood instead of maximizing likelihood?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.588092833058909,
+      "evidence": [
+        {
+          "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss"
+          ],
+          "text_sha256": "b8d67932d39ec9320e2fa0f6d46b8e2f2fdaaf6685b796a36f6486f205e4d39f",
+          "text_characters": 220
+        },
+        {
+          "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ],
+          "text_sha256": "2985f071ded4835b948a9ff608f37913eb0581ad622bbc6a03a161bc17f14146",
+          "text_characters": 1116
+        },
+        {
+          "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ],
+          "text_sha256": "e27c1db2b29241747f2998115fb96cc1d50a6828b5839cedff8d57529bc14e45",
+          "text_characters": 669
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        },
+        {
+          "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103",
+          "path": "Optimization Algorithms.md",
+          "heading": [],
+          "text_sha256": "56fbb94cb3e70bb97a8324eb9afd24eaeb481a8e326bf5a431a1e272a1892472",
+          "text_characters": 45
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Maximizing likelihood and maximizing log-likelihood have the same optimum because the logarithm is strictly increasing. We negate the log-likelihood because training is conventionally formulated as a minimization problem; minimizing negative log-likelihood is therefore equivalent to maximizing likelihood.",
+        "citations": [
+          {
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-004",
+      "question": "How does gradient descent decide which direction to change the weights?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.719896208960563,
+      "evidence": [
+        {
+          "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ],
+          "text_sha256": "8052b4fd5b7cca6906d936ee309fa7733c8a5441b9b07317f325247949ef0b23",
+          "text_characters": 782
+        },
+        {
+          "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent"
+          ],
+          "text_sha256": "caafd552ba7aa4a9de03dca646e17519a334b9c6ad23758575fde5115924ae9d",
+          "text_characters": 801
+        },
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Batch vs. Mini-Batch vs. SGD"
+          ],
+          "text_sha256": "c3d64d7498743f23f72c64d86278dfd886e167f98afa9ea6178f80c6cf600760",
+          "text_characters": 526
+        },
+        {
+          "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ],
+          "text_sha256": "70e9a4ed7eb33ac42755321b9bd1a154548e865514411c23a721376e18131273",
+          "text_characters": 807
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "It calculates the gradient of the loss at the current weights. The gradient indicates the direction of steepest increase, so gradient descent changes the weights in the opposite direction to reduce the loss locally; the learning rate controls the step size.",
+        "citations": [
+          {
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ]
+          },
+          {
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-005",
+      "question": "How does regularization change the training objective?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.178658416960388,
+      "evidence": [
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ],
+          "text_sha256": "e27c1db2b29241747f2998115fb96cc1d50a6828b5839cedff8d57529bc14e45",
+          "text_characters": 669
+        },
+        {
+          "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+          "path": "Regularization.md",
+          "heading": [],
+          "text_sha256": "73f9ada4b75cb487a72734faf62d46cf5a1c7ab909cc72ea6a14d6fec98241b5",
+          "text_characters": 218
+        },
+        {
+          "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0",
+          "path": "Regularization.md",
+          "heading": [
+            "L2 Regularization (Ridge)"
+          ],
+          "text_sha256": "db5f76c2f3a423b64d7d79209be55b59f611ef9dfb61f827e08362449e130109",
+          "text_characters": 562
+        },
+        {
+          "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4",
+          "path": "Regularization.md",
+          "heading": [
+            "L1 Regularization (Lasso)"
+          ],
+          "text_sha256": "0e713be675fac37fb6dd2acb109be10ff34fe7d49bfa593b6658b04ae8d25a51",
+          "text_characters": 590
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Regularization adds a penalty term to the data-loss objective: instead of minimizing only the average loss, training minimizes average loss plus a regularization strength times a penalty on the model’s weights. This discourages overly large weights and can reduce overfitting.",
+        "citations": [
+          {
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ]
+          },
+          {
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+            "path": "Regularization.md",
+            "heading": []
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-006",
+      "question": "What is the difference between regularization and gradient descent?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.910725167021155,
+      "evidence": [
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0",
+          "path": "Regularization.md",
+          "heading": [
+            "L2 Regularization (Ridge)"
+          ],
+          "text_sha256": "db5f76c2f3a423b64d7d79209be55b59f611ef9dfb61f827e08362449e130109",
+          "text_characters": 562
+        },
+        {
+          "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Batch vs. Mini-Batch vs. SGD"
+          ],
+          "text_sha256": "c3d64d7498743f23f72c64d86278dfd886e167f98afa9ea6178f80c6cf600760",
+          "text_characters": 526
+        },
+        {
+          "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+          "path": "Loss Function.md",
+          "heading": [],
+          "text_sha256": "c0aac389df4b6fa129faaffff6bc34b3ea41a3fbdd49dc4093d6f853aa3656f8",
+          "text_characters": 169
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Gradient descent is an optimization method that determines how model parameters are updated. Regularization changes the objective being optimized by adding a penalty, such as one that discourages large weights. Regularization can be incorporated into gradient descent, where the penalty adds a term to the parameter update.",
+        "citations": [
+          {
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ]
+          },
+          {
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0",
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-007",
+      "question": "Why might we use mini-batches instead of one example or the entire dataset?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.21478091692552,
+      "evidence": [
+        {
+          "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Batch vs. Mini-Batch vs. SGD"
+          ],
+          "text_sha256": "c3d64d7498743f23f72c64d86278dfd886e167f98afa9ea6178f80c6cf600760",
+          "text_characters": 526
+        },
+        {
+          "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ],
+          "text_sha256": "70e9a4ed7eb33ac42755321b9bd1a154548e865514411c23a721376e18131273",
+          "text_characters": 807
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+          "path": "Scaling Input Features.md",
+          "heading": [],
+          "text_sha256": "195cfe2571f1fcae0fc456f3b8feb4255b3bf4437bb29d327d8e9be6d909fa5b",
+          "text_characters": 127
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Mini-batches balance the stable gradients of using the entire dataset with the computational efficiency of one-example updates, while avoiding the especially noisy updates of single-example SGD.",
+        "citations": [
+          {
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-008",
+      "question": "What does increasing L2 regularization do to the weight updates?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.316133791813627,
+      "evidence": [
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0",
+          "path": "Regularization.md",
+          "heading": [
+            "L2 Regularization (Ridge)"
+          ],
+          "text_sha256": "db5f76c2f3a423b64d7d79209be55b59f611ef9dfb61f827e08362449e130109",
+          "text_characters": 562
+        },
+        {
+          "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103",
+          "path": "Optimization Algorithms.md",
+          "heading": [],
+          "text_sha256": "56fbb94cb3e70bb97a8324eb9afd24eaeb481a8e326bf5a431a1e272a1892472",
+          "text_characters": 45
+        },
+        {
+          "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+          "path": "Scaling Input Features.md",
+          "heading": [],
+          "text_sha256": "195cfe2571f1fcae0fc456f3b8feb4255b3bf4437bb29d327d8e9be6d909fa5b",
+          "text_characters": 127
+        },
+        {
+          "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4",
+          "path": "Regularization.md",
+          "heading": [
+            "L1 Regularization (Lasso)"
+          ],
+          "text_sha256": "0e713be675fac37fb6dd2acb109be10ff34fe7d49bfa593b6658b04ae8d25a51",
+          "text_characters": 590
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Increasing L2 regularization strengthens the weight-decay term in each update, pulling weights more strongly toward zero and generally producing smaller weights.",
+        "citations": [
+          {
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ]
+          },
+          {
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0",
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "accepted",
+        "reviewer": "user",
+        "note": "The user reviewed the exact answer and accepted its level of detail. Additional details in the original required-fact rubric are not required for acceptance of this response.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "partial",
+        "note": "Correctly describes stronger shrinkage, but omits the required 2λw_j gradient term.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-009",
+      "question": "What decision threshold is used for binary logistic regression in these notes?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.527079334016889,
+      "evidence": [
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient for Logistic Regression"
+          ],
+          "text_sha256": "3a69c4044bdd0dfefe26ce501f50be1611596429f99c53c9011785a4f9ce6117",
+          "text_characters": 426
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2",
+          "path": "Logistic Regression.md",
+          "heading": [],
+          "text_sha256": "9507ac83ba9c371a8732a7a9f5350a0dbbffc3d836d035d7528194c04f5475d6",
+          "text_characters": 333
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The decision threshold is 0.5: predict class 1 when P(y=1 | x) > 0.5, and class 0 otherwise.",
+        "citations": [
+          {
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-010",
+      "question": "What is the sigmoid function?",
+      "expected_answerable": true,
+      "elapsed_seconds": 7.078685791930184,
+      "evidence": [
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+          "path": "Loss Function.md",
+          "heading": [],
+          "text_sha256": "c0aac389df4b6fa129faaffff6bc34b3ea41a3fbdd49dc4093d6f853aa3656f8",
+          "text_characters": 169
+        },
+        {
+          "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss"
+          ],
+          "text_sha256": "b8d67932d39ec9320e2fa0f6d46b8e2f2fdaaf6685b796a36f6486f205e4d39f",
+          "text_characters": 220
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ],
+          "text_sha256": "2985f071ded4835b948a9ff608f37913eb0581ad622bbc6a03a161bc17f14146",
+          "text_characters": 1116
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The sigmoid (logistic) function is \\(\\sigma(z)=\\frac{1}{1+e^{-z}}\\). In logistic regression, it maps the model score \\(z\\) to a probability for class 1.",
+        "citations": [
+          {
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-011",
+      "question": "What is softmax?",
+      "expected_answerable": true,
+      "elapsed_seconds": 4.59438162506558,
+      "evidence": [
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ],
+          "text_sha256": "2985f071ded4835b948a9ff608f37913eb0581ad622bbc6a03a161bc17f14146",
+          "text_characters": 1116
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ],
+          "text_sha256": "e27c1db2b29241747f2998115fb96cc1d50a6828b5839cedff8d57529bc14e45",
+          "text_characters": 669
+        },
+        {
+          "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+          "path": "Regularization.md",
+          "heading": [],
+          "text_sha256": "73f9ada4b75cb487a72734faf62d46cf5a1c7ab909cc72ea6a14d6fec98241b5",
+          "text_characters": 218
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Softmax takes a vector of arbitrary values, one per class, and converts it into a probability distribution: each output is between 0 and 1, and the outputs sum to 1. For component i, softmax(zᵢ) = eᶻⁱ / Σⱼ eᶻʲ.",
+        "citations": [
+          {
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-012",
+      "question": "What is the learning rate?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.1284254170022905,
+      "evidence": [
+        {
+          "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ],
+          "text_sha256": "8052b4fd5b7cca6906d936ee309fa7733c8a5441b9b07317f325247949ef0b23",
+          "text_characters": 782
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        },
+        {
+          "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ],
+          "text_sha256": "70e9a4ed7eb33ac42755321b9bd1a154548e865514411c23a721376e18131273",
+          "text_characters": 807
+        },
+        {
+          "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+          "path": "Regularization.md",
+          "heading": [],
+          "text_sha256": "73f9ada4b75cb487a72734faf62d46cf5a1c7ab909cc72ea6a14d6fec98241b5",
+          "text_characters": 218
+        },
+        {
+          "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ],
+          "text_sha256": "e27c1db2b29241747f2998115fb96cc1d50a6828b5839cedff8d57529bc14e45",
+          "text_characters": 669
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The learning rate (η) is a hyperparameter that controls the step size of parameter updates.",
+        "citations": [
+          {
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-013",
+      "question": "What are the steps of stochastic gradient descent, and why might we choose it?",
+      "expected_answerable": true,
+      "elapsed_seconds": 5.548874333035201,
+      "evidence": [
+        {
+          "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ],
+          "text_sha256": "70e9a4ed7eb33ac42755321b9bd1a154548e865514411c23a721376e18131273",
+          "text_characters": 807
+        },
+        {
+          "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Batch vs. Mini-Batch vs. SGD"
+          ],
+          "text_sha256": "c3d64d7498743f23f72c64d86278dfd886e167f98afa9ea6178f80c6cf600760",
+          "text_characters": 526
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ],
+          "text_sha256": "8052b4fd5b7cca6906d936ee309fa7733c8a5441b9b07317f325247949ef0b23",
+          "text_characters": 782
+        },
+        {
+          "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent"
+          ],
+          "text_sha256": "caafd552ba7aa4a9de03dca646e17519a334b9c6ad23758575fde5115924ae9d",
+          "text_characters": 801
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Initialize the parameters, then repeat until the stopping criterion is met: shuffle the training examples; for each example, compute a prediction, optionally compute its loss, calculate the loss gradient, and update the parameters by subtracting the learning-rate-scaled gradient. Return the parameters. We may choose SGD because each update is computationally cheap and frequent updates can make progress quickly. Its updates are noisy, though, so training can be choppy; a decreasing learning rate can help convergence.",
+        "citations": [
+          {
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ]
+          },
+          {
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-014",
+      "question": "Derive the cross-entropy loss for binary logistic regression and give its mathematical formula.",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.81253045797348,
+      "evidence": [
+        {
+          "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ],
+          "text_sha256": "2985f071ded4835b948a9ff608f37913eb0581ad622bbc6a03a161bc17f14146",
+          "text_characters": 1116
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient for Logistic Regression"
+          ],
+          "text_sha256": "3a69c4044bdd0dfefe26ce501f50be1611596429f99c53c9011785a4f9ce6117",
+          "text_characters": 426
+        },
+        {
+          "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss"
+          ],
+          "text_sha256": "b8d67932d39ec9320e2fa0f6d46b8e2f2fdaaf6685b796a36f6486f205e4d39f",
+          "text_characters": 220
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "For a binary label y∈{0,1}, logistic regression predicts p=σ(w·x+b). Under a Bernoulli model, P(y|x)=p^y(1−p)^(1−y). Taking the negative log-likelihood gives the binary cross-entropy loss:\n\nL_CE(p,y)=−[y log p+(1−y) log(1−p)]\n\nEquivalently, substitute p=σ(w·x+b) into this formula. The loss is obtained by negating the log-likelihood so training can be expressed as minimization.",
+        "citations": [
+          {
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-015",
+      "question": "If we increase the bias b while keeping the input and weights fixed, what happens to the predicted probability of class 1?",
+      "expected_answerable": true,
+      "elapsed_seconds": 7.210259957937524,
+      "evidence": [
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+          "path": "Regularization.md",
+          "heading": [],
+          "text_sha256": "73f9ada4b75cb487a72734faf62d46cf5a1c7ab909cc72ea6a14d6fec98241b5",
+          "text_characters": 218
+        },
+        {
+          "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ],
+          "text_sha256": "e27c1db2b29241747f2998115fb96cc1d50a6828b5839cedff8d57529bc14e45",
+          "text_characters": 669
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "The predicted probability of class 1 increases: increasing $b$ raises $z=w\\cdot x+b$, and the sigmoid is increasing in $z$.",
+        "citations": [
+          {
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-016",
+      "question": "Where are we deriving binary cross-entropy loss from?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.170493708923459,
+      "evidence": [
+        {
+          "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ],
+          "text_sha256": "2985f071ded4835b948a9ff608f37913eb0581ad622bbc6a03a161bc17f14146",
+          "text_characters": 1116
+        },
+        {
+          "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147",
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss"
+          ],
+          "text_sha256": "b8d67932d39ec9320e2fa0f6d46b8e2f2fdaaf6685b796a36f6486f205e4d39f",
+          "text_characters": 220
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Binary cross-entropy is derived from the Bernoulli likelihood of the binary label: maximize the probability of the correct label, take its log, then negate the log-likelihood to express training as a minimization problem.",
+        "citations": [
+          {
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-017",
+      "question": "What is an n-gram language model, and what are its advantages over logistic regression?",
+      "expected_answerable": false,
+      "elapsed_seconds": 7.742640832904726,
+      "evidence": [
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2",
+          "path": "Logistic Regression.md",
+          "heading": [],
+          "text_sha256": "9507ac83ba9c371a8732a7a9f5350a0dbbffc3d836d035d7528194c04f5475d6",
+          "text_characters": 333
+        },
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4",
+          "path": "Regularization.md",
+          "heading": [],
+          "text_sha256": "73f9ada4b75cb487a72734faf62d46cf5a1c7ab909cc72ea6a14d6fec98241b5",
+          "text_characters": 218
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-018",
+      "question": "Name a few ways we could transform a text corpus into features for logistic regression.",
+      "expected_answerable": false,
+      "elapsed_seconds": 5.861495708115399,
+      "evidence": [
+        {
+          "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ],
+          "text_sha256": "11cc5bb70c0752709c264d644cfa15583329d1082b97a3c4be5218ddcee979cd",
+          "text_characters": 635
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        },
+        {
+          "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+          "path": "Scaling Input Features.md",
+          "heading": [],
+          "text_sha256": "195cfe2571f1fcae0fc456f3b8feb4255b3bf4437bb29d327d8e9be6d909fa5b",
+          "text_characters": 127
+        },
+        {
+          "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient for Logistic Regression"
+          ],
+          "text_sha256": "3a69c4044bdd0dfefe26ce501f50be1611596429f99c53c9011785a4f9ce6117",
+          "text_characters": 426
+        },
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        }
+      ],
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "error": null,
+      "review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "correct_abstention",
+        "note": "Returns insufficient_evidence with no answer or citations.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-019",
+      "question": "How do we normalize features in a high-dimensional input so their scales are comparable?",
+      "expected_answerable": true,
+      "elapsed_seconds": 6.315227874787524,
+      "evidence": [
+        {
+          "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+          "path": "Scaling Input Features.md",
+          "heading": [],
+          "text_sha256": "195cfe2571f1fcae0fc456f3b8feb4255b3bf4437bb29d327d8e9be6d909fa5b",
+          "text_characters": 127
+        },
+        {
+          "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38",
+          "path": "Scaling Input Features.md",
+          "heading": [
+            "Min-Max Normalization"
+          ],
+          "text_sha256": "a48d2af27312d8cc2ddb3f7f0243077f9d8c80b9324247a7fe57f09a0747ee88",
+          "text_characters": 104
+        },
+        {
+          "id": "0e36314d6553408fd1a2d257e7a06486acf0cf483d0a39e00891269652e2da4c",
+          "path": "Scaling Input Features.md",
+          "heading": [
+            "Z-Score"
+          ],
+          "text_sha256": "04ddee3e2e559313369a044e7bf8d0d7c507cd89d7bd0428aea7e58973585a7e",
+          "text_characters": 353
+        },
+        {
+          "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ],
+          "text_sha256": "c89065bde321f6d2c4d7b94bc8fc43087a003ddc3b3585eab4fabd76be47eb84",
+          "text_characters": 1209
+        },
+        {
+          "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ],
+          "text_sha256": "4636beb9c4e08bb61681fb404db99b3ebfa3f73ccaf8b55cf8ce5e80a05ca6ac",
+          "text_characters": 765
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Normalize each feature separately so its scale is comparable to the others. Two options are min–max scaling, which maps values to [0, 1], or z-score scaling, which subtracts that feature’s mean and divides by its standard deviation, giving it mean 0 and standard deviation 1.",
+        "citations": [
+          {
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+            "path": "Scaling Input Features.md",
+            "heading": []
+          },
+          {
+            "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38",
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Min-Max Normalization"
+            ]
+          },
+          {
+            "id": "0e36314d6553408fd1a2d257e7a06486acf0cf483d0a39e00891269652e2da4c",
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Z-Score"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "accepted",
+        "reviewer": "user",
+        "note": "The user reviewed the exact answer and accepted its level of detail. Additional details in the original required-fact rubric are not required for acceptance of this response.",
+        "citation_membership_valid": true,
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "partial",
+        "note": "Describes per-feature scaling and z-score scaling, but omits the required min-max formula.",
+        "citation_membership_valid": true
+      }
+    },
+    {
+      "id": "lr-020",
+      "question": "What are the general steps for learning logistic regression weights, and how can stochastic gradient descent be used?",
+      "expected_answerable": true,
+      "elapsed_seconds": 8.180534417042509,
+      "evidence": [
+        {
+          "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ],
+          "text_sha256": "73d6e0200196dcb384fd517d45b784672b4a5527b6daddda54a160899e447492",
+          "text_characters": 173
+        },
+        {
+          "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ],
+          "text_sha256": "70e9a4ed7eb33ac42755321b9bd1a154548e865514411c23a721376e18131273",
+          "text_characters": 807
+        },
+        {
+          "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Convexity of Logistic Regression"
+          ],
+          "text_sha256": "3097cf3f2a1ba87256cf085e896b5263bc5debeaaca6208d5497a83d1e5a3c98",
+          "text_characters": 413
+        },
+        {
+          "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient for Logistic Regression"
+          ],
+          "text_sha256": "3a69c4044bdd0dfefe26ce501f50be1611596429f99c53c9011785a4f9ce6117",
+          "text_characters": 426
+        },
+        {
+          "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ],
+          "text_sha256": "8052b4fd5b7cca6906d936ee309fa7733c8a5441b9b07317f325247949ef0b23",
+          "text_characters": 782
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "Choose a loss that measures the difference between predictions and true labels, then optimize the weights and bias to reduce it. With stochastic gradient descent, initialize the parameters, shuffle the examples, and for each example compute a prediction and its loss gradient, then update parameters by subtracting the learning rate times the gradient. Repeat until the stopping criterion is met. For binary logistic regression, one-example updates are \\(w_j\\leftarrow w_j-\\eta(\\hat y-y)x_j\\) and \\(b\\leftarrow b-\\eta(\\hat y-y)\\).",
+        "citations": [
+          {
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ]
+          },
+          {
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ]
+          },
+          {
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76",
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true,
+        "reviewer": "user",
+        "confirmed_by_user": true
+      },
+      "initial_assistant_review": {
+        "outcome": "complete",
+        "note": "Covers the required facts with cited support.",
+        "citation_membership_valid": true
+      }
+    }
+  ],
+  "evaluation_date": "2026-11-18",
+  "reviewer": "user"
+}

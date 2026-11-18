@@ -1,0 +1,141 @@
+{
+  "evaluation_date": "2026-11-18",
+  "generation_model": "gpt-6-luna",
+  "embedding_model": "text-embedding-3-small",
+  "signed_health_http_status": 200,
+  "unsigned_health_http_status": 403,
+  "cleanup": "Each selected corpus was purged after its requests. Consistent table scans and S3 prefix checks verified empty note storage after each corpus.",
+  "results": [
+    {
+      "id": "lr-002",
+      "http_status": 200,
+      "elapsed_seconds": 21.114823875017464,
+      "expected_answerable": true,
+      "result": {
+        "status": "answered",
+        "answer": "The loss function measures how much the model\u2019s predicted output differs from the true label. Logistic regression uses it to guide the choice of weights and bias, minimizing the distance between predictions and true outputs.",
+        "citations": [
+          {
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+            "path": "Loss Function.md",
+            "heading": []
+          },
+          {
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ]
+          }
+        ]
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    },
+    {
+      "id": "lr-014",
+      "http_status": 200,
+      "elapsed_seconds": 10.44962574983947,
+      "expected_answerable": true,
+      "result": {
+        "status": "answered",
+        "answer": "For a binary label \\(y\\in\\{0,1\\}\\), logistic regression predicts \\(\\hat y=\\sigma(w\\cdot x+b)\\). The Bernoulli likelihood is \\(P(y\\mid x)=\\hat y^y(1-\\hat y)^{1-y}\\). Taking its negative log gives the binary cross-entropy loss:\n\\[\nL_{\\mathrm{CE}}(\\hat y,y)=-\\bigl[y\\log\\hat y+(1-y)\\log(1-\\hat y)\\bigr].\n\\]\nSubstituting the logistic prediction:\n\\[\nL_{\\mathrm{CE}}=-\\bigl[y\\log\\sigma(w\\cdot x+b)+(1-y)\\log(1-\\sigma(w\\cdot x+b))\\bigr].\n\\]",
+        "citations": [
+          {
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ]
+          },
+          {
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5",
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ]
+          }
+        ]
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    },
+    {
+      "id": "lr-017",
+      "http_status": 200,
+      "elapsed_seconds": 8.156631791964173,
+      "expected_answerable": false,
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    },
+    {
+      "id": "nf-001",
+      "http_status": 200,
+      "elapsed_seconds": 13.081397416070104,
+      "expected_answerable": true,
+      "result": {
+        "status": "answered",
+        "answer": "A valid $s$-$t$ flow assigns a nonnegative amount to each edge, no greater than that edge\u2019s capacity, and conserves flow at every vertex other than the source and sink: total inflow equals total outflow.",
+        "citations": [
+          {
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ]
+          }
+        ]
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    },
+    {
+      "id": "nf-012",
+      "http_status": 200,
+      "elapsed_seconds": 9.090278540970758,
+      "expected_answerable": true,
+      "result": {
+        "status": "answered",
+        "answer": "If there is no augmenting path, let S be the vertices reachable from s in the residual graph and T the rest. Then t is in T, and every original edge from S to T is saturated; this gives a cut whose capacity equals the flow value. Since any cut capacity is an upper bound on any flow, the flow is maximum.",
+        "citations": [
+          {
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0",
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ]
+          },
+          {
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ]
+          }
+        ]
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    },
+    {
+      "id": "nf-023",
+      "http_status": 200,
+      "elapsed_seconds": 5.7116309171542525,
+      "expected_answerable": false,
+      "result": {
+        "status": "insufficient_evidence",
+        "answer": null,
+        "citations": []
+      },
+      "citations_in_expected_evidence": true,
+      "same_status_as_local": true
+    }
+  ]
+}
