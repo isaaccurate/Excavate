@@ -48,6 +48,19 @@ Each of the 44 questions ran twice locally, once per cache setting. Each request
 
 Median retrieval latency fell 55% in this single local pass. All rankings matched across cache settings. Timings exclude answer generation and AWS. Estimated costs use $0.02 per million embedding input tokens.
 
+## AWS cache benchmark
+
+The same deployed Lambda image answered three network-flow questions three times per cache setting. Both runs used the same nine sections. The first invocation in each setting reported an initialization time. The remaining eight per setting were warm.
+
+| Metric | Uncached | Cached |
+| --- | ---: | ---: |
+| Embedding requests across nine answers | 18 | 9 |
+| Embedding input tokens across nine answers | 22,233 | 93 |
+| Median warm request, including generation | 7.68 s | 6.94 s |
+| First request, including initialization and generation | 16.01 s | 8.28 s |
+
+All nine pairs had identical BM25, FAISS, and hybrid rankings and the same answer or abstention status. Six pairs had identical citation lists. The other three were repeats of `nf-012`, where the model kept the proof citation and varied the supporting citations. The small sample and generation latency limit the timing comparison. [Per-request results](../evaluations/results/aws_cache_benchmark.json)
+
 ## Answers and AWS smoke test
 
 Using `gpt-6-luna` and the same embedding model, all 36 answerable questions returned valid citation IDs. Human review judged 34 answers acceptable and two partial. All eight unanswerable questions returned `insufficient_evidence`. The model received only the question and retrieved evidence.
@@ -56,6 +69,14 @@ Using `gpt-6-luna` and the same embedding model, all 36 answerable questions ret
 - `nf-012` omitted the zero reverse-flow condition. The supplied proof excerpt ended before that step.
 
 Six IAM-signed AWS requests matched the local outcomes (four answers, two abstentions). All returned HTTP 200 and cited only supplied evidence where applicable. Test notes were purged afterward. [Cloud smoke report](../evaluations/results/cloud_answers_smoke.json)
+
+## Long-section regression
+
+Splitting the Ford–Fulkerson proof put both the saturation and zero reverse-flow conditions in one retrievable passage. That passage ranked first for `nf-012`. The focused local answer and the signed AWS answer both included and cited the missing condition.
+
+The 44-question retrieval rerun found the same hybrid Hit@5 (35/36). Full required evidence fell from 35/36 to 34/36. For `nf-011`, two chunks of the same proof entered the top five and displaced a required section. Logistic-regression retrieval scores were unchanged.
+
+The answer rerun returned answers for 35 of 36 answerable questions and abstained on all eight unanswerable questions. The one unexpected abstention, `lr-012`, used the same five passages as the original successful answer. [Post-split evaluation](../evaluations/results/long_section_evaluation.json)
 
 ## Reproduce the evaluation
 

@@ -1,4 +1,6 @@
 import hashlib
+import json
+import os
 import re
 from collections.abc import Sequence
 
@@ -15,8 +17,14 @@ class EmbeddingRow(BaseModel):
     embedding: list[FiniteFloat]
 
 
+class EmbeddingUsage(BaseModel):
+    prompt_tokens: StrictInt | None = None
+    total_tokens: StrictInt | None = None
+
+
 class EmbeddingResponse(BaseModel):
     data: list[EmbeddingRow]
+    usage: EmbeddingUsage | None = None
 
 
 class OpenAIEmbeddings:
@@ -47,15 +55,30 @@ class OpenAIEmbeddings:
                     follow_redirects=False,
                 )
                 response.raise_for_status()
-                rows = sorted(
-                    EmbeddingResponse.model_validate_json(response.content).data,
-                    key=lambda row: row.index,
-                )
+                result = EmbeddingResponse.model_validate_json(response.content)
             except (httpx.HTTPError, ValueError):
                 raise EmbeddingError("OpenAI embedding request failed") from None
+            rows = sorted(result.data, key=lambda row: row.index)
             if [row.index for row in rows] != list(range(len(batch))):
                 raise EmbeddingError("OpenAI returned invalid embedding indices")
             vectors.extend(row.embedding for row in rows)
+            if os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+                usage = result.usage
+                print(
+                    json.dumps(
+                        {
+                            "event": "embedding_batch",
+                            "inputs": len(batch),
+                            "input_tokens": (
+                                usage.prompt_tokens
+                                if usage and usage.prompt_tokens is not None
+                                else usage.total_tokens
+                                if usage
+                                else None
+                            ),
+                        }
+                    )
+                )
         return vectors
 
 

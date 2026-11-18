@@ -169,6 +169,33 @@ def test_reingest_restores_heading_only_content_from_legacy_record(tmp_path):
     assert not ingest_note(tmp_path, "note.md", store)
 
 
+def test_long_section_keeps_proof_conclusion_with_its_heading(tmp_path):
+    from knowledge_assistant.ingestion import ingest_note, split_section
+    from knowledge_assistant.storage import SQLiteDocumentStore
+
+    proof = (
+        "The reachable vertices define the cut.\n\n"
+        + "An earlier proof step. " * 75
+        + "\n\nThe residual graph has no forward edge across the cut.\n\n"
+        + "Forward edges are saturated and reverse edges carry zero flow. " * 8
+    )
+    path = "proof.md"
+    (tmp_path / path).write_text(f"# Flow\n## Correctness\n{proof}")
+    store = SQLiteDocumentStore(tmp_path / "notes.sqlite3")
+    assert ingest_note(tmp_path, path, store)
+    document = store.get(path)
+    assert document is not None
+    chunks = [
+        chunk for chunk in document.chunks if chunk.heading == ("Flow", "Correctness")
+    ]
+    assert len(chunks) == 2
+    assert all(len(chunk.text) <= 2_000 for chunk in chunks)
+    assert "residual graph" in chunks[-1].text
+    assert "reverse edges carry zero flow" in chunks[-1].text
+    assert "".join(split_section("x" * 4_001)) == "x" * 4_001
+    assert not ingest_note(tmp_path, path, store)
+
+
 def test_blank_note_has_no_chunks(tmp_path):
     store = SQLiteDocumentStore(tmp_path / "db.sqlite3")
     (tmp_path / "note.md").write_text("\n  \n")

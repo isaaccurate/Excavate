@@ -4,7 +4,7 @@ from contextlib import closing, contextmanager
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from knowledge_assistant.contracts import CorpusStore
+from knowledge_assistant.contracts import CorpusStore, EmbeddingProvider
 from knowledge_assistant.storage import SQLiteDocumentStore
 
 if TYPE_CHECKING:
@@ -17,10 +17,17 @@ class StorageConfigurationError(ValueError):
 
 @contextmanager
 def open_document_store(
-    database: Path | None, *, create: bool = False
+    database: Path | None,
+    *,
+    create: bool = False,
+    embedding_provider: EmbeddingProvider | None = None,
 ) -> Iterator[CorpusStore]:
     backend = os.environ.get("KNOWLEDGE_ASSISTANT_STORAGE", "sqlite")
     if backend == "sqlite":
+        if embedding_provider is not None:
+            raise StorageConfigurationError(
+                "ingest-time embeddings require AWS storage"
+            )
         if database is None:
             raise StorageConfigurationError(
                 "set KNOWLEDGE_ASSISTANT_DB to enable answering"
@@ -38,12 +45,14 @@ def open_document_store(
         raise StorageConfigurationError(
             "KNOWLEDGE_ASSISTANT_STORAGE must be sqlite or aws"
         )
-    with open_aws_document_store() as store:
+    with open_aws_document_store(embedding_provider=embedding_provider) as store:
         yield store
 
 
 @contextmanager
-def open_aws_document_store() -> Iterator["AWSDocumentStore"]:
+def open_aws_document_store(
+    *, embedding_provider: EmbeddingProvider | None = None
+) -> Iterator["AWSDocumentStore"]:
     if os.environ.get("KNOWLEDGE_ASSISTANT_STORAGE") != "aws":
         raise StorageConfigurationError(
             "this command requires KNOWLEDGE_ASSISTANT_STORAGE=aws"
@@ -70,6 +79,12 @@ def open_aws_document_store() -> Iterator["AWSDocumentStore"]:
             closing(session.client("s3")) as s3,
             closing(session.client("dynamodb")) as ddb,
         ):
-            yield AWSDocumentStore(s3, ddb, bucket=bucket, table=table)
+            yield AWSDocumentStore(
+                s3,
+                ddb,
+                bucket=bucket,
+                table=table,
+                embedding_provider=embedding_provider,
+            )
     except (BotoCoreError, ClientError):
         raise OSError("AWS document storage operation failed") from None

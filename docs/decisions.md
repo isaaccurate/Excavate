@@ -18,13 +18,15 @@ SQLite caches float32 vectors by section ID, provider configuration (including t
 
 ## Answer limits
 
-The model receives up to five passages, with up to 2,000 body characters each and a 12,000-character budget for the full evidence array. A relevant detail beyond that cutoff can be lost. Embeddings use full sections, so very long sections can also exceed the embedding provider’s input limit.
+The model receives up to five passages, with up to 2,000 body characters each and a 12,000-character budget for the full evidence array. Ingestion splits longer sections at paragraph, line, or word boundaries when possible and repeats nearby context. Existing notes need re-ingestion to pick up the new passages.
 
 Questions and source fields are sent as data, separately from trusted instructions. Citation validation checks that IDs refer to supplied passages. Whether the passage supports the claim requires reviewing its text.
 
 ## AWS writes and recovery
 
 Each upload gets a unique S3 key. DynamoDB publishes the pointer and checksum after upload. If publication fails, the previous version stays readable, but the new object can remain untracked.
+
+Cached vectors travel with the note version in one S3 object. Ingestion reuses entries when the section ID, exact embedding input, and model namespace match. After re-ingestion with a new chunking configuration, changed chunks miss the cache and identical chunks remain reusable. Restore and cleanup operate on the whole object, so cached vectors follow the same retention window as the source text.
 
 Deletion hides a note immediately. Its latest version is recoverable for seven days. Replaced versions expire seven days after replacement. A purge skips the recovery window. Cleanup claims the record before deleting tracked objects and retains it until deletion succeeds so a retry can finish. This design requires an unversioned bucket.
 

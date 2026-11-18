@@ -1,7 +1,7 @@
+import json
+import os
 from collections.abc import Sequence
-from dataclasses import dataclass
-from hashlib import sha256
-from pathlib import PurePosixPath
+from dataclasses import astuple, dataclass
 
 import faiss
 import numpy as np
@@ -14,6 +14,11 @@ from knowledge_assistant.contracts import (
     EmbeddingProvider,
     Passage,
     VectorSearch,
+)
+from knowledge_assistant.embedding_inputs import (
+    embedding_inputs,
+    input_digest,
+    matching_embeddings,
 )
 from knowledge_assistant.embeddings import EmbeddingError
 from knowledge_assistant.retrieval import reciprocal_rank_fusion, search_lexical
@@ -92,20 +97,23 @@ class HybridSearch:
         if not chunks:
             return
         inputs = {
-            chunk.id: "\n".join(
-                (PurePosixPath(document.path).stem, *chunk.heading, chunk.text)
-            )
+            key: text
             for document in self.snapshot.documents
-            for chunk in document.chunks
+            for key, text in embedding_inputs(document).items()
         }
         namespace = getattr(provider, "cache_namespace", None)
         cache = corpus if namespace and isinstance(corpus, EmbeddingCache) else None
         # Hash exactly what the provider sees, including filename and headings.
-        digests = {
-            key: sha256(text.encode("utf-8")).hexdigest()
-            for key, text in inputs.items()
-        }
+        digests = {key: input_digest(text) for key, text in inputs.items()}
         cached = cache.read_embeddings(namespace, digests) if cache else {}
+        if namespace:
+            for document in self.snapshot.documents:
+                cached.update(
+                    (key, entry.vector)
+                    for key, entry in matching_embeddings(
+                        document, namespace, digests
+                    ).items()
+                )
         missing = [chunk.id for chunk in chunks if chunk.id not in cached]
         fresh = {}
         if missing:
@@ -136,11 +144,22 @@ class HybridSearch:
         if len(vectors) != 1:
             raise EmbeddingError("expected one query embedding")
         dense = self.vector_index.search(vectors[0], limit=candidates)
-        return Rankings(
+        rankings = Rankings(
             lexical=lexical[:limit],
             dense=dense[:limit],
             hybrid=reciprocal_rank_fusion(lexical, dense, limit=limit),
         )
+        if os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+            # Record parity without logging questions, note names, or passages.
+            print(
+                json.dumps(
+                    {
+                        "event": "retrieval_rankings",
+                        "digest": input_digest(json.dumps(astuple(rankings))),
+                    }
+                )
+            )
+        return rankings
 
     def retrieve(self, query: str, *, limit: int) -> tuple[Passage, ...]:
         ranks = self.search(query, limit=limit, candidates=max(20, limit))

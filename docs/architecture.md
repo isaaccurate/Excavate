@@ -4,7 +4,7 @@ Excavate indexes selected notes, retrieves relevant sections, and generates answ
 
 ## Index notes
 
-The CLI accepts a vault root and one relative Markdown path. Ingestion validates the path, reads the file, and splits it into sections while preserving heading ancestry.
+The CLI accepts a vault root and one relative Markdown path. Ingestion validates the path and preserves heading ancestry. It splits long sections into passages that fit the answer excerpt limit.
 
 Local storage uses SQLAlchemy and SQLite. Each row holds a note's path, content digest, and chunks. A conditional write updates the whole row when the source or parsed chunks change.
 
@@ -12,7 +12,7 @@ Local storage uses SQLAlchemy and SQLite. Each row holds a note's path, content 
 
 Each search loads a snapshot of the indexed notes. BM25 ranks matches in note titles, headings, and body text using SQLite FTS5. FAISS searches vectors, and reciprocal rank fusion combines the two rankings.
 
-Citation lookup uses the same snapshot as retrieval. Each request rebuilds both indexes and embeds the query. SQLite reuses document embeddings across requests and processes. AWS recomputes them for each request.
+Citation lookup uses the same snapshot as retrieval. Each request rebuilds both indexes and embeds the query. SQLite caches document embeddings during search. AWS can embed notes during ingestion and store the vectors in the same immutable S3 payload as the note text. Lambda reads both in one fetch and embeds any cache misses for that request.
 
 ## Generate answers
 

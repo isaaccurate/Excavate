@@ -3,11 +3,15 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, StringConstraints
 
-from knowledge_assistant.contracts import Citation, GenerationProvider, PassageSearch
+from knowledge_assistant.contracts import (
+    MAX_PASSAGE_CHARS,
+    Citation,
+    GenerationProvider,
+    PassageSearch,
+)
 
 MAX_QUESTION_CHARS = 1_000
 MAX_PASSAGES = 5
-MAX_PASSAGE_CHARS = 2_000
 MAX_EVIDENCE_CHARS = 12_000
 MAX_RESPONSE_CHARS = 16_000
 MAX_ANSWER_CHARS = 4_000

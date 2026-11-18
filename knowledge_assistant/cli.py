@@ -1,6 +1,7 @@
 import argparse
 import os
 import sqlite3
+from contextlib import ExitStack
 from pathlib import Path
 
 from sqlalchemy.exc import SQLAlchemyError
@@ -25,6 +26,10 @@ def main() -> None:
     commands = parser.add_subparsers(dest="command", required=True)
     ingest = commands.add_parser("ingest")
     ingest.add_argument("--root", type=Path, required=True)
+    ingest.add_argument(
+        "--embedding-model",
+        help="AWS only. Cache embeddings by sending new or changed sections to OpenAI.",
+    )
     ingest.add_argument("path")
     remove = commands.add_parser("delete")
     remove.add_argument("path")
@@ -106,14 +111,38 @@ def main() -> None:
         return
     try:
         key = note_key(args.path)
-        with open_document_store(args.db, create=True) as store:
+        with ExitStack() as stack:
+            provider = None
+            if args.command == "ingest" and args.embedding_model is not None:
+                model = args.embedding_model.strip()
+                api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+                if not model or not api_key:
+                    raise ValueError(
+                        "provide an embedding model and set OPENAI_API_KEY"
+                    )
+                if os.environ.get("KNOWLEDGE_ASSISTANT_STORAGE") != "aws":
+                    raise ValueError("ingest-time embeddings require AWS storage")
+                try:
+                    import httpx
+
+                    from knowledge_assistant.embeddings import OpenAIEmbeddings
+                except ImportError:
+                    raise ValueError(
+                        "install the retrieval extra for embeddings"
+                    ) from None
+                provider = OpenAIEmbeddings(
+                    stack.enter_context(httpx.Client()), api_key=api_key, model=model
+                )
+            store = stack.enter_context(
+                open_document_store(args.db, create=True, embedding_provider=provider)
+            )
             if args.command == "ingest":
                 outcome = (
                     "indexed" if ingest_note(args.root, key, store) else "unchanged"
                 )
             else:
                 outcome = "deleted" if store.delete(key) else "absent"
-    except (OSError, ValueError, SQLAlchemyError) as error:
+    except (OSError, RuntimeError, ValueError, SQLAlchemyError) as error:
         parser.exit(1, f"knowledge-assistant: {error}\n")
     print(f"{outcome}: {key}")
 

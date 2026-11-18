@@ -2,6 +2,8 @@ from typing import Protocol, Sequence, runtime_checkable
 
 from pydantic import BaseModel, ConfigDict
 
+MAX_PASSAGE_CHARS = 2_000
+
 
 class Chunk(BaseModel):
     model_config = ConfigDict(frozen=True)

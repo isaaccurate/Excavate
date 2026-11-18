@@ -8,7 +8,12 @@ from collections.abc import Iterator
 from contextlib import ExitStack
 from pathlib import Path, PureWindowsPath
 
-from knowledge_assistant.contracts import Chunk, Document, DocumentStore
+from knowledge_assistant.contracts import (
+    MAX_PASSAGE_CHARS,
+    Chunk,
+    Document,
+    DocumentStore,
+)
 
 HEADING = re.compile(r" {0,3}(#{1,6})(?:[ \t]+(.*)|$)")
 FENCE = re.compile(r" {0,3}(`{3,}|~{3,})(.*)")
@@ -78,6 +83,26 @@ def sections(markdown: str) -> Iterator[tuple[tuple[str, ...], str]]:
     yield tuple(title for _, title in headings), "\n".join(body).strip()
 
 
+def split_section(body: str) -> Iterator[str]:
+    """Fit passages into the answer budget while retaining nearby context."""
+    overlap_chars = 500
+    while len(body) > MAX_PASSAGE_CHARS:
+        # Balance the last two passages so a short continuation has enough
+        # context to rank for the section's topic.
+        cut = min(MAX_PASSAGE_CHARS, (len(body) + overlap_chars) // 2)
+        for separator in ("\n\n", "\n", " "):
+            boundary = body.rfind(separator, MAX_PASSAGE_CHARS // 2, cut)
+            if boundary != -1:
+                cut = boundary
+                break
+        yield body[:cut].rstrip()
+        # Repeat a complete preceding paragraph when it fits in the overlap.
+        # This carries the setup into a continuation without duplicating pages.
+        overlap = body.rfind("\n\n", cut - overlap_chars, cut)
+        body = body[overlap + 2 if overlap != -1 else cut :].lstrip()
+    yield body
+
+
 def ingest_note(root: Path, selection: str, store: DocumentStore) -> bool:
     """Ingest one selected note and return whether its stored content changed."""
     key = note_key(selection)
@@ -89,13 +114,18 @@ def ingest_note(root: Path, selection: str, store: DocumentStore) -> bool:
         # Headings can carry facts even when the section has no body.
         if not body and not any(heading):
             continue
-        identity = (heading, body)
-        ordinal = occurrences[identity]
-        occurrences[identity] += 1
-        payload = json.dumps([key, heading, body, ordinal]).encode()
-        chunks.append(
-            Chunk(id=hashlib.sha256(payload).hexdigest(), heading=heading, text=body)
-        )
+        for passage in split_section(body):
+            identity = (heading, passage)
+            ordinal = occurrences[identity]
+            occurrences[identity] += 1
+            payload = json.dumps([key, heading, passage, ordinal]).encode()
+            chunks.append(
+                Chunk(
+                    id=hashlib.sha256(payload).hexdigest(),
+                    heading=heading,
+                    text=passage,
+                )
+            )
     return store.put(
         Document(path=key, digest=hashlib.sha256(raw).hexdigest(), chunks=tuple(chunks))
     )

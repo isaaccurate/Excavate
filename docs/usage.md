@@ -22,7 +22,7 @@ Use `knowledge-assistant --help` to list commands, or add `--help` after a comma
 
 Ingest one UTF-8 Markdown file at a time, using forward slashes in the path relative to the vault root. Use one vault per database and keep path spelling consistent. The local CLI defaults to `knowledge.sqlite3`. Put `--db /path/to/notes.sqlite3` before the command to select a different database.
 
-Re-run `ingest` to update a note. After a rename, ingest the new path and delete the old one. These commands leave the original files in your vault. SQLite stores selected note text in plaintext. If you indexed notes before heading-only sections were supported, re-ingest them to pick up those sections.
+Re-run `ingest` to update a note or split long sections already in the index. After a rename, ingest the new path and delete the old one. These commands leave the original files in your vault. SQLite stores selected note text in plaintext.
 
 ## Search and answer
 
@@ -36,7 +36,7 @@ For semantic search, set `OPENAI_API_KEY` and choose an embedding model such as 
 | `ask` | `--embedding-model MODEL` (use `--openai-model` for the answer model) |
 | FastAPI | `KNOWLEDGE_ASSISTANT_EMBEDDING_MODEL` |
 
-With managed embeddings, SQLite sends the query and any uncached sections to the provider. AWS sends the query and all active sections on each search.
+With managed embeddings, search sends the query and any uncached sections to the provider. SQLite fills its cache during search. AWS fills it during ingestion.
 
 Answer generation sends the question and retrieved excerpts, including paths and headings, to OpenAI. Citations point back to those sections so you can check the answer. An `insufficient_evidence` result has a null answer and no citations.
 
@@ -75,6 +75,15 @@ export KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE=YOUR_TABLE
 ```
 
 Use the same `ingest`, `search`, and `ask` commands as in local mode. In AWS mode, ingestion uploads the selected note's parsed text and source path to S3. Set `KNOWLEDGE_ASSISTANT_STORAGE=sqlite` to return to local storage.
+
+To cache a selected note, set `OPENAI_API_KEY` and ingest it with the same embedding model as the API.
+
+```sh
+knowledge-assistant ingest --root /path/to/vault \
+  --embedding-model text-embedding-3-small "Projects/Example.md"
+```
+
+Repeat this command to backfill an existing note or embed changed sections. Without the flag, ingestion preserves matching vectors from the previous version. Missing or incompatible vectors are computed when a request needs them.
 
 In AWS mode, `delete` hides a note and starts a seven-day recovery window. Repeating it keeps the original deadline. Use `restore` before that deadline, or `purge` to erase tracked copies immediately. The deployed hourly job runs `cleanup`, which erases expired deleted notes and versions replaced by edits at least seven days earlier. Untracked objects left by an interrupted write still need separate reconciliation.
 

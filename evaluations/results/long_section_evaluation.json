@@ -1,0 +1,502 @@
+{
+  "embedding_model": "text-embedding-3-small",
+  "answer_model": "gpt-6-luna",
+  "datasets": {
+    "logistic_regression": {
+      "questions": 20,
+      "answerable": 18,
+      "unanswerable": 2,
+      "chunks_before": 22,
+      "chunks_after": 22,
+      "retrieval_before": {
+        "lexical": {
+          "evidence_recall_at_5": 0.8888888888888888,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.8333333333333334,
+          "reciprocal_rank_at_5": 0.7453703703703703
+        },
+        "dense": {
+          "evidence_recall_at_5": 0.9722222222222222,
+          "hit_at_5": 1.0,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.8981481481481483
+        },
+        "hybrid": {
+          "evidence_recall_at_5": 0.9444444444444444,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.8611111111111112
+        }
+      },
+      "retrieval_after": {
+        "lexical": {
+          "evidence_recall_at_5": 0.8888888888888888,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.8333333333333334,
+          "reciprocal_rank_at_5": 0.7453703703703703
+        },
+        "dense": {
+          "evidence_recall_at_5": 0.9722222222222222,
+          "hit_at_5": 1.0,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.8981481481481483
+        },
+        "hybrid": {
+          "evidence_recall_at_5": 0.9444444444444444,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.8611111111111112
+        }
+      },
+      "answers": [
+        {
+          "id": "lr-001",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689",
+            "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          ]
+        },
+        {
+          "id": "lr-002",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4",
+            "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          ]
+        },
+        {
+          "id": "lr-003",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          ]
+        },
+        {
+          "id": "lr-004",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c",
+            "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          ]
+        },
+        {
+          "id": "lr-005",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10",
+            "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          ]
+        },
+        {
+          "id": "lr-006",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          ]
+        },
+        {
+          "id": "lr-007",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          ]
+        },
+        {
+          "id": "lr-008",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a",
+            "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          ]
+        },
+        {
+          "id": "lr-009",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          ]
+        },
+        {
+          "id": "lr-010",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          ]
+        },
+        {
+          "id": "lr-011",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          ]
+        },
+        {
+          "id": "lr-012",
+          "expected_answerable": true,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "lr-013",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+            "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          ]
+        },
+        {
+          "id": "lr-014",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          ]
+        },
+        {
+          "id": "lr-015",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          ]
+        },
+        {
+          "id": "lr-016",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990",
+            "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          ]
+        },
+        {
+          "id": "lr-017",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "lr-018",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "lr-019",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038",
+            "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38",
+            "0e36314d6553408fd1a2d257e7a06486acf0cf483d0a39e00891269652e2da4c"
+          ]
+        },
+        {
+          "id": "lr-020",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce",
+            "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55",
+            "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          ]
+        }
+      ]
+    },
+    "network_flow": {
+      "questions": 24,
+      "answerable": 18,
+      "unanswerable": 6,
+      "chunks_before": 9,
+      "chunks_after": 10,
+      "retrieval_before": {
+        "lexical": {
+          "evidence_recall_at_5": 0.9722222222222222,
+          "hit_at_5": 1.0,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.5212962962962963
+        },
+        "dense": {
+          "evidence_recall_at_5": 0.9444444444444444,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.7361111111111112
+        },
+        "hybrid": {
+          "evidence_recall_at_5": 1.0,
+          "hit_at_5": 1.0,
+          "full_evidence_at_5": 1.0,
+          "reciprocal_rank_at_5": 0.7175925925925926
+        }
+      },
+      "retrieval_after": {
+        "lexical": {
+          "evidence_recall_at_5": 0.7222222222222222,
+          "hit_at_5": 0.7777777777777778,
+          "full_evidence_at_5": 0.6666666666666666,
+          "reciprocal_rank_at_5": 0.48796296296296293
+        },
+        "dense": {
+          "evidence_recall_at_5": 0.9444444444444444,
+          "hit_at_5": 0.9444444444444444,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.7333333333333333
+        },
+        "hybrid": {
+          "evidence_recall_at_5": 0.9722222222222222,
+          "hit_at_5": 1.0,
+          "full_evidence_at_5": 0.9444444444444444,
+          "reciprocal_rank_at_5": 0.7333333333333333
+        }
+      },
+      "answers": [
+        {
+          "id": "nf-001",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ]
+        },
+        {
+          "id": "nf-002",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ]
+        },
+        {
+          "id": "nf-003",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1",
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        {
+          "id": "nf-004",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ]
+        },
+        {
+          "id": "nf-005",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        {
+          "id": "nf-006",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          ]
+        },
+        {
+          "id": "nf-007",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ]
+        },
+        {
+          "id": "nf-008",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          ]
+        },
+        {
+          "id": "nf-009",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e",
+            "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          ]
+        },
+        {
+          "id": "nf-010",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "4744bd7903e42ccec61c927aff3c297ae06d568749563b5c911c2fc1c520967a"
+          ]
+        },
+        {
+          "id": "nf-011",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "24f2fbf0f27791e0da64e2313e2113e631219792e1af5478945f343dcdd9c0b1"
+          ]
+        },
+        {
+          "id": "nf-012",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "24f2fbf0f27791e0da64e2313e2113e631219792e1af5478945f343dcdd9c0b1",
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        {
+          "id": "nf-013",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        {
+          "id": "nf-014",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        {
+          "id": "nf-015",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          ]
+        },
+        {
+          "id": "nf-016",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          ]
+        },
+        {
+          "id": "nf-017",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "nf-018",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "nf-019",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "nf-020",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "nf-021",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          ]
+        },
+        {
+          "id": "nf-022",
+          "expected_answerable": true,
+          "status": "answered",
+          "citation_ids": [
+            "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          ]
+        },
+        {
+          "id": "nf-023",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        },
+        {
+          "id": "nf-024",
+          "expected_answerable": false,
+          "status": "insufficient_evidence",
+          "citation_ids": []
+        }
+      ]
+    }
+  },
+  "nf-012": {
+    "first_passage": {
+      "id": "24f2fbf0f27791e0da64e2313e2113e631219792e1af5478945f343dcdd9c0b1",
+      "path": "MaxFlow.md",
+      "heading": [
+        "Ford-Fulkerson Algorithm",
+        "Correctness"
+      ],
+      "characters": 1560,
+      "sha256": "d9992252e108c1ffbee7bce6a6a996b04be131b5f5dd8db1e4205af77558c064",
+      "contains_saturation_condition": true,
+      "contains_reverse_zero_flow_condition": true
+    },
+    "local_rerun": {
+      "status": "answered",
+      "answer": "If there is no augmenting path, let S be the vertices reachable from s in the residual graph and T be the rest. No residual edge crosses from S to T, so original edges from S to T are saturated and edges from T to S carry zero flow. Thus the flow\u2019s value equals the capacity of this s\u2013t cut. Since every cut\u2019s capacity is an upper bound on any flow, the flow is maximum.",
+      "citations": [
+        {
+          "id": "24f2fbf0f27791e0da64e2313e2113e631219792e1af5478945f343dcdd9c0b1",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        },
+        {
+          "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767",
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ]
+        }
+      ]
+    },
+    "signed_aws_smoke": {
+      "status": "answered",
+      "answer": "If there is no augmenting path, let S be the vertices reachable from s in the residual graph and T the rest. No residual edge crosses from S to T, so original edges from S to T are saturated and edges from T to S carry zero flow. Thus the flow value equals the capacity of this s\u2013t cut. Since any cut capacity is an upper bound on flow, the flow is maximum.",
+      "citations": [
+        {
+          "id": "24f2fbf0f27791e0da64e2313e2113e631219792e1af5478945f343dcdd9c0b1",
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        }
+      ]
+    }
+  }
+}

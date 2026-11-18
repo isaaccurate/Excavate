@@ -7,7 +7,14 @@ from botocore.client import BaseClient
 from botocore.exceptions import ClientError
 from pydantic import BaseModel, Field
 
-from knowledge_assistant.contracts import Document
+from knowledge_assistant.contracts import Document, EmbeddingProvider
+from knowledge_assistant.embedding_inputs import (
+    CachedEmbedding,
+    EmbeddedDocument,
+    embedding_inputs,
+    input_digest,
+    matching_embeddings,
+)
 
 RECOVERY_SECONDS = 7 * 24 * 60 * 60
 
@@ -19,18 +26,26 @@ class StoredNote(BaseModel):
     retired: dict[str, int] = Field(default_factory=dict)
     recover_until: int | None = None
     purging: bool = False
+    has_embeddings: bool = False
 
 
 class AWSDocumentStore:
     """Store immutable document versions in S3 with current pointers in DynamoDB."""
 
     def __init__(
-        self, s3: BaseClient, dynamodb: BaseClient, *, bucket: str, table: str
+        self,
+        s3: BaseClient,
+        dynamodb: BaseClient,
+        *,
+        bucket: str,
+        table: str,
+        embedding_provider: EmbeddingProvider | None = None,
     ) -> None:
         self.s3 = s3
         self.dynamodb = dynamodb
         self.bucket = bucket
         self.table = table
+        self.embedding_provider = embedding_provider
 
     @staticmethod
     def _key(path: str) -> dict:
@@ -114,7 +129,8 @@ class AWSDocumentStore:
             payload = stream.read()
         if sha256(payload).hexdigest() != note.version:
             raise OSError("stored document checksum does not match")
-        document = Document.model_validate_json(payload)
+        model = EmbeddedDocument if note.has_embeddings else Document
+        document = model.model_validate_json(payload)
         if document.path != note.path:
             raise OSError("stored document path does not match")
         return document
@@ -126,6 +142,7 @@ class AWSDocumentStore:
             raise OSError(
                 "note is deleted; restore it or wait for cleanup before ingesting"
             )
+        document = self._prepare_document(document, note)
         payload = document.model_dump_json().encode("utf-8")
         version = sha256(payload).hexdigest()
         if note and version == note.version:
@@ -148,11 +165,59 @@ class AWSDocumentStore:
             else {}
         )
         updated = StoredNote(
-            path=document.path, version=version, object_key=object_key, retired=retired
+            path=document.path,
+            version=version,
+            object_key=object_key,
+            retired=retired,
+            has_embeddings=isinstance(document, EmbeddedDocument),
         )
         if self._replace(updated, previous) is None:
             raise OSError("note changed during ingestion; retry the command")
         return True
+
+    def _prepare_document(
+        self, document: Document, note: StoredNote | None
+    ) -> Document:
+        provider = self.embedding_provider
+        previous = self._read_document(note) if note and note.has_embeddings else None
+        namespace = (
+            getattr(provider, "cache_namespace", None)
+            if provider is not None
+            else getattr(previous, "embedding_namespace", None)
+        )
+        if provider is not None and not namespace:
+            raise ValueError("AWS cache population requires an embedding namespace")
+        if not namespace or not document.chunks:
+            return document
+        inputs = embedding_inputs(document)
+        digests = {key: input_digest(text) for key, text in inputs.items()}
+        entries = matching_embeddings(previous, namespace, digests) if previous else {}
+        if provider is not None:
+            from knowledge_assistant.embeddings import EmbeddingError
+            from knowledge_assistant.hybrid import normalized_vectors
+
+            missing = [key for key in inputs if key not in entries]
+            if missing:
+                fresh = provider.embed([inputs[key] for key in missing])
+                if len(fresh) != len(missing):
+                    raise EmbeddingError("expected one embedding per missing chunk")
+                for key, vector in zip(missing, fresh, strict=True):
+                    entries[key] = CachedEmbedding(
+                        input_digest=digests[key], vector=list(vector)
+                    )
+            normalized_vectors(
+                [entries[key].vector for key in inputs], count=len(inputs)
+            )
+        if not entries:
+            return document
+        # Keep ordering stable when an unchanged note is re-ingested.
+        return EmbeddedDocument(
+            path=document.path,
+            digest=document.digest,
+            chunks=document.chunks,
+            embedding_namespace=namespace,
+            embeddings={key: entries[key] for key in inputs if key in entries},
+        )
 
     def delete(self, path: str) -> bool:
         previous = self._get_item(path)

@@ -8,7 +8,7 @@ import pytest
 
 boto3 = pytest.importorskip("boto3")
 from botocore.response import StreamingBody  # noqa: E402
-from botocore.stub import Stubber  # noqa: E402
+from botocore.stub import ANY, Stubber  # noqa: E402
 
 from knowledge_assistant.aws_storage import (  # noqa: E402
     RECOVERY_SECONDS,
@@ -17,6 +17,13 @@ from knowledge_assistant.aws_storage import (  # noqa: E402
 )
 from knowledge_assistant.cli import main  # noqa: E402
 from knowledge_assistant.contracts import Chunk, Document  # noqa: E402
+from knowledge_assistant.embedding_inputs import (  # noqa: E402
+    CachedEmbedding,
+    EmbeddedDocument,
+    embedding_inputs,
+    input_digest,
+)
+from knowledge_assistant.hybrid import HybridSearch  # noqa: E402
 
 
 @pytest.fixture
@@ -59,6 +66,120 @@ def condition(revision):
         "ConditionExpression": "revision = :old",
         "ExpressionAttributeValues": {":old": {"S": UUID(int=revision).hex}},
     }
+
+
+def test_aws_cache_backfill_reuses_sections_and_is_read_only_during_search(aws, clock):
+    store, blobs, pointers = aws
+    calls = []
+
+    class Provider:
+        cache_namespace = "test:model"
+
+        def embed(self, texts):
+            calls.append(list(texts))
+            return [[1.0, 0.0] for _ in texts]
+
+    document = Document(
+        path=PATH,
+        digest="initial",
+        chunks=(Chunk(id="kept", heading=("Heading",), text="Body"),),
+    )
+    old_payload = document.model_dump_json().encode()
+    old = StoredNote(
+        path=PATH,
+        version=sha256(old_payload).hexdigest(),
+        object_key="documents/old.json",
+    )
+    first_input = embedding_inputs(document)["kept"]
+    cached = EmbeddedDocument(
+        **document.model_dump(),
+        embedding_namespace=Provider.cache_namespace,
+        embeddings={
+            "kept": CachedEmbedding(
+                input_digest=input_digest(first_input), vector=[1.0, 0.0]
+            )
+        },
+    )
+    payload = cached.model_dump_json().encode()
+    before = item(old, 9)
+    current = StoredNote(
+        path=PATH,
+        version=sha256(payload).hexdigest(),
+        object_key=f"documents/{KEY['document_id']['S']}/{UUID(int=1).hex}.json",
+        retired={old.object_key: NOW + RECOVERY_SECONDS},
+        has_embeddings=True,
+    )
+    active = item(current, 2)
+
+    def read_cached():
+        blobs.add_response(
+            "get_object",
+            {"Body": StreamingBody(BytesIO(payload), len(payload))},
+            BUCKET | {"Key": current.object_key},
+        )
+
+    provider = Provider()
+    store.embedding_provider = provider
+    pointers.add_response("get_item", {"Item": before}, READ)
+    blobs.add_response(
+        "put_object",
+        {},
+        BUCKET
+        | {
+            "Key": current.object_key,
+            "Body": payload,
+            "ContentType": "application/json",
+            "IfNoneMatch": "*",
+        },
+    )
+    pointers.add_response("put_item", {}, TABLE | {"Item": active} | condition(9))
+    assert store.put(document)
+    assert calls == [[first_input]]
+
+    pointers.add_response("get_item", {"Item": active}, READ)
+    read_cached()
+    assert not store.put(document)
+    assert calls == [[first_input]]
+
+    pointers.add_response("scan", {"Items": [active]}, SCAN)
+    read_cached()
+    assert HybridSearch(store, provider).search("Body").hybrid == ("kept",)
+    assert calls[-1:] == [["Body"]]
+
+    current.recover_until = NOW + RECOVERY_SECONDS
+    hidden = item(current, 3)
+    pointers.add_response("get_item", {"Item": active}, READ)
+    pointers.add_response("put_item", {}, TABLE | {"Item": hidden} | condition(2))
+    assert store.delete(PATH)
+    pointers.add_response("scan", {"Items": [hidden]}, SCAN)
+    assert store.list_documents() == ()
+
+    current.recover_until = None
+    restored = item(current, 4)
+    pointers.add_response("get_item", {"Item": hidden}, READ)
+    pointers.add_response("put_item", {}, TABLE | {"Item": restored} | condition(3))
+    assert store.restore(PATH)
+
+    extra = Chunk(id="new", heading=("New",), text="More")
+    update = document.model_copy(
+        update={"digest": "update", "chunks": (*document.chunks, extra)}
+    )
+    pointers.add_response("get_item", {"Item": restored}, READ)
+    read_cached()
+    blobs.add_response(
+        "put_object",
+        {},
+        BUCKET
+        | {
+            "Key": ANY,
+            "Body": ANY,
+            "ContentType": "application/json",
+            "IfNoneMatch": "*",
+        },
+    )
+    pointers.add_response("put_item", {}, TABLE | {"Item": ANY} | condition(4))
+    assert store.put(update)
+    assert calls == [[first_input], ["Body"], [embedding_inputs(update)["new"]]]
 
 
 @pytest.fixture
