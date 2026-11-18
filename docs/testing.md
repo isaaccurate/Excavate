@@ -12,31 +12,35 @@ python -m pip check
 
 `pytest` runs the automated tests. `ruff check` checks code style and common mistakes, while `ruff format --check` checks formatting. `pip check` checks that installed dependencies are compatible.
 
-## Verified results
+## Verified checks
 
-On November 6, 2026, all 68 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Earlier checks also verified basic ingestion, deletion, and health behavior on Python 3.12.
+On November 18, 2026, all 74 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Coverage includes safe file selection, heading preservation, note updates, citation validation, provider failures, and AWS note recovery and cleanup.
 
-The suite covers safe file selection, heading preservation, incremental updates, retrieval, citation validation, provider failures, and AWS note recovery and cleanup.
+Live AWS smoke tests verified note updates, delete and restore, scheduled cleanup, and IAM-protected API access. One live answer returned the expected source citation. Temporary test notes were removed afterward.
 
-Live AWS tests verified note updates, delete and restore, scheduled cleanup, and IAM-protected API access. A live answer test with `gpt-6-luna` returned the expected answer and source citation for one synthetic note. Temporary test notes were removed and storage was verified empty afterward.
+## Reviewed retrieval evaluation
 
-## Retrieval experiments
+The evaluation uses 44 hand-written questions and real `text-embedding-3-small` embeddings. Logistic regression uses 5 selected notes (22 sections), and network flow uses 3 selected notes (9 sections). Each dataset is searched independently, with 5 results and 20 candidates per method.
 
-These recorded experiments used local token-hash embeddings. They measure the test pipeline's behavior. Quality with real semantic embeddings still needs evaluation.
-
-| Corpus | Questions | BM25 | FAISS | Hybrid |
+| Ranking | Evidence Recall@5 | Hit@5 | Full required evidence@5 | MRR@5 |
 | --- | ---: | ---: | ---: | ---: |
-| 2 notes, 10 sections | 4 | 4/4 at rank 1 | 1/4 at rank 1 | 4/4 at rank 1 |
-| 12 notes, 52 sections | 4 | 4/4 in top 5 | 2/4 in top 5 | 3/4 in top 5 |
+| BM25 | 0.931 | 35/36 | 32/36 | 0.633 |
+| FAISS | 0.958 | 35/36 | 34/36 | 0.817 |
+| Hybrid | 0.972 | 35/36 | 35/36 | 0.789 |
 
-The two-note run can be repeated with `python scripts/evaluate_retrieval.py /path/to/CSE_421`. It reads the two selected course notes into a temporary database. These are small historical comparisons, and later retrieval changes require fresh measurements.
+Scores cover the 36 answerable questions. Recall measures the fraction of required evidence groups retrieved, averaged across questions. A group can accept alternative supporting sections. MRR@5 measures the reciprocal rank of the first relevant section, averaged across questions.
+
+The eight unanswerable questions have saved rankings. Answer quality and abstention evaluation are pending. Original labels, original reports, and revised scores remain available in `evaluations/revisions/` and `evaluations/results/` for audit.
+
+With `OPENAI_API_KEY` set, run each dataset against its selected note directory. The commands send note sections and questions to OpenAI.
+
+```sh
+python -m scripts.evaluate_retrieval "$LOGISTIC_NOTES_ROOT" \
+  --dataset evaluations/logistic_regression.json --embedding-model text-embedding-3-small
+python -m scripts.evaluate_retrieval "$FLOW_NOTES_ROOT" \
+  --dataset evaluations/network_flow.json --embedding-model text-embedding-3-small
+```
 
 ## Note link pilot
 
-We tested whether following links between notes improved retrieval. On 12 notes, both BM25 and link expansion found both expected passages for 4 of 6 questions. An expanded test on 21 notes found no improvement on five cross-course questions. The tested rule remains outside production retrieval.
-
-Run `python -m scripts.evaluate_note_links /path/to/notes.sqlite3` against the selected course corpus. Add `--cross-course` for the expanded experiment. The labels and expected note paths are defined in the script.
-
-## Still to verify
-
-A larger set of manually labeled questions and real semantic embeddings is needed to assess retrieval and answer quality. The successful live answer test confirms that the deployed components work together on one example.
+The earlier link-expansion pilot found no improvement from the tested rule. Link expansion remains deferred. The experiment is implemented in `scripts/evaluate_note_links.py`.

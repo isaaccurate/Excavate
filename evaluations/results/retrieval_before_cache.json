@@ -1,0 +1,117 @@
+{
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.8",
+    "sqlite": "3.50.4",
+    "sqlalchemy": "2.1.8",
+    "faiss": "1.15.1",
+    "numpy": "2.5.4",
+    "faiss_threads": 10
+  },
+  "embedding_provider": "local token hash",
+  "external_embedding_api_calls": 0,
+  "external_embedding_cost_usd": 0,
+  "documents_and_chunks": 200,
+  "questions": 8,
+  "cold_samples": 24,
+  "warm_samples": 160,
+  "cold": {
+    "storage_read_ms": {
+      "median": 1.783,
+      "p95": 2.092
+    },
+    "document_embedding_ms": {
+      "median": 3.264,
+      "p95": 3.467
+    },
+    "document_inputs": {
+      "min": 200,
+      "max": 200
+    },
+    "document_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "faiss_build_ms": {
+      "median": 1.55,
+      "p95": 1.64
+    },
+    "bm25_build_ms": {
+      "median": 0.739,
+      "p95": 0.782
+    },
+    "query_embedding_ms": {
+      "median": 0.008,
+      "p95": 0.009
+    },
+    "query_inputs": {
+      "min": 1,
+      "max": 1
+    },
+    "query_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "total_ms": {
+      "median": 9.908,
+      "p95": 12.621
+    }
+  },
+  "warm": {
+    "storage_read_ms": {
+      "median": 1.173,
+      "p95": 1.374
+    },
+    "document_embedding_ms": {
+      "median": 3.351,
+      "p95": 3.571
+    },
+    "document_inputs": {
+      "min": 200,
+      "max": 200
+    },
+    "document_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "faiss_build_ms": {
+      "median": 1.476,
+      "p95": 1.626
+    },
+    "bm25_build_ms": {
+      "median": 0.691,
+      "p95": 0.817
+    },
+    "query_embedding_ms": {
+      "median": 0.006,
+      "p95": 0.011
+    },
+    "query_inputs": {
+      "min": 1,
+      "max": 1
+    },
+    "query_provider_calls": {
+      "min": 1,
+      "max": 1
+    },
+    "total_ms": {
+      "median": 7.715,
+      "p95": 8.367
+    }
+  },
+  "quality": {
+    "lexical": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 0.9375
+    },
+    "dense": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 1.0
+    },
+    "hybrid": {
+      "recall_at_5": 1.0,
+      "mrr_full_candidates": 1.0
+    }
+  },
+  "evaluation_date": "2026-11-18"
+}

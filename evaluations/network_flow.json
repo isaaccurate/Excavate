@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "name": "Network flow course-note evaluation",
+  "status": "human_reviewed",
+  "corpus": {
+    "selection": "Only the three explicitly selected Markdown files in the Network Flow directory. Linked images and other notes are excluded.",
+    "paths": [
+      "Network Flow.md",
+      "MaxFlow.md",
+      "MinCut.md"
+    ]
+  },
+  "scoring_notes": [
+    "All 24 questions were manually created and reviewed."
+  ],
+  "source_review_notes": [
+    "Network Flow.md defines cut capacity using edges leaving s. The intended sum is over edges crossing from S to T. Questions avoid relying on this formula.",
+    "The weak-duality discussion writes v(f)=c(S,T)−c(T,S). Its earlier flow identity correctly uses actual flows. Expected answers use the theorem statement and the MaxFlow.md correctness proof.",
+    "The image-dependent question is unanswerable for the Markdown-only pipeline."
+  ],
+  "questions": [
+    {
+      "id": "nf-001",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What constraints must a valid flow satisfy?",
+      "expected_answer": "Each edge flow is between zero and its capacity. At every vertex other than the source and sink, total incoming flow equals total outgoing flow.",
+      "required_facts": [
+        "Each edge flow is between zero and its capacity. At every vertex other than the source and sink, total incoming flow equals total outgoing flow."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-002",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How is the value of a flow defined?",
+      "expected_answer": "It is the total flow leaving the source, equal to the net flow entering the sink under the notes' source and sink assumptions.",
+      "required_facts": [
+        "It is the total flow leaving the source, equal to the net flow entering the sink under the notes' source and sink assumptions."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-003",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What is a residual network?",
+      "expected_answer": "It describes possible changes to the current flow. For each original edge, unused capacity gives a forward edge and positive assigned flow gives a backward edge.",
+      "required_facts": [
+        "It describes possible changes to the current flow. For each original edge, unused capacity gives a forward edge and positive assigned flow gives a backward edge."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ]
+        },
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-004",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What capacities do the forward and backward residual edges have?",
+      "expected_answer": "For an original edge e, forward residual capacity is c(e)−f(e) and backward residual capacity is f(e). Include each residual edge only when its capacity is positive.",
+      "required_facts": [
+        "For an original edge e, forward residual capacity is c(e)−f(e) and backward residual capacity is f(e). Include each residual edge only when its capacity is positive."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-005",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why does a residual graph include backward edges?",
+      "expected_answer": "A backward edge allows previously assigned flow to be undone, so flow can be rerouted to achieve a larger total value.",
+      "required_facts": [
+        "A backward edge allows previously assigned flow to be undone, so flow can be rerouted to achieve a larger total value."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-006",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "When does a forward residual edge disappear?",
+      "expected_answer": "When its original edge is saturated, leaving zero unused capacity.",
+      "required_facts": [
+        "When its original edge is saturated, leaving zero unused capacity."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-007",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What are the steps of Ford–Fulkerson?",
+      "expected_answer": "Initialize all flows to zero. While a source-to-sink path exists in the residual network, find its bottleneck capacity, augment by that amount, add flow on forward edges and subtract flow on backward edges, then update the residual network.",
+      "required_facts": [
+        "Initialize all flows to zero. While a source-to-sink path exists in the residual network, find its bottleneck capacity, augment by that amount, add flow on forward edges and subtract flow on backward edges, then update the residual network."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-008",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How much additional flow can we send along an augmenting path?",
+      "expected_answer": "The minimum residual capacity of any edge on the path, called its bottleneck capacity.",
+      "required_facts": [
+        "The minimum residual capacity of any edge on the path, called its bottleneck capacity."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-009",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "An edge has capacity 10 and currently carries flow 6. What changes can its residual edges permit?",
+      "expected_answer": "The forward residual edge permits up to 4 additional units, and the backward residual edge permits undoing up to 6 units.",
+      "required_facts": [
+        "The forward residual edge permits up to 4 additional units, and the backward residual edge permits undoing up to 6 units."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Definitions"
+          ]
+        },
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Finding Max Flow"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-010",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why does augmenting a path preserve flow conservation at intermediate vertices?",
+      "expected_answer": "The augmentation carries the same bottleneck amount along the path, so the net flow at each intermediate vertex remains unchanged.",
+      "required_facts": [
+        "The augmentation carries the same bottleneck amount along the path, so the net flow at each intermediate vertex remains unchanged."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-011",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "When does Ford–Fulkerson stop, and how can we construct a minimum cut at that point?",
+      "expected_answer": "It stops when no source-to-sink residual path exists. Let S contain vertices reachable from the source in the residual network and let T contain the remaining vertices.",
+      "required_facts": [
+        "It stops when no source-to-sink residual path exists. Let S contain vertices reachable from the source in the residual network and let T contain the remaining vertices."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm"
+          ]
+        },
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-012",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why does the absence of an augmenting path certify a maximum flow?",
+      "expected_answer": "For the cut defined by residual reachability, original edges from S to T are saturated and edges from T to S carry zero flow. The flow therefore equals the cut capacity, meeting the upper bound on any feasible flow.",
+      "required_facts": [
+        "For the cut defined by residual reachability, original edges from S to T are saturated and edges from T to S carry zero flow. The flow therefore equals the cut capacity, meeting the upper bound on any feasible flow."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-013",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What does the max-flow min-cut theorem say?",
+      "expected_answer": "The maximum source-to-sink flow value equals the minimum source-to-sink cut capacity.",
+      "required_facts": [
+        "The maximum source-to-sink flow value equals the minimum source-to-sink cut capacity."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-014",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why can Ford–Fulkerson take at most C augmentations for integer capacities, where C is the total capacity leaving the source?",
+      "expected_answer": "Starting at zero, each augmentation increases the integer flow value by at least one, while the total flow cannot exceed C.",
+      "required_facts": [
+        "Starting at zero, each augmentation increases the integer flow value by at least one, while the total flow cannot exceed C."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-015",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why is the O(mC) runtime bound potentially exponential in the input length?",
+      "expected_answer": "The capacity value C can be large compared with its binary encoding, which uses only logarithmically many bits. A bound proportional to C is therefore potentially exponential in the encoding length.",
+      "required_facts": [
+        "The capacity value C can be large compared with its binary encoding, which uses only logarithmically many bits. A bound proportional to C is therefore potentially exponential in the encoding length."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Runtime"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-016",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "I want the greatest amount of traffic a network can carry, while someone else wants the cheapest capacity cut that disconnects it. How are these objectives related?",
+      "expected_answer": "They are the max-flow and min-cut problems, and their optimal values are equal by the max-flow min-cut theorem.",
+      "required_facts": [
+        "They are the max-flow and min-cut problems, and their optimal values are equal by the max-flow min-cut theorem."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Network Flow.md",
+          "heading": [
+            "Max flow-Min cut theorem"
+          ]
+        },
+        {
+          "path": "MaxFlow.md",
+          "heading": [
+            "Ford-Fulkerson Algorithm",
+            "Correctness"
+          ]
+        }
+      ],
+      "human_review": "reviewed",
+      "evidence_groups": [
+        {
+          "fact": "They are the max-flow and min-cut problems, and their optimal values are equal by the max-flow min-cut theorem.",
+          "alternatives": [
+            {
+              "path": "Network Flow.md",
+              "heading": [
+                "Max flow-Min cut theorem"
+              ]
+            },
+            {
+              "path": "MaxFlow.md",
+              "heading": [
+                "Ford-Fulkerson Algorithm",
+                "Correctness"
+              ]
+            }
+          ]
+        }
+      ],
+      "review_note": "Human review accepted the theorem or the correctness proof as alternative supporting sections. The MaxFlow introduction is not required."
+    },
+    {
+      "id": "nf-017",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "What is the Edmonds–Karp algorithm, and what is its runtime?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The selected notes describe Ford–Fulkerson but do not describe Edmonds–Karp or its runtime.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-018",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "How do we solve a minimum-cost maximum-flow problem?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The notes contain capacities and flow values, but no edge costs or minimum-cost flow algorithm.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-019",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "What is the numerical maximum flow in the diagram showing Paul and Jerry?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The numerical network is in a linked image. The selected Markdown text does not provide the diagram's capacities, and image content is outside this evaluation.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-020",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "Which Python library should I use to compute a minimum cut, and how do I call it?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The notes give mathematical definitions and algorithms without Python library recommendations or usage.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-021",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What historical problem motivated the maximum-flow problem?",
+      "expected_answer": "Maximizing the flow of rail transportation for the Soviet Union.",
+      "required_facts": [
+        "Maximizing the flow of rail transportation for the Soviet Union."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MaxFlow.md",
+          "heading": []
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-022",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What historical problem motivated the minimum-cut problem?",
+      "expected_answer": "Cold War attempts to cripple Soviet supply routes.",
+      "required_facts": [
+        "Cold War attempts to cripple Soviet supply routes."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "MinCut.md",
+          "heading": []
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-023",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "What engine does the Ford Raptor use?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "Ford–Fulkerson appears in the notes, but Ford Raptor vehicles and engines are outside the selected corpus.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "nf-024",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "Who are Tom and Jerry, and why does Tom chase Jerry?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "Jerry appears in a network-flow example, but the notes do not describe the cartoon characters or their relationship.",
+      "human_review": "reviewed"
+    }
+  ],
+  "human_review_date": "2026-11-18",
+  "label_revision": 2
+}

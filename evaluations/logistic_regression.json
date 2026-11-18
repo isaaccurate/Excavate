@@ -1,0 +1,530 @@
+{
+  "schema_version": 1,
+  "name": "Logistic regression course-note evaluation",
+  "status": "human_reviewed",
+  "corpus": {
+    "selection": "Only the five explicitly selected notes in their Logistic Regression directory.",
+    "paths": [
+      "Logistic Regression.md",
+      "Regularization.md",
+      "Optimization Algorithms.md",
+      "Loss Function.md",
+      "Scaling Input Features.md"
+    ]
+  },
+  "scoring_notes": [
+    "All 20 questions were manually created and reviewed."
+  ],
+  "questions": [
+    {
+      "id": "lr-001",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "When modeling a classification task, when would we use multinomial logistic regression compared to binary?",
+      "expected_answer": "Use binary logistic regression for two classes and multinomial logistic regression for more than two classes.",
+      "required_facts": [
+        "Binary handles two classes.",
+        "Multinomial handles more than two classes."
+      ],
+      "optional_facts": [
+        "Binary uses sigmoid, while multinomial uses softmax."
+      ],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ]
+        },
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-002",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How is the loss function used in logistic regression?",
+      "expected_answer": "It measures how predicted probabilities differ from true labels. Training adjusts weights and bias to minimize average cross-entropy loss using gradient descent or its variants.",
+      "required_facts": [
+        "Loss measures prediction error relative to true labels.",
+        "Training minimizes average cross-entropy loss by updating parameters."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss"
+          ]
+        },
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent"
+          ]
+        }
+      ],
+      "human_review": "reviewed",
+      "review_note": "Human review confirms the question is valid. Hybrid failed to retrieve either labeled section, so this remains a scored retrieval miss."
+    },
+    {
+      "id": "lr-003",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why do we minimize negative log-likelihood instead of maximizing likelihood?",
+      "expected_answer": "Log is strictly increasing, so taking the logarithm preserves the likelihood's optimum. Negating the log-likelihood converts maximization into minimization and produces cross-entropy loss.",
+      "required_facts": [
+        "Taking log preserves the optimum.",
+        "Negation converts maximization to minimization."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-004",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How does gradient descent decide which direction to change the weights?",
+      "expected_answer": "The gradient points toward the steepest increase in loss. Gradient descent moves in the opposite direction, with the learning rate controlling step size.",
+      "required_facts": [
+        "The gradient points toward steepest increase.",
+        "Updates move opposite the gradient.",
+        "The learning rate controls step size."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-005",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How does regularization change the training objective?",
+      "expected_answer": "It adds a penalty on weights to the data loss, discouraging model complexity and potentially improving generalization even if training loss increases.",
+      "required_facts": [
+        "A weight penalty is added to data loss.",
+        "The penalty discourages model complexity to reduce overfitting."
+      ],
+      "optional_facts": [
+        "Training loss may increase while generalization improves."
+      ],
+      "sources": [
+        {
+          "path": "Regularization.md",
+          "heading": []
+        },
+        {
+          "path": "Regularization.md",
+          "heading": [
+            "Objective"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-006",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What is the difference between regularization and gradient descent?",
+      "expected_answer": "Regularization changes the objective being optimized. Gradient descent determines how parameters are updated to minimize that objective.",
+      "required_facts": [
+        "Regularization changes the objective.",
+        "Gradient descent determines parameter updates."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-007",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Why might we use mini-batches instead of one example or the entire dataset?",
+      "expected_answer": "Single-example updates are cheap but noisy. Full-dataset updates are stable but expensive. Mini-batches balance stability and computational efficiency.",
+      "required_facts": [
+        "Single-example updates are cheap and noisy.",
+        "Full-dataset updates are stable and expensive.",
+        "Mini-batches balance stability and efficiency."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent",
+            "Batch vs. Mini-Batch vs. SGD"
+          ]
+        },
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-008",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What does increasing L2 regularization do to the weight updates?",
+      "expected_answer": "It strengthens the penalty on large weights. The gradient includes an additional 2λw_j term that pulls weights toward zero during training.",
+      "required_facts": [
+        "Increasing regularization strengthens weight shrinkage.",
+        "The added gradient term is 2λw_j."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Regularization.md",
+          "heading": [
+            "L2 Regularization (Ridge)"
+          ]
+        },
+        {
+          "path": "Regularization.md",
+          "heading": [
+            "Comparison"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-009",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What decision threshold is used for binary logistic regression in these notes?",
+      "expected_answer": "Predict class 1 when P(y=1|x) > 0.5 and class 0 otherwise. Equivalently, predict class 1 when z > 0.",
+      "required_facts": [
+        "Class 1 when probability exceeds 0.5.",
+        "Class 0 otherwise, including equality."
+      ],
+      "optional_facts": [
+        "The equivalent score threshold is z > 0."
+      ],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-010",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What is the sigmoid function?",
+      "expected_answer": "It converts z = w·x + b into a probability using σ(z) = 1 / (1 + exp(-z)).",
+      "required_facts": [
+        "Sigmoid maps a score to a probability.",
+        "σ(z) = 1 / (1 + exp(-z))."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-011",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What is softmax?",
+      "expected_answer": "It converts class scores into a probability distribution. Each probability lies between 0 and 1, and the probabilities sum to 1.",
+      "required_facts": [
+        "Inputs are class scores.",
+        "Outputs are probabilities between 0 and 1 that sum to 1."
+      ],
+      "optional_facts": [
+        "softmax(z_i) = exp(z_i) / Σ_j exp(z_j)."
+      ],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Multinomial Logistic Regression"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-012",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What is the learning rate?",
+      "expected_answer": "A hyperparameter that controls the size of each gradient descent update.",
+      "required_facts": [
+        "The learning rate controls update step size."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Gradient descent",
+            "Gradient"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-013",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What are the steps of stochastic gradient descent, and why might we choose it?",
+      "expected_answer": "Initialize parameters θ. Until the stopping criterion is met, shuffle training examples and process them one at a time. Compute each prediction and its loss gradient, then update θ ← θ − ηg. Return the learned parameters. Each update is computationally cheap, and frequent updates can make training progress quickly.",
+      "required_facts": [
+        "Initialize parameters.",
+        "Repeatedly shuffle and process examples individually until a stopping criterion is met.",
+        "Compute prediction and loss gradient.",
+        "Update parameters using θ ← θ − ηg.",
+        "Return learned parameters.",
+        "Updates are cheap and frequent updates can make progress quickly."
+      ],
+      "optional_facts": [
+        "Single-example gradients are noisy, so updates can be choppy."
+      ],
+      "sources": [
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-014",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Derive the cross-entropy loss for binary logistic regression and give its mathematical formula.",
+      "expected_answer": "For y ∈ {0,1}, P(y|x) = ŷ^y (1−ŷ)^(1−y). Taking log gives y log ŷ + (1−y) log(1−ŷ). Log is strictly increasing, so it preserves the likelihood optimum. Negating gives L_CE(ŷ,y) = −[y log ŷ + (1−y) log(1−ŷ)]. Substituting ŷ = σ(w·x+b) gives L_CE = −[y log σ(w·x+b) + (1−y) log(1−σ(w·x+b))].",
+      "required_facts": [
+        "Bernoulli likelihood P(y|x) = ŷ^y (1−ŷ)^(1−y).",
+        "Take logarithms and negate to obtain a minimization objective.",
+        "Binary cross-entropy L_CE = −[y log ŷ + (1−y) log(1−ŷ)]."
+      ],
+      "optional_facts": [
+        "Substitute ŷ = σ(w·x+b) into the loss formula."
+      ],
+      "sources": [
+        {
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-015",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "If we increase the bias b while keeping the input and weights fixed, what happens to the predicted probability of class 1?",
+      "expected_answer": "Increasing b increases z = w·x+b. Because sigmoid increases with z, the predicted probability of class 1 increases.",
+      "required_facts": [
+        "Increasing b increases the score z = w·x+b.",
+        "The sigmoid probability P(y=1|x) increases as a result."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Binary Classification"
+          ]
+        }
+      ],
+      "review_note": "Replacement for the discarded decision-boundary question, reviewed by the user.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-016",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "Where are we deriving binary cross-entropy loss from?",
+      "expected_answer": "It comes from the Bernoulli likelihood for a binary label. Taking its logarithm and negating it gives binary cross-entropy loss.",
+      "required_facts": [
+        "Binary cross-entropy is derived from the Bernoulli likelihood."
+      ],
+      "optional_facts": [
+        "P(y|x) = ŷ^y (1−ŷ)^(1−y).",
+        "Taking the negative logarithm gives binary cross-entropy."
+      ],
+      "sources": [
+        {
+          "path": "Loss Function.md",
+          "heading": [
+            "Cross-entropy loss",
+            "Derivation"
+          ]
+        }
+      ],
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-017",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "What is an n-gram language model, and what are its advantages over logistic regression?",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The selected notes define neither n-gram language models nor their advantages relative to logistic regression.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-018",
+      "status": "reviewed",
+      "answerable": false,
+      "question": "Name a few ways we could transform a text corpus into features for logistic regression.",
+      "expected_answer": null,
+      "expected_status": "insufficient_evidence",
+      "expected_citations": [],
+      "required_facts": [],
+      "optional_facts": [],
+      "sources": [],
+      "review_note": "The notes describe feature vectors and numeric feature scaling, but do not describe methods for extracting features from a text corpus.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-019",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "How do we normalize features in a high-dimensional input so their scales are comparable?",
+      "original_question": "How do we normalize features of high dimensions so we could reduce the spread?",
+      "expected_answer": "Scale each feature separately. Z-score standardization subtracts that feature's mean and divides by its standard deviation, giving mean 0 and standard deviation 1. Min-max normalization subtracts the feature minimum and divides by its range, mapping values to [0,1].",
+      "required_facts": [
+        "Apply scaling separately to each feature.",
+        "Z-score standardization uses x_i′ = (x_i − μ_i) / σ_i and gives mean 0 and standard deviation 1.",
+        "Min-max normalization uses x_i′ = (x_i − min(x_i)) / (max(x_i) − min(x_i)) and maps values to [0,1]."
+      ],
+      "optional_facts": [],
+      "sources": [
+        {
+          "path": "Scaling Input Features.md",
+          "heading": [
+            "Z-Score"
+          ]
+        },
+        {
+          "path": "Scaling Input Features.md",
+          "heading": [
+            "Min-Max Normalization"
+          ]
+        }
+      ],
+      "review_note": "Wording was adjusted to target comparable feature scales. Scaling does not reduce the number of dimensions or necessarily decrease every feature's numerical spread. The note does not specify handling of constant features.",
+      "human_review": "reviewed"
+    },
+    {
+      "id": "lr-020",
+      "status": "reviewed",
+      "answerable": true,
+      "question": "What are the general steps for learning logistic regression weights, and how can stochastic gradient descent be used?",
+      "original_question": "Through what general steps are we learning the weights for a logistic regression model, and what optimization algorithm do we usually use?",
+      "expected_answer": "Learn weights and bias by minimizing a loss comparing predictions with true labels. Stochastic gradient descent processes one training example at a time and updates parameters using its loss gradient.",
+      "required_facts": [
+        "Learn weights w and bias b by minimizing a loss comparing predictions with true labels.",
+        "Stochastic gradient descent updates parameters using one training example at a time."
+      ],
+      "optional_facts": [
+        "Cross-entropy is the data loss described in the notes.",
+        "Initialize parameters, shuffle training examples, and repeat updates until a stopping criterion is met.",
+        "Scale input features to make their scales comparable.",
+        "Regularization adds a weight penalty to the objective when used."
+      ],
+      "sources": [
+        {
+          "path": "Logistic Regression.md",
+          "heading": [
+            "Learning the Weights"
+          ]
+        },
+        {
+          "path": "Optimization Algorithms.md",
+          "heading": [
+            "Stochastic Gradient Descent"
+          ]
+        }
+      ],
+      "review_note": "Human review accepted Learning the Weights plus Stochastic Gradient Descent as sufficient. Scaling and regularization are optional.",
+      "human_review": "reviewed",
+      "evidence_groups": [
+        {
+          "fact": "Learn weights w and bias b by minimizing a loss comparing predictions with true labels.",
+          "alternatives": [
+            {
+              "path": "Logistic Regression.md",
+              "heading": [
+                "Learning the Weights"
+              ]
+            }
+          ]
+        },
+        {
+          "fact": "Stochastic gradient descent updates parameters using one training example at a time.",
+          "alternatives": [
+            {
+              "path": "Optimization Algorithms.md",
+              "heading": [
+                "Stochastic Gradient Descent"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "human_review_date": "2026-11-18",
+  "label_revision": 2
+}

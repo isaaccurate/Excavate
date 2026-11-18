@@ -1,0 +1,3193 @@
+{
+  "dataset": "Network flow course-note evaluation",
+  "dataset_sha256": "beebb1e95f37ba459bb60631ef3f042d847c5200876c9055f917c3210d16c106",
+  "model": "text-embedding-3-small",
+  "python": "3.14.8",
+  "corpus": [
+    {
+      "path": "MaxFlow.md",
+      "digest": "e2b2e3b98ccbf0c385d13ebbfd3d2d57c4a8583e09ecb3eb2f920475af0e158d",
+      "chunks": 5
+    },
+    {
+      "path": "MinCut.md",
+      "digest": "68315658d73ba763b8cdbd8dfc053577d2b817799d0410d9126341df059e75fd",
+      "chunks": 1
+    },
+    {
+      "path": "Network Flow.md",
+      "digest": "9671bffded15e6355a68004daa0e1af4bf743a421dfff886b6738f224be2be30",
+      "chunks": 3
+    }
+  ],
+  "questions": 24,
+  "answerable": 18,
+  "unanswerable": 6,
+  "scope": "Each dataset uses only its own declared note selection.",
+  "scoring": "Macro section Recall@5, Hit@5, all-listed-sources@5, MRR@5. Unanswerable cases have rankings only.",
+  "setup_seconds": 0.22281450009904802,
+  "embedding_http_calls": 25,
+  "embedding_tokens": 2788,
+  "metrics": {
+    "lexical": {
+      "recall_at_5": 0.9166666666666666,
+      "hit_at_5": 0.9444444444444444,
+      "all_sources_at_5": 0.8888888888888888,
+      "reciprocal_rank_at_5": 0.49351851851851847
+    },
+    "dense": {
+      "recall_at_5": 0.925925925925926,
+      "hit_at_5": 0.9444444444444444,
+      "all_sources_at_5": 0.8888888888888888,
+      "reciprocal_rank_at_5": 0.7361111111111112
+    },
+    "hybrid": {
+      "recall_at_5": 0.9814814814814815,
+      "hit_at_5": 1.0,
+      "all_sources_at_5": 0.9444444444444444,
+      "reciprocal_rank_at_5": 0.7175925925925926
+    }
+  },
+  "results": [
+    {
+      "id": "nf-001",
+      "answerable": true,
+      "retrieval_seconds": 0.20735083287581801,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.2
+        },
+        "dense": {
+          "recall_at_5": 0.0,
+          "hit_at_5": false,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        }
+      }
+    },
+    {
+      "id": "nf-002",
+      "answerable": true,
+      "retrieval_seconds": 0.19311074982397258,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "nf-003",
+      "answerable": true,
+      "retrieval_seconds": 0.2705528340302408,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "nf-004",
+      "answerable": true,
+      "retrieval_seconds": 0.5387083329260349,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.2
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        }
+      }
+    },
+    {
+      "id": "nf-005",
+      "answerable": true,
+      "retrieval_seconds": 0.16487645800225437,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.2
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "id": "nf-006",
+      "answerable": true,
+      "retrieval_seconds": 0.21760691702365875,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-007",
+      "answerable": true,
+      "retrieval_seconds": 0.2384314159862697,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "nf-008",
+      "answerable": true,
+      "retrieval_seconds": 0.17105983314104378,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.2
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        }
+      }
+    },
+    {
+      "id": "nf-009",
+      "answerable": true,
+      "retrieval_seconds": 0.19614950008690357,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-010",
+      "answerable": true,
+      "retrieval_seconds": 0.19850179203785956,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-011",
+      "answerable": true,
+      "retrieval_seconds": 0.18298166594468057,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-012",
+      "answerable": true,
+      "retrieval_seconds": 0.17023433395661414,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-013",
+      "answerable": true,
+      "retrieval_seconds": 0.22007045801728964,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-014",
+      "answerable": true,
+      "retrieval_seconds": 0.19713133294135332,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-015",
+      "answerable": true,
+      "retrieval_seconds": 0.1816052091307938,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-016",
+      "answerable": true,
+      "retrieval_seconds": 0.1817490418907255,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.0,
+          "hit_at_5": false,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0
+        },
+        "dense": {
+          "recall_at_5": 0.6666666666666666,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 0.6666666666666666,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "id": "nf-017",
+      "answerable": false,
+      "retrieval_seconds": 0.15131779108196497,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "nf-018",
+      "answerable": false,
+      "retrieval_seconds": 0.1521203329320997,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "nf-019",
+      "answerable": false,
+      "retrieval_seconds": 0.17446570890024304,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "nf-020",
+      "answerable": false,
+      "retrieval_seconds": 0.32232649996876717,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "nf-021",
+      "answerable": true,
+      "retrieval_seconds": 0.3792120418511331,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-022",
+      "answerable": true,
+      "retrieval_seconds": 0.1615175420884043,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MinCut.md",
+            "heading": [],
+            "id": "4c4d278a5a4859158abcdeaef9e3eea460b95831d613ecb76bb465369359d182"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "nf-023",
+      "answerable": false,
+      "retrieval_seconds": 0.17465979186818004,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          }
+        ],
+        "dense": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm"
+            ],
+            "id": "c1852a5ec7292392d3b4b043100517b626e68280936b675d2d8ef23d56132836"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [],
+            "id": "3dba2dbe29fcf24029891a2e4e062dbdb658cc2b1ed6d3f7c4e3ff298550f302"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "nf-024",
+      "answerable": false,
+      "retrieval_seconds": 0.19353775004856288,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Runtime"
+            ],
+            "id": "2c56b9a2e4098839eae5cf271379988f86b79a35647bea00501fe2beba937ffc"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Network Flow.md",
+            "heading": [],
+            "id": "407e79bcbc8d74b7943bab43e58c6e5be3813b8e0ca8640017b430e09af5368e"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Finding Max Flow"
+            ],
+            "id": "479a9304207863fcf8fd0e93e75467726909d98d430cddbc271ecbcfd11ca24e"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Max flow-Min cut theorem"
+            ],
+            "id": "6d04376ea74f74c1e83db26009e24d04b0b97b40c5d907bb7a12766b021b2767"
+          },
+          {
+            "path": "Network Flow.md",
+            "heading": [
+              "Definitions"
+            ],
+            "id": "6eea8b231b0fa259b1769da90bffcf04ddb6068f56c13f04d30ad3c037d10cc1"
+          },
+          {
+            "path": "MaxFlow.md",
+            "heading": [
+              "Ford-Fulkerson Algorithm",
+              "Correctness"
+            ],
+            "id": "b3a88a28d809c13ffcafb28d3b8980736e9582e58906abc25059f6a1916845f0"
+          }
+        ]
+      },
+      "metrics": null
+    }
+  ],
+  "evaluation_date": "2026-11-18",
+  "retrieval_commit": "2ac7bf2e74b38cd194da479ac8ed7796d2abb474"
+}

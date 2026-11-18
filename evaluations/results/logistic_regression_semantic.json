@@ -1,0 +1,2772 @@
+{
+  "dataset": "Logistic regression course-note evaluation",
+  "dataset_sha256": "745996385579b0ba5576c262d2c3db82c32c64b221985922dd7c2419d61c8f5e",
+  "model": "text-embedding-3-small",
+  "python": "3.14.8",
+  "corpus": [
+    {
+      "path": "Logistic Regression.md",
+      "digest": "228b3df5c9ceea8c699d3db3fe35e6e47c62265952222699f9e1ac858d403d86",
+      "chunks": 4
+    },
+    {
+      "path": "Loss Function.md",
+      "digest": "4e06ce69afdb85182e529af06651ceefd40c3854ea7989a96e4c39c7a5a21d26",
+      "chunks": 3
+    },
+    {
+      "path": "Optimization Algorithms.md",
+      "digest": "26f9944387dba774959406cfe634765b6995b8fb38a34bfece46517d92b51619",
+      "chunks": 7
+    },
+    {
+      "path": "Regularization.md",
+      "digest": "163a0337242bdbf2c605d5aded8c932d81fd424aa07182f408b3a7d6442841bb",
+      "chunks": 5
+    },
+    {
+      "path": "Scaling Input Features.md",
+      "digest": "89aca67b79508536f3d9a0cb4510320861a59f933c00f07137bc713bcd066f9a",
+      "chunks": 3
+    }
+  ],
+  "questions": 20,
+  "answerable": 18,
+  "unanswerable": 2,
+  "scope": "Each dataset uses only its own declared note selection.",
+  "scoring": "Macro section Recall@5, Hit@5, all-listed-sources@5, MRR@5. Unanswerable cases have rankings only.",
+  "setup_seconds": 1.339795707957819,
+  "embedding_http_calls": 21,
+  "embedding_tokens": 3736,
+  "metrics": {
+    "lexical": {
+      "recall_at_5": 0.8611111111111112,
+      "hit_at_5": 0.9444444444444444,
+      "all_sources_at_5": 0.7777777777777778,
+      "reciprocal_rank_at_5": 0.7453703703703703
+    },
+    "dense": {
+      "recall_at_5": 0.9444444444444444,
+      "hit_at_5": 1.0,
+      "all_sources_at_5": 0.8888888888888888,
+      "reciprocal_rank_at_5": 0.8981481481481483
+    },
+    "hybrid": {
+      "recall_at_5": 0.9166666666666666,
+      "hit_at_5": 0.9444444444444444,
+      "all_sources_at_5": 0.8888888888888888,
+      "reciprocal_rank_at_5": 0.8611111111111112
+    }
+  },
+  "results": [
+    {
+      "id": "lr-001",
+      "answerable": true,
+      "retrieval_seconds": 1.4203420840203762,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-002",
+      "answerable": true,
+      "retrieval_seconds": 1.1630457090213895,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.0,
+          "hit_at_5": false,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0
+        },
+        "dense": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "hybrid": {
+          "recall_at_5": 0.0,
+          "hit_at_5": false,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0
+        }
+      }
+    },
+    {
+      "id": "lr-003",
+      "answerable": true,
+      "retrieval_seconds": 0.5744576249271631,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [],
+            "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [],
+            "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "lr-004",
+      "answerable": true,
+      "retrieval_seconds": 1.0060274170245975,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-005",
+      "answerable": true,
+      "retrieval_seconds": 0.16034391708672047,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "lr-006",
+      "answerable": true,
+      "retrieval_seconds": 0.19912366708740592,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.25
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-007",
+      "answerable": true,
+      "retrieval_seconds": 0.1726530420128256,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-008",
+      "answerable": true,
+      "retrieval_seconds": 0.2065109999384731,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [],
+            "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [],
+            "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-009",
+      "answerable": true,
+      "retrieval_seconds": 0.22485545813106,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-010",
+      "answerable": true,
+      "retrieval_seconds": 0.8139569580089301,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Min-Max Normalization"
+            ],
+            "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-011",
+      "answerable": true,
+      "retrieval_seconds": 0.1449749581515789,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-012",
+      "answerable": true,
+      "retrieval_seconds": 0.19738458399660885,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-013",
+      "answerable": true,
+      "retrieval_seconds": 0.15127058303914964,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Batch vs. Mini-Batch vs. SGD"
+            ],
+            "id": "739c6664b81c2f77ca8822b8c08bfac28e72f995ffbd1b1dce97f9f0183b676f"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-014",
+      "answerable": true,
+      "retrieval_seconds": 0.473352582892403,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-015",
+      "answerable": true,
+      "retrieval_seconds": 0.14051924995146692,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [],
+            "id": "84b8ef35822e5170225ade82c9cbae3011d4b3501732584b8f74e409479d3103"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L2 Regularization (Ridge)"
+            ],
+            "id": "83517b04455420036b03109d57dec0e1be00f1a5f8bd4d9b4c7f5931d377f6c0"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Objective"
+            ],
+            "id": "c809cc36668312046922f0732fe3d14683e852f8fb94da65ed615e7ea7d13a10"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.3333333333333333
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-016",
+      "answerable": true,
+      "retrieval_seconds": 0.18938362505286932,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss"
+            ],
+            "id": "b77e5099116a5e193caa91b6a9700378e251781d0c5e4f26aa165c5fb08ed147"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    },
+    {
+      "id": "lr-017",
+      "answerable": false,
+      "retrieval_seconds": 0.183658333029598,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent"
+            ],
+            "id": "de085fc5884ae853ae4a77a9c2cdcaeffe6da967696e44a2ac160e7538f19c21"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [],
+            "id": "ab08615ad012de9e4695a31a9ae4c1cf69725d3e7a6964667cce9564236211e2"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "lr-018",
+      "answerable": false,
+      "retrieval_seconds": 0.2403841249179095,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Multinomial Logistic Regression"
+            ],
+            "id": "c2c4981a0dac53e25b31eb1b340f21d2f71159d49aefd7dd93c0b9eb4dec2689"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          }
+        ]
+      },
+      "metrics": null
+    },
+    {
+      "id": "lr-019",
+      "answerable": true,
+      "retrieval_seconds": 0.14372875005938113,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Min-Max Normalization"
+            ],
+            "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [
+              "Cross-entropy loss",
+              "Derivation"
+            ],
+            "id": "3faef2577acabc5e86d4ae358e10b991c17d130bb1fc12088640f3f2c6f61990"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          },
+          {
+            "path": "Loss Function.md",
+            "heading": [],
+            "id": "ec8ccc8412e8ba3248ffb9759c4691485273bf46f995aa49a446d85f428238c4"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Min-Max Normalization"
+            ],
+            "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Z-Score"
+            ],
+            "id": "0e36314d6553408fd1a2d257e7a06486acf0cf483d0a39e00891269652e2da4c"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [],
+            "id": "ab47ffc32ad44557423ccde531d711170dc5c0fa27d57a6efba76d95f0b484e4"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [],
+            "id": "8a05e2e4dea1107a89d467578a391610db1342e9a8b90d3f550bbb4465590038"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Min-Max Normalization"
+            ],
+            "id": "ef0e3b0b994bdd47d4192a45805be0293972db76d923fdcc0248e11880f9ab38"
+          },
+          {
+            "path": "Scaling Input Features.md",
+            "heading": [
+              "Z-Score"
+            ],
+            "id": "0e36314d6553408fd1a2d257e7a06486acf0cf483d0a39e00891269652e2da4c"
+          },
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "Comparison"
+            ],
+            "id": "0175ec372b6d645fce7321c6ef335b6f4b8aba8c022aea39cc4e99ca6fe0414a"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Binary Classification"
+            ],
+            "id": "904459fc23f263e3aa74272ab21726376f8bc6f9eb2fcdbd4657ca84bca433e5"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "hit_at_5": true,
+          "all_sources_at_5": true,
+          "reciprocal_rank_at_5": 0.5
+        }
+      }
+    },
+    {
+      "id": "lr-020",
+      "answerable": true,
+      "retrieval_seconds": 0.19069895800203085,
+      "rankings": {
+        "lexical": [
+          {
+            "path": "Regularization.md",
+            "heading": [
+              "L1 Regularization (Lasso)"
+            ],
+            "id": "96575e2d3b48b0859713b438ceadaa9992717c7bf86b3a29222f2859e660c1f4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          }
+        ],
+        "dense": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          }
+        ],
+        "hybrid": [
+          {
+            "path": "Logistic Regression.md",
+            "heading": [
+              "Learning the Weights"
+            ],
+            "id": "07829b2dd7b3ac154d527e599267261ea8ee3c2732252e65a2f2848a628ce6ce"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent"
+            ],
+            "id": "f2f4794f47784a4eb0b044b255324cffe17ee4d1f76af660006ad7a631157f55"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Stochastic Gradient Descent",
+              "Convexity of Logistic Regression"
+            ],
+            "id": "172d106c33604491badb322df29dd867fc027f1488e5ae43125f06727012eaa4"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient for Logistic Regression"
+            ],
+            "id": "e33c8688412587691a6f915dc9188c3a43cb734107e9c96b2fb436a535ec1e76"
+          },
+          {
+            "path": "Optimization Algorithms.md",
+            "heading": [
+              "Gradient descent",
+              "Gradient"
+            ],
+            "id": "1138398b7196c3b4692c496a0cdce36000e9968ab52d96e5d0e322d9b1060e2c"
+          }
+        ]
+      },
+      "metrics": {
+        "lexical": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 0.5
+        },
+        "dense": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 0.5,
+          "hit_at_5": true,
+          "all_sources_at_5": false,
+          "reciprocal_rank_at_5": 1.0
+        }
+      }
+    }
+  ],
+  "evaluation_date": "2026-11-18",
+  "retrieval_commit": "2ac7bf2e74b38cd194da479ac8ed7796d2abb474"
+}
