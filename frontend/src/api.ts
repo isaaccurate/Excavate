@@ -13,11 +13,9 @@ export type Citation = {
   text?: string;
 };
 
-export type AnswerResult = {
-  status: "answered" | "insufficient_evidence";
-  answer: string | null;
-  citations: Citation[];
-};
+export type AnswerResult =
+  | { status: "answered"; answer: string; citations: Citation[] }
+  | { status: "insufficient_evidence"; answer: null; citations: [] };
 
 /** Every way a request can fail, so the page can say what to do about it. */
 export type FailureKind =
@@ -66,19 +64,19 @@ export function parseResult(payload: unknown): AnswerResult {
   const answer = candidate.answer;
   const citations = candidate.citations;
 
-  const statusIsKnown =
-    status === "answered" || status === "insufficient_evidence";
-  const answerIsValid = typeof answer === "string" || answer === null;
-  if (!statusIsKnown || !answerIsValid || !Array.isArray(citations)) {
+  if (!Array.isArray(citations)) throw new AskFailure("malformed");
+  if (status === "insufficient_evidence" && answer === null && citations.length === 0) {
+    return { status, answer, citations: [] };
+  }
+  if (status !== "answered" || typeof answer !== "string" || !answer.trim() || !citations.length) {
     throw new AskFailure("malformed");
   }
-  const parsed = citations.map(parseCitation);
-  if (parsed.some((citation) => citation === null)) throw new AskFailure("malformed");
-  if (status === "answered" && typeof answer !== "string") {
-    throw new AskFailure("malformed");
-  }
-
-  return { status, answer, citations: parsed as Citation[] };
+  const parsed = citations.map((value: unknown) => {
+    const citation = parseCitation(value);
+    if (!citation) throw new AskFailure("malformed");
+    return citation;
+  });
+  return { status, answer, citations: parsed };
 }
 
 /**

@@ -102,6 +102,10 @@ describe("parseResult", () => {
     ["a non-string excerpt", { status: "answered", answer: "A.", citations: [{ ...CITATION, text: 5 }] }],
     ["a heading that is not a list of strings", { status: "answered", answer: "A.", citations: [{ ...CITATION, heading: "DFS" }] }],
     ["an answered result with no answer", { status: "answered", answer: null, citations: [] }],
+    ["an empty answer", { status: "answered", answer: "  ", citations: [CITATION] }],
+    ["an uncited answer", { status: "answered", answer: "A.", citations: [] }],
+    ["an abstention with text", { status: "insufficient_evidence", answer: "A.", citations: [] }],
+    ["an abstention with citations", { status: "insufficient_evidence", answer: null, citations: [CITATION] }],
     ["an unknown status", { status: "maybe", answer: "A.", citations: [] }],
     ["a missing citation list", { status: "answered", answer: "A." }],
   ])("rejects %s", (_label, payload) => {
