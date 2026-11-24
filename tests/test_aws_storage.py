@@ -532,5 +532,10 @@ def test_answer_api_reads_aws_without_a_sqlite_database(aws, monkeypatch):
     response = asyncio.run(request())
     assert response.status_code == 200
     assert response.json()["citations"] == [
-        {"id": "citation", "path": PATH, "heading": ["Storage"]}
+        {
+            "id": "citation",
+            "path": PATH,
+            "heading": ["Storage"],
+            "text": "Notes use S3 storage.",
+        }
     ]
