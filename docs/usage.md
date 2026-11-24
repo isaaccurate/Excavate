@@ -38,7 +38,7 @@ For semantic search, set `OPENAI_API_KEY` and choose an embedding model such as 
 
 With managed embeddings, search sends the query and any uncached sections to the provider. SQLite fills its cache during search. AWS fills it during ingestion.
 
-Answer generation sends the question and retrieved excerpts, including paths and headings, to OpenAI. Citations point back to those sections so you can check the answer. An `insufficient_evidence` result has a null answer and no citations.
+Answer generation sends the question and retrieved excerpts, including paths and headings, to OpenAI. Each citation returns the section's path, heading, and excerpt so you can check the answer. An `insufficient_evidence` result has a null answer and no citations.
 
 ## Use the local API
 
