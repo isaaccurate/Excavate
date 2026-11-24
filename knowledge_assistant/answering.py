@@ -5,8 +5,8 @@ from pydantic import BaseModel, ConfigDict, StringConstraints
 
 from knowledge_assistant.contracts import (
     MAX_PASSAGE_CHARS,
-    Citation,
     GenerationProvider,
+    Passage,
     PassageSearch,
 )
 
@@ -54,31 +54,27 @@ class GeneratedAnswer(BaseModel):
 class AnswerResult(BaseModel):
     status: Literal["answered", "insufficient_evidence"]
     answer: str | None
-    citations: tuple[Citation, ...]
+    citations: tuple[Passage, ...]
 
 
 def answer_question(
     question: str, search: PassageSearch, provider: GenerationProvider
 ) -> AnswerResult:
     question = AnswerRequest(question=question).question
-    citations = {}
+    citations: dict[str, Passage] = {}
     encoded_passages = []
     evidence_size = 2  # Opening and closing brackets.
     for passage in search.retrieve(question, limit=MAX_PASSAGES)[:MAX_PASSAGES]:
         # Count escaped metadata as well as text so unusual headings cannot
         # expand the context without limit.
-        encoded = json.dumps(
-            passage.model_dump() | {"text": passage.text[:MAX_PASSAGE_CHARS]},
-            ensure_ascii=False,
-        )
+        excerpt = passage.model_copy(update={"text": passage.text[:MAX_PASSAGE_CHARS]})
+        encoded = json.dumps(excerpt.model_dump(), ensure_ascii=False)
         extra_size = len(encoded) + bool(encoded_passages)
         if evidence_size + extra_size > MAX_EVIDENCE_CHARS:
             continue
         evidence_size += extra_size
         encoded_passages.append(encoded)
-        citations[passage.id] = Citation(
-            id=passage.id, path=passage.path, heading=passage.heading
-        )
+        citations[excerpt.id] = excerpt
 
     insufficient = AnswerResult(
         status="insufficient_evidence", answer=None, citations=()

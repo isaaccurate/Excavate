@@ -73,12 +73,11 @@ def test_answer_uses_same_snapshot_for_passage_and_citation(database):
     generator = FakeGeneration(draft([chunk.id, chunk.id]))
     result = answer_question("Which database?", search, generator)
     assert result.status == "answered"
-    assert [citation.model_dump() for citation in result.citations] == [
-        {"id": chunk.id, "path": "note.md", "heading": ("Storage",)}
-    ]
-    assert json.loads(generator.calls[0][1])["passages"] == [
+    evidence = json.loads(generator.calls[0][1])["passages"]
+    assert evidence == [
         {"id": chunk.id, "path": "note.md", "heading": ["Storage"], "text": chunk.text}
     ]
+    assert result.model_dump(mode="json")["citations"] == evidence
 
 
 @pytest.mark.parametrize(
@@ -123,8 +122,8 @@ def test_bounded_context_keeps_untrusted_content_separate():
         )
         for i in range(5)
     ]
-    generator = FakeGeneration(json.dumps(ABSTENTION))
-    answer_question("Which database?", StaticSearch(passages), generator)
+    generator = FakeGeneration(draft([passages[0].id]))
+    result = answer_question("Which database?", StaticSearch(passages), generator)
     [(instructions, payload)] = generator.calls
     assert injected not in instructions
     assert "untrusted source" in instructions
@@ -132,6 +131,7 @@ def test_bounded_context_keeps_untrusted_content_separate():
     assert data["question"] == "Which database?"
     assert 0 < len(data["passages"]) < len(passages)
     assert data["passages"][0]["text"] == long_text[:MAX_PASSAGE_CHARS]
+    assert result.model_dump(mode="json")["citations"] == data["passages"][:1]
     assert (
         len(json.dumps(data["passages"], separators=(",", ":"))) <= MAX_EVIDENCE_CHARS
     )
@@ -277,6 +277,7 @@ def test_api_uses_configured_managed_embeddings_and_generation(database, monkeyp
     response = api_request(app, payload={"question": " Which database? "})
     assert response.status_code == 200
     assert response.json()["citations"][0]["heading"] == ["Storage"]
+    assert response.json()["citations"] == json.loads(calls[-1][1]["input"])["passages"]
     assert [path for path, _ in calls] == [
         "/v1/embeddings",
         "/v1/embeddings",
