@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
 import {
   AskFailure,
@@ -11,8 +11,6 @@ import { Callout } from "./Callout";
 import { Digging } from "./Digging";
 import { ArrowUpIcon, FailureIcon, PencilIcon, WarningIcon } from "./icons";
 import { FAILURE_MESSAGES, NO_EVIDENCE } from "./messages";
-import { RichText } from "./RichText";
-import { Sources } from "./Sources";
 import { SUGGESTIONS } from "./suggestions";
 
 /** One question at a time: a new question replaces the current exchange. */
@@ -20,6 +18,8 @@ type Exchange =
   | { phase: "searching"; question: string }
   | { phase: "result"; question: string; result: AnswerResult }
   | { phase: "failed"; question: string; kind: FailureKind };
+
+const AnswerContent = lazy(() => import("./AnswerContent"));
 
 const MAX_COMPOSER_HEIGHT = 200;
 
@@ -127,10 +127,9 @@ export default function App() {
               </div>
 
               {exchange.phase === "result" && exchange.result.status === "answered" ? (
-                <>
-                  <RichText className="reply__answer" text={exchange.result.answer ?? ""} />
-                  <Sources citations={exchange.result.citations} />
-                </>
+                <Suspense fallback={<p className="reply__answer">{exchange.result.answer}</p>}>
+                  <AnswerContent answer={exchange.result.answer} citations={exchange.result.citations} />
+                </Suspense>
               ) : null}
 
               {exchange.phase === "result" &&
