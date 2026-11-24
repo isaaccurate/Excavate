@@ -61,6 +61,21 @@ curl http://127.0.0.1:8000/answer \
 
 The health route checks that the process is running. The local server has no authentication. The deployed API requires IAM-signed requests.
 
+## Use the web page
+
+With the server running, the React page in `frontend/` gives the same `/answer`
+route a question box, an answer, and expandable citations.
+
+```sh
+cd frontend
+npm install
+npm run dev
+```
+
+Open http://localhost:5173. The development proxy forwards `/answer` to
+`http://127.0.0.1:8000`, so the provider key stays in the backend process. See
+the [frontend guide](../frontend/README.md) for scripts and settings.
+
 ## Manage notes in AWS
 
 Install the AWS extra and configure the CLI to use an existing private, unversioned S3 bucket and a dedicated DynamoDB table with a string partition key named `document_id` and no sort key. The profile or role needs access to the bucket's `documents/` prefix and the table. The AWS extra supports browser sign-in profiles.
