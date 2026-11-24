@@ -45,10 +45,11 @@ Excavate/
 │   └── evaluate_retrieval.py
 ├── evaluations/             # Labeled question sets
 │   └── results/             # Retrieval, cache, and answer reports
+├── frontend/                # React page for asking questions
 ├── tests/                   # Automated tests
 ├── docs/                    # Usage, design, and testing guides
 ├── deploy/                  # Docker and AWS templates
 └── pyproject.toml           # Dependencies and project settings
 ```
 
-[Usage](docs/usage.md) · [Architecture](docs/architecture.md) · [Design decisions](docs/decisions.md) · [Testing and benchmarks](docs/testing.md) · [Next steps](docs/progress.md) · [Deployment](deploy/README.md)
+[Usage](docs/usage.md) · [Frontend](frontend/README.md) · [Architecture](docs/architecture.md) · [Design decisions](docs/decisions.md) · [Testing and benchmarks](docs/testing.md) · [Next steps](docs/progress.md) · [Deployment](deploy/README.md)
