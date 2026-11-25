@@ -93,6 +93,7 @@ The other outcomes each say what to do next:
 | 500 from the API | Retrieval failed; check `KNOWLEDGE_ASSISTANT_DB`. |
 | 502 from the API | The model call failed; ask again. |
 | No reply at all | The request never reached the backend. |
+| 429 from the hosted page's rate limit | Too many questions; wait before asking again. |
 
 A failure offers `Ask again`, which resends the same question.
 
@@ -107,8 +108,9 @@ the list when the index changes. An empty list shows no suggestions.
 Inter is bundled with the page, so it needs no font requests. The page
 respects `prefers-reduced-motion`.
 
-## Not done here
+## Hosting
 
-No authentication and no production hosting: the deployed API requires
-IAM-signed requests, and whether this ships as a standalone demo or folds into
-the portfolio is still open.
+The local proxy is for development. For public hosting, build with
+`VITE_SIGNED_LAMBDA_ORIGIN=true npm run build`. This adds the request body hash
+that CloudFront uses to sign `/answer` requests. The [AWS hosting guide](../deploy/README.md#host-the-frontend)
+covers the distribution and rate limit.
