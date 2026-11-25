@@ -24,6 +24,7 @@ export type FailureKind =
   | "unconfigured"
   | "provider"
   | "retrieval"
+  | "rate_limited"
   | "malformed"
   | "unexpected";
 
@@ -101,6 +102,7 @@ async function readDetail(response: Response): Promise<string | null> {
 
 function kindForStatus(status: number): FailureKind {
   if (status === 422) return "invalid";
+  if (status === 429) return "rate_limited";
   if (status === 503) return "unconfigured";
   if (status === 502) return "provider";
   if (status === 500) return "retrieval";

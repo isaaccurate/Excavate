@@ -34,6 +34,10 @@ export const FAILURE_MESSAGES: Record<FailureKind, Message> = {
     title: "That question can't be asked",
     detail: `Questions can be up to ${MAX_QUESTION_CHARS} characters.`,
   },
+  rate_limited: {
+    title: "Too many questions",
+    detail: "Wait a few minutes before asking again.",
+  },
   malformed: {
     title: "Something went wrong",
     detail: "Excavate sent back a reply this page can't read. Try again.",

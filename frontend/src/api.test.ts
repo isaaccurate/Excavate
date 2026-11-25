@@ -50,6 +50,7 @@ describe("askQuestion", () => {
 
   it.each([
     [422, "invalid", { detail: [{ msg: "too long" }] }],
+    [429, "rate_limited", { detail: "Too many questions" }],
     [503, "unconfigured", { detail: "configure an OpenAI generation model" }],
     [502, "provider", { detail: "answer provider failed" }],
     [500, "retrieval", { detail: "answer retrieval failed" }],
