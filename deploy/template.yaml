@@ -29,6 +29,11 @@ Parameters:
     Type: String
     AllowedPattern: '|arn:[^:]+:secretsmanager:[^:]+:[0-9]{12}:secret:[^ ]+'
     Default: ''
+  ApiReservedConcurrency:
+    Type: Number
+    MinValue: 0
+    Default: 0
+    Description: Optional cap on concurrent answer requests. 0 leaves the API unreserved.
 Rules:
   RequireModelAndSecretTogether:
     Assertions:
@@ -44,6 +49,7 @@ Rules:
 Conditions:
   HasModelSecret: !Not [!Equals [!Ref OpenAISecretArn, '']]
   HasEmbeddingModel: !Not [!Equals [!Ref EmbeddingModel, '']]
+  HasApiConcurrencyCap: !Not [!Equals [!Ref ApiReservedConcurrency, 0]]
 Globals:
   Function:
     Architectures: [x86_64]
@@ -152,6 +158,10 @@ Resources:
         Command: [knowledge_assistant.lambda_handlers.api_handler]
       MemorySize: 1024
       Timeout: 90
+      ReservedConcurrentExecutions: !If
+        - HasApiConcurrencyCap
+        - !Ref ApiReservedConcurrency
+        - !Ref AWS::NoValue
       FunctionUrlConfig:
         AuthType: AWS_IAM
       Environment:
