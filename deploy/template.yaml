@@ -215,9 +215,11 @@ Resources:
     Metadata:
       com.aws.cloudformation.Context:
         why: Applies the seven-day retention policy on an hourly cadence.
-        must: [Enable only after validating cleanup under its execution role.]
+        must:
+          - Use a stack-specific name so course and smoke stacks can coexist.
+          - Enable only after validating cleanup under its execution role.
     Properties:
-      Name: hourly-cleanup
+      Name: !Sub '${AWS::StackName}-hourly-cleanup'
       GroupName: !Ref CleanupScheduleGroup
       ScheduleExpression: rate(1 hour)
       FlexibleTimeWindow: {Mode: 'OFF'}
