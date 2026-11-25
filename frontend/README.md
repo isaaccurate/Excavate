@@ -9,7 +9,7 @@ stay in the backend process; the page posts a question and receives an answer.
 
 ## Run it
 
-Two terminals, both from the repository root.
+Requires Node.js 22.12 or newer. Use two terminals, both from the repository root.
 
 Start the backend first, pointing it at a database you have ingested notes
 into (see [docs/usage.md](../docs/usage.md) for ingestion):
