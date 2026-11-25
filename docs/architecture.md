@@ -20,7 +20,7 @@ The CLI and FastAPI share the same answer service. It selects a bounded set of p
 
 The application validates the returned structure and checks that every citation refers to a supplied passage. The model decides whether the evidence supports an answer. Questions and note content are passed separately from trusted instructions.
 
-The API returns 422 for invalid input, 503 for missing configuration, and 502 for provider failures or unusable responses. The health endpoint works with the base installation.
+The API returns 422 for invalid input, 503 for missing configuration, 500 for retrieval failures, and 502 for provider failures or unusable responses. The health endpoint works with the base installation.
 
 ## Store notes in AWS
 
