@@ -1,8 +1,8 @@
 # Excavate frontend
 
 A standalone single-page React app for asking Excavate a question and reading
-the answer with the note sections behind it. It talks to the local FastAPI
-server over `POST /answer` through the Vite development proxy.
+the answer with the note sections behind it. The page sends `POST /answer` to
+the local API or to a local proxy for the deployed Lambda.
 
 The browser never holds a provider key. `OPENAI_API_KEY` and any AWS settings
 stay in the backend process; the page posts a question and receives an answer.
@@ -42,8 +42,22 @@ to `http://127.0.0.1:8000`. Point the proxy somewhere else with
 | `npm run build` | Type-check, then build into `dist/`. |
 | `npm run preview` | Serve the built output, with the same API proxy. |
 
-The proxy exists only in these local servers. A deployed build needs `/answer`
-served from its own origin, which is part of the hosting decision below.
+### Use the deployed AWS API
+
+From the repository root, install the AWS and HTTP dependencies and start the
+loopback proxy. Use an authenticated AWS profile with permission to invoke
+the Lambda Function URL.
+
+```sh
+source .venv/bin/activate
+python -m pip install -e '.[aws,retrieval]'
+AWS_PROFILE=YOUR_PROFILE EXCAVATE_LAMBDA_URL=YOUR_FUNCTION_URL \
+  uvicorn scripts.aws_api_proxy:app --host 127.0.0.1 --port 9000
+```
+
+In the frontend terminal, run `VITE_API_TARGET=http://127.0.0.1:9000 npm run dev`.
+Vite sends `/answer` and `/health` to the local proxy, which signs each request
+using the AWS profile. Open the Vite URL to try an answer and expand a citation.
 
 Error messages are written for visitors. The dev server adds a line under each
 one with setup advice, such as which environment variable to check; built
