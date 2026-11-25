@@ -12,11 +12,11 @@ python -m pip check
 
 `pytest` runs the automated tests. `ruff check` checks code style and common mistakes, while `ruff format --check` checks formatting. `pip check` checks that installed dependencies are compatible.
 
-For the frontend, run `npm test` and `npm run build` in `frontend/`. The tests cover response validation, error messages, math conversion, and citation helpers.
+For the frontend, run `npm test` and `npm run build` in `frontend/`. The tests cover response validation, error and rate-limit messages, request signing hashes, math conversion, and citation helpers.
 
 ## Verified checks
 
-On November 18, 2026, all 89 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Coverage includes safe file selection, heading preservation, note updates, cache reuse and invalidation, concurrent writes, citation validation, provider failures, and AWS note recovery and cleanup.
+On November 24, 2026, all 104 Python tests passed on Python 3.13.18, along with Ruff lint and formatting checks. All 49 frontend tests and the production build also passed. Coverage includes safe file selection, heading preservation, note updates, cache reuse and invalidation, concurrent writes, citation validation, provider failures, AWS note recovery and cleanup, and the local AWS signing proxy.
 
 Live AWS smoke tests verified note updates, delete and restore, scheduled cleanup, and IAM-protected API access. One live answer returned the expected source citation. Temporary test notes were removed afterward.
 
