@@ -89,6 +89,17 @@ export KNOWLEDGE_ASSISTANT_S3_BUCKET=YOUR_BUCKET
 export KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE=YOUR_TABLE
 ```
 
+If you don't have them yet, create both. New S3 buckets are private and unversioned by default. In `us-east-1`, omit `--create-bucket-configuration`.
+
+```sh
+aws s3api create-bucket --bucket "$KNOWLEDGE_ASSISTANT_S3_BUCKET" \
+  --create-bucket-configuration "LocationConstraint=$AWS_DEFAULT_REGION"
+aws dynamodb create-table --table-name "$KNOWLEDGE_ASSISTANT_DYNAMODB_TABLE" \
+  --attribute-definitions AttributeName=document_id,AttributeType=S \
+  --key-schema AttributeName=document_id,KeyType=HASH \
+  --billing-mode PAY_PER_REQUEST
+```
+
 Use the same `ingest`, `search`, and `ask` commands as in local mode. In AWS mode, ingestion uploads the selected note's parsed text and source path to S3. Set `KNOWLEDGE_ASSISTANT_STORAGE=sqlite` to return to local storage.
 
 To cache a selected note, set `OPENAI_API_KEY` and ingest it with the same embedding model as the API.
