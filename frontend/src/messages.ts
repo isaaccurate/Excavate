@@ -18,7 +18,7 @@ export const FAILURE_MESSAGES: Record<FailureKind, Message> = {
     title: "Excavate isn't available right now",
     detail: "The answer service isn't set up to answer yet. Try again later.",
     devHint:
-      "The backend needs OPENAI_API_KEY, KNOWLEDGE_ASSISTANT_OPENAI_MODEL, and the retrieval extra installed. Set those and restart it.",
+      "The backend needs OPENAI_API_KEY, KNOWLEDGE_ASSISTANT_OPENAI_MODEL, and the retrieval extra installed. Set those and restart it. Through the AWS proxy, check that your profile can invoke the Lambda Function URL.",
   },
   retrieval: {
     title: "Couldn't search the notes",
