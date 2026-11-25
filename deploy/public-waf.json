@@ -1,0 +1,39 @@
+{
+  "Name": "excavate-public",
+  "Scope": "CLOUDFRONT",
+  "DefaultAction": { "Allow": {} },
+  "VisibilityConfig": {
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "excavate-public",
+    "SampledRequestsEnabled": false
+  },
+  "Rules": [
+    {
+      "Name": "LimitQuestionsPerIp",
+      "Priority": 0,
+      "Action": { "Block": { "CustomResponse": { "ResponseCode": 429 } } },
+      "Statement": {
+        "RateBasedStatement": {
+          "AggregateKeyType": "IP",
+          "EvaluationWindowSec": 300,
+          "Limit": 15,
+          "ScopeDownStatement": {
+            "ByteMatchStatement": {
+              "SearchString": "POST",
+              "FieldToMatch": { "Method": {} },
+              "PositionalConstraint": "EXACTLY",
+              "TextTransformations": [
+                { "Priority": 0, "Type": "NONE" }
+              ]
+            }
+          }
+        }
+      },
+      "VisibilityConfig": {
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "excavate-answer-rate",
+        "SampledRequestsEnabled": false
+      }
+    }
+  ]
+}

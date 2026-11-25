@@ -1,8 +1,8 @@
 # Excavate frontend
 
 A standalone single-page React app for asking Excavate a question and reading
-the answer with the note sections behind it. It talks to the local FastAPI
-server over `POST /answer` through the Vite development proxy.
+the answer with the note sections behind it. The page sends `POST /answer` to
+the local API or to a local proxy for the deployed Lambda.
 
 The browser never holds a provider key. `OPENAI_API_KEY` and any AWS settings
 stay in the backend process; the page posts a question and receives an answer.
@@ -42,8 +42,22 @@ to `http://127.0.0.1:8000`. Point the proxy somewhere else with
 | `npm run build` | Type-check, then build into `dist/`. |
 | `npm run preview` | Serve the built output, with the same API proxy. |
 
-The proxy exists only in these local servers. A deployed build needs `/answer`
-served from its own origin, which is part of the hosting decision below.
+### Use the deployed AWS API
+
+From the repository root, install the AWS and HTTP dependencies and start the
+loopback proxy. Use an authenticated AWS profile with permission to invoke
+the Lambda Function URL.
+
+```sh
+source .venv/bin/activate
+python -m pip install -e '.[aws,retrieval]'
+AWS_PROFILE=YOUR_PROFILE EXCAVATE_LAMBDA_URL=YOUR_FUNCTION_URL \
+  uvicorn scripts.aws_api_proxy:app --host 127.0.0.1 --port 9000
+```
+
+In the frontend terminal, run `VITE_API_TARGET=http://127.0.0.1:9000 npm run dev`.
+Vite sends `/answer` and `/health` to the local proxy, which signs each request
+using the AWS profile. Open the Vite URL to try an answer and expand a citation.
 
 Error messages are written for visitors. The dev server adds a line under each
 one with setup advice, such as which environment variable to check; built
@@ -79,6 +93,7 @@ The other outcomes each say what to do next:
 | 500 from the API | Retrieval failed; check `KNOWLEDGE_ASSISTANT_DB`. |
 | 502 from the API | The model call failed; ask again. |
 | No reply at all | The request never reached the backend. |
+| 429 from the hosted page's rate limit | Too many questions; wait before asking again. |
 
 A failure offers `Ask again`, which resends the same question.
 
@@ -93,8 +108,9 @@ the list when the index changes. An empty list shows no suggestions.
 Inter is bundled with the page, so it needs no font requests. The page
 respects `prefers-reduced-motion`.
 
-## Not done here
+## Hosting
 
-No authentication and no production hosting: the deployed API requires
-IAM-signed requests, and whether this ships as a standalone demo or folds into
-the portfolio is still open.
+The local proxy is for development. For public hosting, build with
+`VITE_SIGNED_LAMBDA_ORIGIN=true npm run build`. This adds the request body hash
+that CloudFront uses to sign `/answer` requests. The [AWS hosting guide](../deploy/README.md#host-the-frontend)
+covers the distribution and rate limit.
