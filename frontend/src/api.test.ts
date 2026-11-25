@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { AskFailure, askQuestion, parseResult } from "./api";
@@ -32,7 +33,10 @@ async function failureKind(promise: Promise<unknown>): Promise<string> {
 
 const ask = () => askQuestion("Which search?", new AbortController().signal);
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
 
 describe("askQuestion", () => {
   it("posts the question to /answer and returns the parsed result", async () => {
@@ -58,6 +62,21 @@ describe("askQuestion", () => {
   ])("maps an API %i to %s", async (status, kind, body) => {
     stubFetch(json(status, body));
     expect(await failureKind(ask())).toBe(kind);
+  });
+
+  it("sends the hash of the exact POST body when CloudFront signs the origin request", async () => {
+    vi.stubEnv("VITE_SIGNED_LAMBDA_ORIGIN", "true");
+    const fetch = stubFetch(json(200, { status: "insufficient_evidence", answer: null, citations: [] }));
+    const question = "What is a pair (r, h) ∈ M?";
+    const body = JSON.stringify({ question });
+    await askQuestion(question, new AbortController().signal);
+    expect(fetch).toHaveBeenCalledWith("/answer", expect.objectContaining({
+      body,
+      headers: {
+        "Content-Type": "application/json",
+        "X-Amz-Content-Sha256": createHash("sha256").update(body).digest("hex"),
+      },
+    }));
   });
 
   // The dev proxy answers for a backend that is not listening, without FastAPI's JSON.

@@ -109,20 +109,26 @@ function kindForStatus(status: number): FailureKind {
   return "unexpected";
 }
 
-/**
- * Posts to the local API through the dev proxy. The request carries no
- * credentials: the backend reads OPENAI_API_KEY and any AWS settings itself.
- */
+/** Posts a question to the same-origin API. */
 export async function askQuestion(
   question: string,
   signal: AbortSignal,
 ): Promise<AnswerResult> {
   let response: Response;
   try {
+    const body = JSON.stringify({ question });
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (import.meta.env.VITE_SIGNED_LAMBDA_ORIGIN === "true") {
+      // CloudFront signs the origin request using the hash of these exact bytes.
+      const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(body));
+      headers["X-Amz-Content-Sha256"] = Array.from(new Uint8Array(hash), (byte) =>
+        byte.toString(16).padStart(2, "0"),
+      ).join("");
+    }
     response = await fetch("/answer", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question }),
+      headers,
+      body,
       signal,
     });
   } catch (error) {
