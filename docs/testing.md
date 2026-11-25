@@ -12,6 +12,8 @@ python -m pip check
 
 `pytest` runs the automated tests. `ruff check` checks code style and common mistakes, while `ruff format --check` checks formatting. `pip check` checks that installed dependencies are compatible.
 
+For the frontend, run `npm test` and `npm run build` in `frontend/`. The tests cover response validation, error messages, math conversion, and citation helpers.
+
 ## Verified checks
 
 On November 18, 2026, all 89 tests passed on Python 3.14.8, along with Ruff lint and formatting checks. Coverage includes safe file selection, heading preservation, note updates, cache reuse and invalidation, concurrent writes, citation validation, provider failures, and AWS note recovery and cleanup.

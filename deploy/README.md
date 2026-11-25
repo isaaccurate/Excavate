@@ -1,23 +1,27 @@
 # AWS deployment
 
-This stack uses an existing private, unversioned S3 bucket and DynamoDB table. It runs FastAPI behind an IAM-authenticated Lambda Function URL and runs retention cleanup in a separate Lambda. Both functions use the same Linux image and separate execution roles. The stack does not own the note bucket or table.
+Excavate runs on AWS Lambda behind an IAM-authenticated Function URL. It uses an existing private, unversioned S3 bucket and DynamoDB table. Set up storage and ingest notes using the [usage guide](../docs/usage.md#manage-notes-in-aws).
 
-For CLI ingestion and storage settings, see the [usage guide](../docs/usage.md#manage-notes-in-aws).
-
-## Build the image
-
-Set `DOCUMENT_BUCKET` to the full existing bucket name and `DOCUMENT_TABLE` to the table name. Sign in with `aws login --profile excavate` using your deployment profile.
+Run the commands from the repository root in one terminal session; later steps reuse its variables. You need `zip`, the AWS CLI v2 signed in to a profile (for example with `aws login --profile YOUR_PROFILE`), and permission to create CloudFormation stacks with IAM roles, ECR, CodeBuild, Lambda, EventBridge Scheduler, and Secrets Manager resources. Calling the API also needs `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`. Set these values to match your storage.
 
 ```sh
-export AWS_PROFILE=excavate AWS_DEFAULT_REGION=us-east-2
-export DOCUMENT_BUCKET=YOUR_FULL_BUCKET_NAME DOCUMENT_TABLE=excavate-smoke
+export AWS_PROFILE=YOUR_PROFILE AWS_DEFAULT_REGION=YOUR_REGION
+export DOCUMENT_BUCKET=YOUR_BUCKET DOCUMENT_TABLE=YOUR_TABLE
+```
 
+## Build the backend image
+
+If the backend version you want is already in ECR, set `image_uri` to its `repository@sha256:…` URI and continue to [Deploy the API](#deploy-the-api). CloudFormation template edits can reuse the current image.
+
+Create or update the CodeBuild project and ECR repository.
+
+```sh
 aws cloudformation deploy --stack-name excavate-image-build \
   --template-file deploy/build.yaml --capabilities CAPABILITY_IAM \
   --parameter-overrides "SourceBucket=$DOCUMENT_BUCKET"
 ```
 
-From the repository root, archive only the deployment source. CodeBuild reads the archive under `build-source/` and pushes an immutable tag to ECR. The build verifies that FAISS and the Lambda handlers import and SQLite can create an FTS5 table.
+Package the backend source. The image tag is derived from this archive.
 
 ```sh
 build_dir=$(mktemp -d)
@@ -25,6 +29,12 @@ source_archive="$build_dir/source.zip"
 zip -q "$source_archive" pyproject.toml .dockerignore deploy/Dockerfile \
   deploy/buildspec.yaml knowledge_assistant/*.py
 image_tag="build-$(shasum -a 256 "$source_archive" | cut -c1-20)"
+printf '%s\n' "$image_tag"
+```
+
+ECR tags are immutable, so building unchanged source again fails. Check for the tag with `aws ecr describe-images --repository-name excavate-image-build --image-ids "imageTag=$image_tag"`. If it exists, skip the upload and build and continue with the digest lookup. Otherwise, upload the archive and start CodeBuild.
+
+```sh
 source_key="build-source/$image_tag.zip"
 aws s3 cp "$source_archive" "s3://$DOCUMENT_BUCKET/$source_key"
 build_id=$(aws codebuild start-build --project-name excavate-image-build \
@@ -35,10 +45,9 @@ aws codebuild batch-get-builds --ids "$build_id" \
   --query 'builds[0].{Status:buildStatus,Logs:logs.deepLink}'
 ```
 
-Once the build reports `SUCCEEDED`, remove the source archive and resolve the immutable image URI.
+Re-run `batch-get-builds` until it reports `SUCCEEDED`. Then remove the uploaded archive with `aws s3api delete-object --bucket "$DOCUMENT_BUCKET" --key "$source_key"`. Look up the image digest that Lambda will run.
 
 ```sh
-aws s3api delete-object --bucket "$DOCUMENT_BUCKET" --key "$source_key"
 rm "$source_archive"
 rmdir "$build_dir"
 repository=$(aws ecr describe-repositories --repository-names excavate-image-build \
@@ -48,19 +57,66 @@ digest=$(aws ecr describe-images --repository-name excavate-image-build \
 image_uri="$repository@$digest"
 ```
 
-## Deploy and verify
+## Deploy the API
+
+Choose a stack name and an answer model. Use a Secrets Manager secret in the same region whose value is the raw provider API key; create it once with `aws secretsmanager create-secret --name YOUR_SECRET_NAME --secret-string "$OPENAI_API_KEY"`. Set the embedding model to match ingestion, or leave it blank to use local token-hash vectors.
 
 ```sh
-aws cloudformation deploy --stack-name excavate-smoke-app \
+stack_name=excavate-app
+answer_model=YOUR_ANSWER_MODEL
+embedding_model=text-embedding-3-small
+secret_arn=$(aws secretsmanager describe-secret --secret-id YOUR_SECRET_NAME \
+  --query ARN --output text) &&
+aws cloudformation deploy --stack-name "$stack_name" \
   --template-file deploy/template.yaml --capabilities CAPABILITY_IAM \
-  --parameter-overrides "ImageUri=$image_uri" "DocumentBucket=$DOCUMENT_BUCKET" \
-    "DocumentTable=$DOCUMENT_TABLE" ScheduleState=DISABLED
-aws cloudformation describe-stacks --stack-name excavate-smoke-app \
-  --query 'Stacks[0].Outputs'
+  --parameter-overrides \
+    "ImageUri=$image_uri" "DocumentBucket=$DOCUMENT_BUCKET" \
+    "DocumentTable=$DOCUMENT_TABLE" "OpenAISecretArn=$secret_arn" \
+    "OpenAIModel=$answer_model" "EmbeddingModel=$embedding_model" \
+    ScheduleState=DISABLED
 ```
 
-Use a SigV4-signed request for `GET /health`. A signed request should return 200, and an unsigned request should return 403. With synthetic notes in the test table, invoke the cleanup function and confirm it removes only expired records and their tracked objects. Once verified, repeat the deploy command with `ScheduleState=ENABLED`.
+Get the URL for the deployed API.
 
-For live answers, create a Secrets Manager secret in the stack’s region whose secret string is the OpenAI API key. Redeploy with `OpenAISecretArn` and `OpenAIModel` together. Set `EmbeddingModel=text-embedding-3-small` for semantic retrieval. A blank value uses local token-hash embeddings. Use the same model when [ingesting notes for the AWS cache](../docs/usage.md#manage-notes-in-aws). Test `POST /answer` with synthetic evidence before migrating real notes.
+```sh
+api_url=$(aws cloudformation describe-stacks --stack-name "$stack_name" \
+  --query "Stacks[0].Outputs[?OutputKey=='ApiUrl'].OutputValue | [0]" \
+  --output text)
+api_url=${api_url%/}
+printf '%s\n' "$api_url"
+```
 
-Deploying can use Free Tier credits or incur usage charges depending on the AWS project plan. The hourly schedule and retained ECR image persist between tests. Check AWS Settings → Billing for remaining credits. Separate OpenAI usage applies when live answers are enabled.
+## Verify the deployment
+
+An unsigned request should return 403. Signed requests use your profile's credentials with [SigV4](https://docs.aws.amazon.com/lambda/latest/dg/urls-invocation.html); curl 7.75 or later can sign them.
+
+```sh
+curl -s -o /dev/null -w '%{http_code}\n' "$api_url/health"
+eval "$(aws configure export-credentials --format env)"
+sign=(--aws-sigv4 "aws:amz:$AWS_DEFAULT_REGION:lambda"
+  --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY")
+[ -n "${AWS_SESSION_TOKEN:-}" ] && sign+=(-H "x-amz-security-token: $AWS_SESSION_TOKEN")
+curl "${sign[@]}" "$api_url/health"
+curl "${sign[@]}" "$api_url/answer" -H 'Content-Type: application/json' \
+  -d '{"question":"YOUR_QUESTION"}'
+aws lambda invoke --function-name "$stack_name-cleanup" /dev/stdout
+```
+
+- Ask `POST /answer` a question the notes cover and one they cannot answer. Check that the first returns a cited excerpt and the second returns `insufficient_evidence`.
+- The cleanup function should return `{"purged_notes": N}` without an error. After verifying it on test notes, redeploy with `ScheduleState=ENABLED` to remove expired copies hourly under the [seven-day retention policy](../docs/usage.md#manage-notes-in-aws).
+- To connect the React frontend, route `/answer` through a backend that signs requests to Lambda. Keep AWS credentials on that backend. See the [frontend guide](../frontend/README.md).
+
+## Remove the deployment
+
+Delete the API stack before the build stack. The ECR repository is retained when its stack is deleted, so remove it separately. The notes bucket and table are not part of either stack.
+
+```sh
+aws cloudformation delete-stack --stack-name "$stack_name"
+aws cloudformation wait stack-delete-complete --stack-name "$stack_name"
+aws cloudformation delete-stack --stack-name excavate-image-build
+aws cloudformation wait stack-delete-complete --stack-name excavate-image-build
+aws ecr delete-repository --repository-name excavate-image-build --force
+aws secretsmanager delete-secret --secret-id YOUR_SECRET_NAME
+```
+
+Until removed, the hourly schedule, stored images, secret, and storage can incur AWS charges. OpenAI usage is billed separately.
