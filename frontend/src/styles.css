@@ -381,19 +381,18 @@ button {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation: 1.1s ease-out infinite;
 }
 
 .digging__chunk--1 {
-  animation-name: chunk-left;
+  animation: chunk-left 1.1s ease-out infinite;
 }
 
 .digging__chunk--2 {
-  animation-name: chunk-up;
+  animation: chunk-up 1.1s ease-out infinite;
 }
 
 .digging__chunk--3 {
-  animation-name: chunk-right;
+  animation: chunk-right 1.1s ease-out infinite;
 }
 
 @keyframes chunk-left {
